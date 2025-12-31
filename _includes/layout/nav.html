@@ -58,6 +58,10 @@
       </li>
     </ul>
   </div>
+    <div class="sidebar-heading">Support Links</div>
+    <ul>
+      {% for link in site.static_links %}<li itemprop='name'><a itemprop='url' title='{{ link[0] }}' href='{{ link[1] }}'>{{ link[0] }}</a></li>{% endfor %}
+    </ul>
   <div class="sidebar-section text-center">
   <a href='https://www.dmca.com/Protection/Status.aspx?ID=aef4ea29-df6f-425f-a92f-c9e401fe0f21&refurl={{ page.url | absolute_url }}' target='_blank' rel='nofollow noopener noreferrer license' title='DMCA.com Protection Status'>
   <img src="https://images.dmca.com/Badges/dmca_protected_26_120.png?ID=aef4ea29-df6f-425f-a92f-c9e401fe0f21" title="DMCA.com Protection Status" alt="DMCA.com Protection" width="121" height="57">

@@ -7,7 +7,7 @@ lang: id
 image: https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHyFdRh78rNr1M1aZ3E5XyzuvrN4Kc-TQvm9MOZ1tmtTIv1buOQ6oCW1NCx8nKadpuA-I4w51xZp2o6ySa5XBhyphenhyphenNpDfhUXFK4KHHMKwdiWgwC8PejoHJL9fyyJlt3GXD6TCIRzGlJfRp8J8kVz1SkExEPaPseB_lwcffUuow9ptm6JOY8UD2p9xwySXPo/s0-rw/kebijakan-privasi.png
 description: Halaman berisi dokumentasi styling dari ASIBUKA Group.
 keywords: dokumentasi, styling
-robots: index, follow
+robots: noindex, nofollow
 author: ASIBUKA Group
 ---
 Berikut ini adalah dokumentasi yang menampilkan tampilan dari elemen-elemen yang ada di ASIBUKA Group serta cara implementasinya

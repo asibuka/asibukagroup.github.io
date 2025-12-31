@@ -114,12 +114,22 @@ nav_links:
   Beranda: "/"
   Jasa: "#"
   Produk: "/produk/"
-  Tentang Kami: "/page/tentang-kami/"
 # ------------------------------
 # Blog Posts links
 # ------------------------------
 blog_links:
   Blog: "/blog/"
+# ------------------------------
+# Static links
+# ------------------------------
+static_links:
+  Diskusi: "/page/diskusi/"
+  Hak Cipta: "/page/hak-cipta/"
+  Hubungi Kami: "/page/hubungi-kami/"
+  Kebijakan Privasi: "/page/kebijakan-privasi/"
+  Peta Situs: "/page/peta-situs/"
+  Syarat Ketentuan: "/page/syarat-ketentuan/"
+  Tentang Kami: "/page/tentang-kami/"
 # ------------------------------
 # Plugins
 # ------------------------------
