@@ -23,7 +23,7 @@ author: ASIBUKA Group
     </tr>
   </thead>
   <tbody>
-    {% assign excluded_collections = "data, asibuka-logistics, ad-networks, drafts, private, 0lists" | split: ", " %}
+    {% assign excluded_collections = "data, statics, asibuka-logistics, ad-networks, drafts, private, 0lists" | split: ", " %}
     
     {% assign custom_docs = "" | split: "" %}
     
