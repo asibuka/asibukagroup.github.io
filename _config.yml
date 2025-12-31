@@ -43,7 +43,7 @@ collections:
     output: true
   posts:
     output: true
-  ad-networks:
+  blog-ad-networks:
     output: true
   anime:
     output: true
