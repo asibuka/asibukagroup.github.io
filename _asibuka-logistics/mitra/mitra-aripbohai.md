@@ -24,6 +24,10 @@ toc: false
 <td><a class='btn block' title='Lihat Laporan' href='{{ page.url | replace: "/amp/" , "" }}?function=komisi-asibuka-logistics&title=Mitra%20-%20Saripudin%20SiCepat%20Periode%20Ongoing&title1=Ringkasan&id1=2PACX-1vTPeqxEnkAUsKekA0eIwQVVYkwNwbjolgYHMSLBbMgM4vK9WStDfwXZW6raUkGvqah1BSPc7WXHCYa0&gid1=265557075'>Lihat Laporan</a></td>
 </tr>
 <tr>
+<td>2025-12</td>
+<td><a class='btn block' title='Lihat Laporan' href='{{ page.url | replace: "/amp/" , "" }}?function=komisi-asibuka-logistics&title=Mitra%20-%20Saripudin%20SiCepat%20Periode%202025-12&title1=Ringkasan&id1=2PACX-1vRk_9L1wOHflg7w0_C5Fu6KCE1vywPDAkREZJ7dzB1RIEv7-n59RAOkiTQ46mkevSn14mKhDRk-SijM&gid1=265557075'>Lihat Laporan</a></td>
+</tr>
+<tr>
 <td>2025-11</td>
 <td><a class='btn block' title='Lihat Laporan' href='{{ page.url | replace: "/amp/" , "" }}?function=komisi-asibuka-logistics&title=Mitra%20-%20Saripudin%20SiCepat%20Periode%202025-11&title1=Ringkasan&id1=2PACX-1vT8VdhkiOHTqIFSl0hN286uJ2j1ubrZZbRSK1PdApz854TRUHj8BlmEHCV87hZruYwGoHrag85vTqb1&gid1=265557075'>Lihat Laporan</a></td>
 </tr>
