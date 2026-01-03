@@ -25,7 +25,7 @@ toc: false
 </tr>
 <tr>
 <td>2025-12</td>
-<td><a class='btn block' title='Lihat Laporan' href='{{ page.url | replace: "/amp/" , "" }}?function=komisi-asibuka-logistics&title=SPX%20DOP%20Sukamenak%20Periode%202025-12&title1=Ringkasan&id1=2PACX-1vRk_9L1wOHflg7w0_C5Fu6KCE1vywPDAkREZJ7dzB1RIEv7-n59RAOkiTQ46mkevSn14mKhDRk-SijM&gid1=499285548&title2=Transaksi&id2=2PACX-1vRk_9L1wOHflg7w0_C5Fu6KCE1vywPDAkREZJ7dzB1RIEv7-n59RAOkiTQ46mkevSn14mKhDRk-SijM&gid2=2124279933'>Lihat Laporan</a></td>
+<td><a class='btn block' title='Lihat Laporan' href='{{ page.url | replace: "/amp/" , "" }}?function=komisi-asibuka-logistics&title=SPX%20JNT%20Cargo%20Sukamenak%20Periode%202025-12&title1=Ringkasan&id1=2PACX-1vRk_9L1wOHflg7w0_C5Fu6KCE1vywPDAkREZJ7dzB1RIEv7-n59RAOkiTQ46mkevSn14mKhDRk-SijM&gid1=499285548&title2=Transaksi&id2=2PACX-1vRk_9L1wOHflg7w0_C5Fu6KCE1vywPDAkREZJ7dzB1RIEv7-n59RAOkiTQ46mkevSn14mKhDRk-SijM&gid2=2124279933'>Lihat Laporan</a></td>
 </tr>
 <tr>
 <td>2025-11</td>
