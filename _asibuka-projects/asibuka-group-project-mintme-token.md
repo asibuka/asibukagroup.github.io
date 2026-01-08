@@ -83,12 +83,10 @@ async function fetchTokenData(){
         const rows = csvText.trim().split('\n').map(r => r.split(','));
         const headers = rows[0].map(h => h.trim().toLowerCase());
         const data = rows[1];
-
         const getValue = (key) => {
           const idx = headers.indexOf(key.toLowerCase());
           return idx > -1 ? data[idx] : '';
         };
-
         document.getElementById('totalSupply').innerHTML = `<strong>Total Token Supply:</strong> ${getValue('total token supply')}`;
         document.getElementById('circulatingSupply').innerHTML = `<strong>Circulating Supply:</strong> ${getValue('circulating supply')}`;
         document.getElementById('ipoPrice').innerHTML = `<strong>Buy Price:</strong> ${getValue('based price')}`;
@@ -97,7 +95,6 @@ async function fetchTokenData(){
         console.error('Failed to fetch token data', err);
       }
     }
-
     fetchTokenData();
     document.addEventListener("DOMContentLoaded", () => {
   // Open modal
@@ -111,7 +108,6 @@ async function fetchTokenData(){
       }
     });
   });
-
   // Close modal (for all modals)
   document.querySelectorAll(".modal").forEach(modal => {
     modal.addEventListener("click", (e) => {
