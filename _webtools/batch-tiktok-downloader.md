@@ -62,7 +62,6 @@ comments: true
     }
   </style>
 <div class="containerx">
-  <h2>Batch Download TikTok (No Watermark)</h2>
 
   <p>Masukkan <b>URL TikTok (1 per baris)</b>:</p>
 
@@ -94,7 +93,7 @@ comments: true
   const progressBar = document.getElementById("progressx");
 
   const MAX_RETRY = 3;       // jumlah retry
-  const RETRY_DELAY = 30;   // detik
+  const RETRY_DELAY = 15;   // detik
   const NEXT_DELAY = 30;    // detik antar video
 
   let urls = [];
