@@ -58,8 +58,8 @@ comments: true
   <button id="startBtnY" class='btn block'>Mulai Download</button>
 
   <div class="controls">
-    <button id="pauseBtny" class="secondary" disabled>Pause</button>
-    <button id="resumeBtny" class="secondary" disabled>Resume</button>
+    <button id="pauseBtny" class="btn block" disabled>Pause</button>
+    <button id="resumeBtny" class="btn block" disabled>Resume</button>
   </div>
 
   <div class="progress-bar">
