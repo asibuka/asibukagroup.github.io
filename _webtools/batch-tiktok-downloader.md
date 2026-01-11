@@ -12,37 +12,37 @@ lang: id
 comments: true
 ---
 <style>
-    textarea, button {
+    .containerx textarea, .containerx button {
       width: 100%;
       padding: 10px;
       margin-top: 10px;
       font-size: 14px;
     }
-    textarea {
+    .containerx textarea {
       height: 160px;
       width: 99%;
       resize: vertical;
     }
-    button {
+    .containerx button {
       background: #000;
       color: #fff;
       border: none;
       cursor: pointer;
     }
-    button.secondary {
+    .containerx button.secondary {
       background: #6c757d;
     }
-    .controls {
+    .containerx .controls {
       display: flex;
       gap: 10px;
       margin-top: 10px;
     }
-    .result {
+    .containerx .result {
       margin-top: 15px;
       font-size: 14px;
       line-height: 1.5;
     }
-    .progress-bar {
+    .containerx .progress-bar {
       width: 100%;
       background: #ddd;
       height: 20px;
@@ -50,18 +50,18 @@ comments: true
       overflow: hidden;
       margin-top: 10px;
     }
-    .progress {
+    .containerx .progress {
       height: 100%;
       width: 0%;
       background: #28a745;
       transition: width .3s;
     }
-    .countdown {
+    .containerx .countdown {
       color: #d9534f;
       font-weight: bold;
     }
   </style>
-<div class="container">
+<div class="containerx">
   <h2>Batch Download TikTok (No Watermark)</h2>
 
   <p>Masukkan <b>URL TikTok (1 per baris)</b>:</p>
@@ -71,27 +71,27 @@ comments: true
     placeholder="https://www.tiktok.com/@user/video/123&#10;https://www.tiktok.com/@user/video/456"
   ></textarea>
 
-  <button id="startBtn">Mulai Download</button>
+  <button id="startBtnx">Mulai Download</button>
 
   <div class="controls">
-    <button id="pauseBtn" class="secondary" disabled>Pause</button>
-    <button id="resumeBtn" class="secondary" disabled>Resume</button>
+    <button id="pauseBtnx" class="secondary" disabled>Pause</button>
+    <button id="resumeBtnx" class="secondary" disabled>Resume</button>
   </div>
 
   <div class="progress-bar">
-    <div class="progress" id="progress"></div>
+    <div class="progress" id="progressx"></div>
   </div>
 
-  <div class="result" id="result"></div>
+  <div class="result" id="resultx"></div>
 </div>
 
 <script>
-  const startBtn = document.getElementById("startBtn");
-  const pauseBtn = document.getElementById("pauseBtn");
-  const resumeBtn = document.getElementById("resumeBtn");
+  const startBtn = document.getElementById("startBtnx");
+  const pauseBtn = document.getElementById("pauseBtnx");
+  const resumeBtn = document.getElementById("resumeBtnx");
   const textarea = document.getElementById("tiktokUrls");
-  const resultDiv = document.getElementById("result");
-  const progressBar = document.getElementById("progress");
+  const resultDiv = document.getElementById("resultx");
+  const progressBar = document.getElementById("progressx");
 
   const MAX_RETRY = 3;       // jumlah retry
   const RETRY_DELAY = 30;   // detik
