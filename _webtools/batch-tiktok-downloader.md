@@ -70,27 +70,27 @@ comments: true
     placeholder="https://www.tiktok.com/@user/video/123&#10;https://www.tiktok.com/@user/video/456"
   ></textarea>
 
-  <button id="startBtnx">Mulai Download</button>
+  <button id="startBtnY">Mulai Download</button>
 
   <div class="controls">
-    <button id="pauseBtnx" class="secondary" disabled>Pause</button>
-    <button id="resumeBtnx" class="secondary" disabled>Resume</button>
+    <button id="pauseBtny" class="secondary" disabled>Pause</button>
+    <button id="resumeBtny" class="secondary" disabled>Resume</button>
   </div>
 
   <div class="progress-bar">
-    <div class="progress" id="progressx"></div>
+    <div class="progress" id="progressY"></div>
   </div>
 
-  <div class="result" id="resultx"></div>
+  <div class="result" id="resultY"></div>
 </div>
 
 <script>
-  const startBtn = document.getElementById("startBtnx");
-  const pauseBtn = document.getElementById("pauseBtnx");
-  const resumeBtn = document.getElementById("resumeBtnx");
+  const startBtn = document.getElementById("startBtnY");
+  const pauseBtn = document.getElementById("pauseBtny");
+  const resumeBtn = document.getElementById("resumeBtny");
   const textarea = document.getElementById("tiktokUrls");
-  const resultDiv = document.getElementById("resultx");
-  const progressBar = document.getElementById("progressx");
+  const resultDiv = document.getElementById("resultY");
+  const progressBar = document.getElementById("progressY");
 
   const MAX_RETRY = 3;       // jumlah retry
   const RETRY_DELAY = 15;   // detik
