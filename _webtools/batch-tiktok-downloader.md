@@ -12,26 +12,6 @@ lang: id
 comments: true
 ---
 <style>
-    .containerx textarea, .containerx button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      font-size: 14px;
-    }
-    .containerx textarea {
-      height: 160px;
-      width: 99%;
-      resize: vertical;
-    }
-    .containerx button {
-      background: #000;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-    }
-    .containerx button.secondary {
-      background: #6c757d;
-    }
     .containerx .controls {
       display: flex;
       gap: 10px;
@@ -67,11 +47,11 @@ comments: true
 
   <textarea id="tiktokUrls" placeholder="https://www.tiktok.com/@user/video/123"></textarea>
 
-  <button id="startBtnY">Mulai Download</button>
+  <button id="startBtnY" class='btn block'>Mulai Download</button>
 
   <div class="controls">
-    <button id="pauseBtny" class="secondary" disabled>Pause</button>
-    <button id="resumeBtny" class="secondary" disabled>Resume</button>
+    <button id="pauseBtny" class="btn block" disabled>Pause</button>
+    <button id="resumeBtny" class="btn block" disabled>Resume</button>
   </div>
 
   <div class="progress-bar">
