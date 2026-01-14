@@ -77,24 +77,19 @@ comments: true
   const textarea = document.getElementById("tiktokUrls");
   const resultDiv = document.getElementById("resultY");
   const progressBar = document.getElementById("progressY");
-
   const MAX_RETRY = 3;       // jumlah retry
   const RETRY_DELAY = 15;   // detik
   const NEXT_DELAY = 30;    // detik antar video
-
   let urls = [];
   let paused = false;
   let currentIndex = 0;
   let success = 0;
-
   const sleep = ms => new Promise(r => setTimeout(r, ms));
-
   async function waitWhilePaused() {
     while (paused) {
       await sleep(500);
     }
   }
-
   async function countdown(seconds, label) {
     for (let i = seconds; i > 0; i--) {
       await waitWhilePaused();
@@ -104,21 +99,18 @@ comments: true
       resultDiv.lastChild.remove();
     }
   }
-
   pauseBtn.onclick = () => {
     paused = true;
     pauseBtn.disabled = true;
     resumeBtn.disabled = false;
     resultDiv.innerHTML += "<b>⏸️ Paused</b><br>";
   };
-
   resumeBtn.onclick = () => {
     paused = false;
     pauseBtn.disabled = false;
     resumeBtn.disabled = true;
     resultDiv.innerHTML += "<b>▶️ Resumed</b><br>";
   };
-
   async function downloadWithRetry(url) {
     for (let attempt = 1; attempt <= MAX_RETRY; attempt++) {
       try {
@@ -127,16 +119,13 @@ comments: true
         );
         const apiData = await apiRes.json();
         if (apiData.code !== 0) throw new Error("API error");
-
         const videoUrl = apiData.data.play;
         const username = apiData.data.author?.unique_id || "tiktok";
         const contentId = apiData.data.id || Date.now();
         const safeUser = username.replace(/[^\w\-]/g, "_");
         const fileName = `${safeUser}_${contentId}.mp4`;
-
         const videoRes = await fetch(videoUrl);
         const blob = await videoRes.blob();
-
         const a = document.createElement("a");
         a.href = URL.createObjectURL(blob);
         a.download = fileName;
@@ -144,7 +133,6 @@ comments: true
         a.click();
         document.body.removeChild(a);
         URL.revokeObjectURL(a.href);
-
         resultDiv.innerHTML += `✅ ${fileName}<br>`;
         success++;
         return true;
@@ -159,42 +147,32 @@ comments: true
     resultDiv.innerHTML += "⛔ Dilewati setelah gagal semua percobaan<br>";
     return false;
   }
-
   startBtn.onclick = async () => {
     urls = textarea.value
       .split("\n")
       .map(u => u.trim())
       .filter(Boolean);
-
     if (!urls.length) {
       alert("Masukkan URL terlebih dahulu");
       return;
     }
-
     startBtn.disabled = true;
     pauseBtn.disabled = false;
     resumeBtn.disabled = true;
-
     resultDiv.innerHTML = `⏳ Memproses ${urls.length} video...<br><br>`;
     progressBar.style.width = "0%";
-
     for (; currentIndex < urls.length; currentIndex++) {
       await waitWhilePaused();
-
       const url = urls[currentIndex];
       resultDiv.innerHTML +=
         `▶️ (${currentIndex + 1}/${urls.length}) ${url}<br>`;
-
       await downloadWithRetry(url);
-
       progressBar.style.width =
         ((currentIndex + 1) / urls.length) * 100 + "%";
-
       if (currentIndex < urls.length - 1) {
         await countdown(NEXT_DELAY, "Video berikutnya dalam");
       }
     }
-
     resultDiv.innerHTML +=
       `<br><b>🎉 Selesai!</b> Berhasil: ${success}/${urls.length}`;
     pauseBtn.disabled = true;
