@@ -6,9 +6,9 @@ permalink: /blog-ad-networks.json
 {% assign posts = site.collections | where: "label", "blog-ad-networks" | first | map: "docs" | first %}
 {% for post in posts %}
   {
-    "title": {{ post.title | jsonify }},
-    "description": {{ post.description | jsonify }},
-    "image": {{ post.image | jsonify }},
+    "title": {{ post.title | default: "Untitled" | jsonify }},
+    "description": {{ post.description | default: "Tidak ada deskripsi" | jsonify }},
+    "image": {{ post.image | default: "https://www.asibuka.com/assets/img/ASIBUKA-Blue.webp" | jsonify }},
     "url": {{ post.url | absolute_url | jsonify }}
   }{% unless forloop.last %},{% endunless %}
 {% endfor %}
