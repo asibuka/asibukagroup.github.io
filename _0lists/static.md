@@ -3,6 +3,7 @@ layout: default
 title: Pages
 description: Kumpulan artikel statis dari ASIBUKA Blog.
 robots: index, follow
+permalink: /page/
 keywords: pages, statis, resmi
 lang: id
 toc: false
