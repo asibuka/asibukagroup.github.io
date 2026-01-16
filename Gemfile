@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
-group :jekyll_plugins do
-  gem "jekyll-paginate-v2"
+
 gem 'jekyll'
 gem 'jekyll-sitemap'
 gem 'jekyll-archives'
+gem 'jekyll-paginate-v2'
 gem 'nokogiri', '>= 1.12'
 gem 'tzinfo'
 gem 'yaml'
