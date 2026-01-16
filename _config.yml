@@ -137,12 +137,14 @@ plugins_dir: _plugins
 plugins:
   - jekyll-archives
   - jekyll-sitemap
+  - jekyll-paginate
   - ./_plugins/amp_generator.rb
   - ./_plugins/minifier.rb
   - ./_plugins/toc_generator.rb
 whitelist:
   - jekyll-archives
   - jekyll-sitemap
+  - jekyll-paginate
   - ./_plugins/amp_generator.rb
   - ./_plugins/minifier.rb
   - ./_plugins/toc_generator.rb
@@ -161,3 +163,8 @@ jekyll-archives:
     month: '/:year/:month/'
     tag: '/tag/:name/'
     category: '/kategori/:name/'
+# ------------------------------
+# Jekyll Paginate
+# ------------------------------
+paginate: 5            # number of posts per page
+paginate_path: "/page:num/"

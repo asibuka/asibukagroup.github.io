@@ -1,10 +1,11 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-gem "jekyll"
-gem "jekyll-sitemap"
+gem 'jekyll'
+gem 'jekyll-sitemap'
 gem 'jekyll-archives'
+gem 'jekyll-paginate'
 gem 'nokogiri', '>= 1.12'
-gem "tzinfo"
-gem "yaml"
-gem "fileutils"
-gem "fastimage"
+gem 'tzinfo'
+gem 'yaml'
+gem 'fileutils'
+gem 'fastimage'
