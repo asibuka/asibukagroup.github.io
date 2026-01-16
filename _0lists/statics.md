@@ -22,24 +22,25 @@ document.addEventListener("DOMContentLoaded", async () => {
   const PER_PAGE = 5;
   let index = 0;
   let posts = [];
+  let isLoading = false;
 
   try {
     const res = await fetch("/statics.json");
     posts = await res.json();
   } catch (e) {
-    console.error(e);
+    console.error("Failed to load JSON", e);
     return;
   }
 
+  /* Lazy image observer */
   const lazyImageObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const img = entry.target;
-        img.src = img.dataset.src;
-        img.removeAttribute("data-src");
-        img.classList.remove("lazy");
-        lazyImageObserver.unobserve(img);
-      }
+      if (!entry.isIntersecting) return;
+      const img = entry.target;
+      img.src = img.dataset.src;
+      img.removeAttribute("data-src");
+      img.classList.remove("lazy");
+      lazyImageObserver.unobserve(img);
     });
   }, { rootMargin: "300px" });
 
@@ -53,6 +54,15 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   function renderBatch() {
+    if (isLoading) return;
+    if (index >= posts.length) {
+      observer.disconnect();
+      loader.remove();
+      return;
+    }
+
+    isLoading = true;
+
     const slice = posts.slice(index, index + PER_PAGE);
 
     slice.forEach((post, i) => {
@@ -93,17 +103,16 @@ document.addEventListener("DOMContentLoaded", async () => {
     index += PER_PAGE;
     refreshLazyImages();
 
-    if (index >= posts.length) {
-      observer.disconnect();
-      loader.remove();
-    }
+    isLoading = false;
   }
 
-  const observer = new IntersectionObserver(
-    entries => entries[0].isIntersecting && renderBatch(),
-    { rootMargin: "400px" }
-  );
+  const observer = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      renderBatch();
+    }
+  }, { rootMargin: "500px" });
 
+  /* Initial load */
   renderBatch();
   observer.observe(loader);
 });
