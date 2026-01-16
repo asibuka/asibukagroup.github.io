@@ -10,7 +10,7 @@ pagination:
   enabled: true
   collection: statics
   per_page: 3
-  permalink: /page/:num/
+  permalink: /page/page/:num/
 ---
 <h1 class="main-heading" id='EmbedTitle'>{{ page.title }}</h1>
 <p class='text-center hide-on-embed'>{{ page.description }}</p>
