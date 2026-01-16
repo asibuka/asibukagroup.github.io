@@ -32,7 +32,7 @@ tags: [ASIBUKA, ASIBUKA Blog]
 author: "ASIBUKA Group"
 email: "admin@asibuka.com"
 # ------------------------------
-# 🗂 Pagination
+# 🗂 Default Link Format
 # ------------------------------
 permalink: /:title/
 # ------------------------------
@@ -137,14 +137,14 @@ plugins_dir: _plugins
 plugins:
   - jekyll-archives
   - jekyll-sitemap
-  - jekyll-paginate
+  - jekyll-paginate-v2
   - ./_plugins/amp_generator.rb
   - ./_plugins/minifier.rb
   - ./_plugins/toc_generator.rb
 whitelist:
   - jekyll-archives
   - jekyll-sitemap
-  - jekyll-paginate
+  - jekyll-paginate-v2
   - ./_plugins/amp_generator.rb
   - ./_plugins/minifier.rb
   - ./_plugins/toc_generator.rb
@@ -163,8 +163,3 @@ jekyll-archives:
     month: '/:year/:month/'
     tag: '/tag/:name/'
     category: '/kategori/:name/'
-# ------------------------------
-# Jekyll Paginate
-# ------------------------------
-paginate: 5            # number of posts per page
-paginate_path: "/page:num/"

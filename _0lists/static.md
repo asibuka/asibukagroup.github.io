@@ -1,34 +1,38 @@
 ---
 layout: default
 title: Pages
-permalink: /page/
 description: Kumpulan artikel statis dari ASIBUKA Blog.
 robots: index, follow
 keywords: pages, statis, resmi
 lang: id
 toc: false
+pagination:
+  enabled: true
+  collection: statics
+  per_page: 3
+  permalink: /page/:num/
 ---
 <h1 class="main-heading" id='EmbedTitle'>{{ page.title }}</h1>
 <p class='text-center hide-on-embed'>{{ page.description }}</p>
 <div id='EmbedResult'></div>
 <div class='hide-on-embed post-containers' itemscope itemtype="https://schema.org/ItemList">
-{% for post in site.statics %}
+{% for item in paginator.posts %}
 <article class="post-container" itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement">
 <meta itemprop="position" content="{{ forloop.index }}">
 <div class="post-image">
-<a href="{{ post.url }}" title="{{ post.title }}" itemprop="url">
-{% include image-lazy.html src=post.image title=post.title width="1600" height="900" layout="responsive"
+<a href="{{ item.url }}" title="{{ item.title }}" itemprop="url">
+{% include image-lazy.html src=item.image title=item.title width="1600" height="900" layout="responsive"
 %}
 </a>
 </div>
 <div class="post-content">
-<a href="{{ post.url }}" title="{{ post.title }}">
-<h2 itemprop="name">{{ post.title }}</h2>
+<a href="{{ item.url }}" title="{{ item.title }}">
+<h2 itemprop="name">{{ item.title }}</h2>
 </a>
 <p class="author" itemprop="author creator" itemtype="https://schema.org/Organization" itemscope>
-<strong>Author:</strong> <span itemprop="name">{{ post.author }}</span>
+<strong>Author:</strong> <span itemprop="name">{{ item.author }}</span>
 </p>
-<p class="summary" itemprop="description">{{ post.description }}</p>
+<p class="summary" itemprop="description">{{ item.description }}</p>
 </div>
 </article>
 {% endfor %}
