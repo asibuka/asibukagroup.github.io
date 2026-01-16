@@ -11,20 +11,15 @@ toc: false
 <h1 class="main-heading" id="EmbedTitle">{{ page.title }}</h1>
 <p class="text-center hide-on-embed">{{ page.description }}</p>
 
-<div
-  id="infinite-container"
-  class="hide-on-embed post-containers"
-  itemscope
-  itemtype="https://schema.org/ItemList">
-</div>
+<div id="infinite-container" class="hide-on-embed post-containers" itemscope itemtype="https://schema.org/ItemList"></div>
 
-<div id="infinite-loader" style="height:1px"></div>
+<div id="infinite-loader" class='loading-spinner'></div>
 <script>
   document.addEventListener("DOMContentLoaded", async () => {
   const container = document.getElementById("infinite-container");
   const loader = document.getElementById("infinite-loader");
 
-  const PER_PAGE = 10;
+  const PER_PAGE = 5;
   let index = 0;
   let posts = [];
 
@@ -50,16 +45,27 @@ toc: false
 
       article.innerHTML = `
         <meta itemprop="position" content="${position}">
-
-        <div class="post-image">
+        <div class="post-image" itemscope itemtype="https://schema.org/ImageObject">
           <a href="${post.url}" title="${post.title}" itemprop="url">
             <img
-              src="${post.image || ""}"
+              data-src="${post.image || ""}"
+              itemprop="contentUrl"
+              class="lazy"
               alt="${post.title || ""}"
+              title="${post.title || ""}"
               loading="lazy"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
               width="1600"
               height="900">
           </a>
+          <span itemprop="creator author" itemtype="https://schema.org/Organization" itemscope>
+          <meta itemprop="name" content="ASIBUKA Group" /></span>
+          <meta itemprop="url" content="https://asibuka.com/assets/img/ASIBUKA-Blue.webp' }}" />
+          <meta itemprop="width" content="1600" />
+          <meta itemprop="height" content="900" />
+          <meta itemprop="description" content="${post.title || ""}" />
+          <meta itemprop="license" content="https://www.asibuka.com/hak-cipta/" />
+          <meta itemprop="creditText copyrightNotice acquireLicensePage" content="https://www.asibuka.com/hak-cipta/" />
         </div>
 
         <div class="post-content">
