@@ -135,14 +135,12 @@ plugins_dir: _plugins
 plugins:
   - jekyll-archives
   - jekyll-sitemap
-  - jekyll-paginate-v2
   - ./_plugins/amp_generator.rb
   - ./_plugins/minifier.rb
   - ./_plugins/toc_generator.rb
 whitelist:
   - jekyll-archives
   - jekyll-sitemap
-  - jekyll-paginate-v2
   - ./_plugins/amp_generator.rb
   - ./_plugins/minifier.rb
   - ./_plugins/toc_generator.rb
