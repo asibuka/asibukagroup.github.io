@@ -36,4 +36,5 @@ pagination:
 </div>
 </article>
 {% endfor %}
+{% include pagination.html %}
 </div>
