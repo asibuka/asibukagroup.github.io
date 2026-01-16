@@ -2,60 +2,105 @@
 layout: default
 title: Pages
 permalink: /page/
-pagination:
-  enabled: true
-  collection: statics
-  per_page: 3
-  permalink: /page/:num/
-  sort_field: title
-  sort_reverse: false
+description: Kumpulan artikel resmi dari ASIBUKA Blog.
+keywords: page, halaman resmi
+robots: index, follow
+lang: id
+toc: false
 ---
-<div id="infinite-container"></div>
-<div id="infinite-loader">Loading…</div>
+<h1 class="main-heading" id="EmbedTitle">{{ page.title }}</h1>
+<p class="text-center hide-on-embed">{{ page.description }}</p>
+
+<div
+  id="infinite-container"
+  class="hide-on-embed post-containers"
+  itemscope
+  itemtype="https://schema.org/ItemList">
+</div>
+
+<div id="infinite-loader" style="height:1px"></div>
 <script>
   document.addEventListener("DOMContentLoaded", async () => {
   const container = document.getElementById("infinite-container");
   const loader = document.getElementById("infinite-loader");
 
-  const STEP = 10;
+  const PER_PAGE = 10;
   let index = 0;
-  let items = [];
+  let posts = [];
 
   try {
-    const res = await fetch("/statics.json");
-    items = await res.json();
-  } catch (e) {
-    loader.textContent = "Failed to load content";
+    const res = await fetch("/statics.json"); // or /posts.json
+    posts = await res.json();
+  } catch (err) {
+    console.error("Failed to load JSON", err);
     return;
   }
 
-  function renderNext() {
-    const slice = items.slice(index, index + STEP);
+  function renderBatch() {
+    const slice = posts.slice(index, index + PER_PAGE);
 
-    slice.forEach(item => {
-      const el = document.createElement("article");
-      el.className = "post-container";
-      el.innerHTML = `
-        <h2><a href="${item.url}">${item.title}</a></h2>
-        <p>${item.description || ""}</p>
+    slice.forEach((post, i) => {
+      const position = index + i + 1;
+
+      const article = document.createElement("article");
+      article.className = "post-container";
+      article.setAttribute("itemscope", "");
+      article.setAttribute("itemtype", "https://schema.org/ListItem");
+      article.setAttribute("itemprop", "itemListElement");
+
+      article.innerHTML = `
+        <meta itemprop="position" content="${position}">
+
+        <div class="post-image">
+          <a href="${post.url}" title="${post.title}" itemprop="url">
+            <img
+              src="${post.image || ""}"
+              alt="${post.title || ""}"
+              loading="lazy"
+              width="1600"
+              height="900">
+          </a>
+        </div>
+
+        <div class="post-content">
+          <h2>
+            <a href="${post.url}" title="${post.title}" itemprop="name">
+              ${post.title}
+            </a>
+          </h2>
+
+          <p class="author">
+            <strong>Author:</strong>
+            <span itemprop="author" itemscope itemtype="https://schema.org/Organization">
+              <span itemprop="name">${post.author || ""}</span>
+            </span>
+          </p>
+
+          <p class="summary" itemprop="description">
+            ${post.description || ""}
+          </p>
+        </div>
       `;
-      container.appendChild(el);
+
+      container.appendChild(article);
     });
 
-    index += STEP;
+    index += PER_PAGE;
 
-    if (index >= items.length) {
-      loader.remove();
+    if (index >= posts.length) {
       observer.disconnect();
+      loader.remove();
     }
   }
 
-  const observer = new IntersectionObserver(entries => {
-    if (!entries[0].isIntersecting) return;
-    renderNext();
-  }, { rootMargin: "200px" });
+  const observer = new IntersectionObserver(
+    entries => {
+      if (entries[0].isIntersecting) renderBatch();
+    },
+    { rootMargin: "300px" }
+  );
 
-  renderNext();
+  renderBatch();
   observer.observe(loader);
 });
-  </script>
+</script>
