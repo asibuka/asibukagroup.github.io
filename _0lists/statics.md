@@ -13,7 +13,7 @@ toc: false
 
 <div id="infinite-container" class="hide-on-embed post-containers" itemscope itemtype="https://schema.org/ItemList"></div>
 
-<div id="infinite-loader" class='loading-spinner' style="min-height:40px"></div>
+<div id="infinite-loader" style="min-height:40px"></div>
 <script>
 document.addEventListener("DOMContentLoaded", async () => {
   const container = document.getElementById("infinite-container");
