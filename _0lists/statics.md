@@ -15,7 +15,7 @@ toc: false
 
 <div id="infinite-loader" class='loading-spinner'></div>
 <script>
-  document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener("DOMContentLoaded", async () => {
   const container = document.getElementById("infinite-container");
   const loader = document.getElementById("infinite-loader");
 
@@ -26,9 +26,30 @@ toc: false
   try {
     const res = await fetch("/statics.json");
     posts = await res.json();
-  } catch (err) {
-    console.error("Failed to load JSON", err);
+  } catch (e) {
+    console.error(e);
     return;
+  }
+
+  const lazyImageObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        img.src = img.dataset.src;
+        img.removeAttribute("data-src");
+        img.classList.remove("lazy");
+        lazyImageObserver.unobserve(img);
+      }
+    });
+  }, { rootMargin: "300px" });
+
+  function refreshLazyImages() {
+    document.querySelectorAll("img.lazy[data-src]").forEach(img => {
+      if (!img.dataset.observed) {
+        img.dataset.observed = "1";
+        lazyImageObserver.observe(img);
+      }
+    });
   }
 
   function renderBatch() {
@@ -48,43 +69,21 @@ toc: false
         <div class="post-image" itemscope itemtype="https://schema.org/ImageObject">
           <a href="${post.url}" title="${post.title}" itemprop="url">
             <img
-              data-src="${post.image || ""}"
-              itemprop="contentUrl"
               class="lazy"
+              data-src="${post.image || ""}"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
               alt="${post.title || ""}"
               title="${post.title || ""}"
-              loading="lazy"
-              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
               width="1600"
-              height="900">
+              height="900"
+              itemprop="contentUrl">
           </a>
-          <span itemprop="creator author" itemtype="https://schema.org/Organization" itemscope>
-          <meta itemprop="name" content="ASIBUKA Group" /></span>
-          <meta itemprop="url" content="https://asibuka.com/assets/img/ASIBUKA-Blue.webp' }}" />
-          <meta itemprop="width" content="1600" />
-          <meta itemprop="height" content="900" />
-          <meta itemprop="description" content="${post.title || ""}" />
-          <meta itemprop="license" content="https://www.asibuka.com/hak-cipta/" />
-          <meta itemprop="creditText copyrightNotice acquireLicensePage" content="https://www.asibuka.com/hak-cipta/" />
         </div>
 
         <div class="post-content">
-          <h2>
-            <a href="${post.url}" title="${post.title}" itemprop="name">
-              ${post.title}
-            </a>
-          </h2>
-
-          <p class="author">
-            <strong>Author:</strong>
-            <span itemprop="author" itemscope itemtype="https://schema.org/Organization">
-              <span itemprop="name">${post.author || ""}</span>
-            </span>
-          </p>
-
-          <p class="summary" itemprop="description">
-            ${post.description || ""}
-          </p>
+          <h2><a href="${post.url}" itemprop="name">${post.title}</a></h2>
+          <p class="author"><strong>Author:</strong> ${post.author || ""}</p>
+          <p class="summary" itemprop="description">${post.description || ""}</p>
         </div>
       `;
 
@@ -92,6 +91,7 @@ toc: false
     });
 
     index += PER_PAGE;
+    refreshLazyImages();
 
     if (index >= posts.length) {
       observer.disconnect();
@@ -100,10 +100,8 @@ toc: false
   }
 
   const observer = new IntersectionObserver(
-    entries => {
-      if (entries[0].isIntersecting) renderBatch();
-    },
-    { rootMargin: "300px" }
+    entries => entries[0].isIntersecting && renderBatch(),
+    { rootMargin: "400px" }
   );
 
   renderBatch();
