@@ -29,7 +29,7 @@ toc: false
   let posts = [];
 
   try {
-    const res = await fetch("/statics.json"); // or /posts.json
+    const res = await fetch("/statics.json");
     posts = await res.json();
   } catch (err) {
     console.error("Failed to load JSON", err);
