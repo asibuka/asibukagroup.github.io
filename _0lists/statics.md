@@ -8,6 +8,8 @@ pagination:
   collection: statics
   per_page: 3
   permalink: /page/:num/
+  sort_field: title
+  sort_reverse: false
 ---
 
 <h1 class="main-heading">{{ page.title }}</h1>
