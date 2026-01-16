@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   let index = 0;
   let posts = [];
   let isLoading = false;
+  let finished = false;
 
   try {
     const res = await fetch("/statics.json");
@@ -53,11 +54,28 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
+  /* 👇 NEW: end message creator */
+  function showEndMessage() {
+    if (finished) return;
+    finished = true;
+
+    const endMsg = document.createElement("div");
+    endMsg.className = "no-more-posts";
+    endMsg.innerHTML = `
+      <p style="text-align:center; margin:2rem 0; color:#666;">
+        — No more posts to load —
+      </p>
+    `;
+
+    loader.replaceWith(endMsg);
+  }
+
   function renderBatch() {
-    if (isLoading) return;
+    if (isLoading || finished) return;
+
     if (index >= posts.length) {
       observer.disconnect();
-      loader.remove();
+      showEndMessage();
       return;
     }
 
@@ -102,7 +120,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     index += PER_PAGE;
     refreshLazyImages();
-
     isLoading = false;
   }
 
@@ -117,3 +134,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   observer.observe(loader);
 });
 </script>
+<style>
+  
+</style>
