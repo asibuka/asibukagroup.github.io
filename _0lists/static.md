@@ -36,5 +36,15 @@ pagination:
 </div>
 </article>
 {% endfor %}
-{% include pagination.html %}
+<nav class="pagination">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path }}">← Prev</a>
+  {% endif %}
+
+  <span>Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path }}">Next →</a>
+  {% endif %}
+</nav>
 </div>
