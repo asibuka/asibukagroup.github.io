@@ -1,0 +1,15 @@
+---
+layout: null
+permalink: /statics.json
+---
+[
+{% assign items = site.statics | sort: "title" %}
+{% for item in items %}
+  {
+    "title": {{ item.title | jsonify }},
+    "url": {{ item.url | jsonify }},
+    "description": {{ item.description | jsonify }},
+    "image": {{ item.image | jsonify }}
+  }{% unless forloop.last %},{% endunless %}
+{% endfor %}
+]

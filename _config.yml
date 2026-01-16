@@ -74,8 +74,6 @@ defaults:
 # ------------------------------
 # 🌐 Markdown Settings
 # ------------------------------
-pagination:
-  enabled: true
 highlighter: rogue
 markdown: kramdown
 kramdown:
