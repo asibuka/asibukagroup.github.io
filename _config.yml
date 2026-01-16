@@ -88,8 +88,6 @@ disqus_shortname: "asibukagroup"
 # ------------------------------
 # 🌐 Other Settings
 # ------------------------------
-future: true
-safe: false
 include:
   - amp
   - sw.js

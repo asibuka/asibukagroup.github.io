@@ -13,7 +13,7 @@ pagination:
 <h1 class="main-heading">{{ page.title }}</h1>
 <p class="text-center">{{ page.description }}</p>
 
-<p style="display:none">DEBUG {{ paginator.posts | size }}</p>
+<p>DEBUG {{ paginator.posts | size }}</p>
 
 <div class="post-containers">
 {% for item in paginator.posts %}
