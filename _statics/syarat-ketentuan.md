@@ -1,7 +1,6 @@
 ---
 layout: static
 title: Syarat dan Ketentuan
-date: 2025-04-03 00:00:05
 permalink: /page/syarat-ketentuan/
 lang: id
 image: https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFXkv5xQbBacLX_LaRRsWZgIXAyXupJpI_gCDYdAPyVX3XmZUiuh61c9Gqb23TC6ugZ7x1kNc_wF5gzmLoeUwVSSuFllnAuWdVMTNT4yayzZvAcrlcheZqSYB6UcvCaxxsZJCGT6gIBfPSOZy0K1WaWiaBBkjROCwYOf6Au4BZLGDFACmfi2XLU0L4Ifo/s0-rw/syarat-ketentuan.jpeg

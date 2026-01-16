@@ -1,7 +1,6 @@
 ---
 layout: static
 title: Hak Cipta
-date: 2025-04-02 00:00:02
 permalink: /page/hak-cipta/
 description: Laman penjelasan tentang perlindungan atas segala properti digital ASIBUKA Group melalui DMCA, Creative Commons, dan kebijakan hak cipta yang berlaku.
 image: https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4SAHZMJU5SBq_KzgB3tmRjJQ_m07JQeLNySkQ9re9P4L9fWU4A2w1T96VIt7omfEiPZJqCnPjxGk4-v0Y9Yx1BnzCVgRZeZ885dAFeSIcX7wdqLKPycLtdY3y9P7Y-sKWZcq2rOtuFujxP8rxt1nAZ2vbNJMQfksTz-3Y5I5L_0NwdrzhacWrlqE2wnI/s0-rw/hak-cipta.jpeg
