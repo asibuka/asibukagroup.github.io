@@ -4,7 +4,7 @@ title: Pages
 permalink: /page/
 description: Kumpulan artikel resmi dari ASIBUKA Blog.
 keywords: page, halaman resmi
-robots: index, follow
+robots: noindex, nofollow
 lang: id
 toc: false
 is_amp: false

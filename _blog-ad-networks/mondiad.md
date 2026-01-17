@@ -71,15 +71,6 @@ Sampai saat ini, Mondiad menawarkan beberapa jenis iklan yaitu:
 * Batas referral: komisi referral hanya berlaku sampai US$ 1.000.
 * Butuh optimasi manual: publisher harus aktif mengatur placement/format agar hasil maksimal.
 
-<h2 class='main-heading'>Bukti Pencairan</h2>
-> Mohon maaf, untuk saat ini belum ada bukti pencairan yang dapat kami tunjukkan.
-
-<h2 class='main-heading'>Apakah masih legit/ membayar?</h2>
-
-### 1 September 2025
-
-Sampai sekarang, masih banyak yang memberikan ulasan bahwa Mondiad masih lancar dari segi pencairan payment.
-
 <h2 class='main-heading'>Kesimpulan</h2>
 
 Secara keseluruhan, Mondiad merupakan ad network yang layak direkomendasikan, terutama bagi web developer atau publisher yang ingin mencari alternatif selain Google AdSense dengan proses pendaftaran cepat, minimum payout rendah, serta fleksibilitas format iklan yang beragam. Platform ini menawarkan transparansi laporan real-time, sistem anti-fraud, dan metode pembayaran yang luas sehingga mendukung publisher dari berbagai skala. Namun, karena pendapatan sangat bergantung pada niche dan kualitas traffic, developer disarankan untuk menguji beberapa format iklan (misalnya mengutamakan native dan in-page push yang lebih user-friendly) serta rutin memantau performa untuk menemukan kombinasi paling efektif tanpa mengganggu pengalaman pengguna. Dengan strategi penempatan yang tepat, Mondiad bisa menjadi sumber penghasilan stabil dan kompetitif.

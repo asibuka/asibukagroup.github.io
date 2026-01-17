@@ -4,7 +4,7 @@ title: Web Tools
 permalink: /alat/
 description: Kumpulan web tools yang dibuat oleh ASIBUKA Group.
 keywords: web tools, alat
-robots: index, follow
+robots: noindex, nofollow
 lang: id
 toc: false
 is_amp: false

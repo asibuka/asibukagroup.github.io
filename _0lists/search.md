@@ -5,10 +5,13 @@ permalink: /search/
 description: Silahkan cari konten yang kamu perlukan menggunakan form ini.
 image: https://asibuka.com/assets/img/ASIBUKA-Blue.webp
 author: ASIBUKA Group
-robots: index, follow
+robots: noindex, nofollow
 keywords: search, cari
 lang: id
-skip_amp: true
+toc: false
+is_amp: false
+comments: false
+sitemap: false
 ---
 <h1 class="main-heading">Hasil Pencarian</h1>
 <div id="results" class="post-containers"></div>

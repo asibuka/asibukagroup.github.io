@@ -4,7 +4,7 @@ title: Ad Networks
 permalink: /ad-networks/
 description: Kumpulan artikel ulasan tentang Ad Networks yang dicoba oleh ASIBUKA Group.
 keywords: ad networks
-robots: index, follow
+robots: noindex, nofollow
 lang: id
 toc: false
 is_amp: false

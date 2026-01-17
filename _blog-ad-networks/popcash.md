@@ -47,15 +47,6 @@ Sampai saat ini, PopCash.net menerapkan dua jenis iklan yaitu:
 * Tidak cocok untuk situs premium atau berbasis brand
 * Penghasilan sangat bergantung pada kualitas dan asal trafik
 
-<h2 class='main-heading'>Bukti Pencairan</h2>
-> Mohon maaf, untuk saat ini belum ada bukti pencairan yang dapat kami tunjukkan.
-
-<h2 class='main-heading'>Apakah masih legit/ membayar?</h2>
-
-### 7 Mei 2025
-
-Sampai sekarang, masih banyak yang memberikan ulasan bahwa PopCash.net masih lancar dari segi pencairan payment.
-
 <h2 class='main-heading'>Kesimpulan</h2>
 
 PopCash.net adalah pilihan yang baik bagi pemilik situs yang ingin memonetisasi trafik non-premium atau trafik dari negara-negara berkembang melalui iklan pop-under. Cocok untuk situs hiburan, streaming, atau unduhan. Namun, untuk situs yang mengedepankan pengalaman pengguna atau citra merek, penggunaan PopCash perlu dipertimbangkan secara matang karena potensi gangguan terhadap kenyamanan pengunjung.
