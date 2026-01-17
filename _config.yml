@@ -129,6 +129,11 @@ static_links:
   Syarat Ketentuan: "/page/syarat-ketentuan/"
   Tentang Kami: "/page/tentang-kami/"
 # ------------------------------
+# Other links
+# ------------------------------
+other_links:
+  Web Tools: "/alat/"
+# ------------------------------
 # Plugins
 # ------------------------------
 plugins_dir: _plugins

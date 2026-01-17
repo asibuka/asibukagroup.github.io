@@ -1,7 +1,6 @@
 ---
 layout: static
 title: "Review Ad Networks: Popcash"
-date: 2025-05-07 00:00:05
 permalink: /ad-networks/popcash/
 lang: id
 image: https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjw07VKVv56RoSqnVNEZQelw6F3u2bocqu_XmNqxfepT-7MOgAzqyw9YOEVNI9lb100fyFZX4SwK8QZ8Cul_srVOA4wbq20DOcP8HKMZLFE5St8LPFxt7X11AeQL8cKlFGJononShdOm7DTjlkvH6u483W78FNW-MDZwnyXZ0N20Fx2r9vgVukpgg3Lbtxl/s0-rw/popcash.png

@@ -35,15 +35,9 @@
         </div>
       </li>
     </ul>-->
-    <div class="sidebar-heading">Web Tools</div>
-      <ul>
-      <li class="accordion">
-        <input type="radio" name="accordion" id="accordion3">
-        <label for="accordion3">Konverter<svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></label>
-        <div class="content">
-          <a href="/alat/text-to-mp3-converter/" title="Text to Audio Converter">Text to Audio Converter</a>
-        </div>
-      </li>
+    <div class="sidebar-heading">Lainnya</div>
+    <ul>
+      {% for link in site.other_links %}<li itemprop='name'><a itemprop='url' title='{{ link[0] }}' href='{{ link[1] }}'>{{ link[0] }}</a></li>{% endfor %}
     </ul>
   <div class="sidebar-section">
     <div class="sidebar-heading">Ikuti Kami</div>

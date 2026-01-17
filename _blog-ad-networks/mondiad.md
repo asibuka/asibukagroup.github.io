@@ -1,7 +1,6 @@
 ---
 layout: static
 title: "Review Ad Networks: Mondiad"
-date: 2025-05-07 00:00:05
 permalink: /ad-networks/mondiad/
 lang: id
 image: https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiKPhwwtUZnTaW4FZi02-S8Y65NlYUJAm7jWGzDSXQ7cg4u8NcRyFvq4XhpLly7bD015gBrKuHcNDjQC7vUxeLj7II1l7OfFl6hUPZ7xLgWTvR6A6jzn7K0Ph7LFXoIApvqpNf2e6wA66nLVkNF0acnj74t5CY6A26B-02b9thynDDVgH0NRak7fiofrfLl/s0-rw/mondiad.png
