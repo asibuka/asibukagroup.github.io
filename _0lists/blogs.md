@@ -7,6 +7,9 @@ keywords: blog, asibuka blog
 robots: index, follow
 lang: id
 toc: false
+is_amp: false
+comments: false
+sitemap: false
 ---
 <h1 class="main-heading" id='EmbedTitle'>{{ page.title }}</h1>
 <p class='text-center hide-on-embed'>{{ page.description }}</p>

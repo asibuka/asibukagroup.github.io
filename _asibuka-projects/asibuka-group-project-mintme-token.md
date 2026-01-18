@@ -9,6 +9,10 @@ keywords: mintme, token, asibuka group project, investment
 author: ASIBUKA Group
 robots: index, follow
 lang: en
+toc: false
+is_amp: false
+comments: false
+sitemap: false
 ---
 <div style="display:flex;align-items:center;gap:12px;">
   <header style="flex:1;display:flex;align-items:center;gap:12px;">
