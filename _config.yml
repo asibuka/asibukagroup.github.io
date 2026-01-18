@@ -138,29 +138,12 @@ other_links:
 # ------------------------------
 plugins_dir: _plugins
 plugins:
-  - jekyll-archives
   - jekyll-sitemap
   - ./_plugins/amp_generator.rb
   - ./_plugins/minifier.rb
   - ./_plugins/toc_generator.rb
 whitelist:
-  - jekyll-archives
   - jekyll-sitemap
   - ./_plugins/amp_generator.rb
   - ./_plugins/minifier.rb
   - ./_plugins/toc_generator.rb
-# ------------------------------
-# Jekyll Archives
-# ------------------------------
-jekyll-archives:
-  enabled:
-    - year
-    - month
-    - categories
-    - tags
-  layout: archive
-  permalinks:
-    year: '/:year/'
-    month: '/:year/:month/'
-    tag: '/tag/:name/'
-    category: '/kategori/:name/'
