@@ -8,6 +8,10 @@ description: Halaman berisi dokumentasi styling dari ASIBUKA Group.
 keywords: dokumentasi, styling
 robots: noindex, nofollow
 author: ASIBUKA Group
+toc: false
+is_amp: false
+comments: false
+sitemap: false
 ---
 Berikut ini adalah dokumentasi yang menampilkan tampilan dari elemen-elemen yang ada di ASIBUKA Group serta cara implementasinya
 <h2 class='main-heading'>Headings</h2>
