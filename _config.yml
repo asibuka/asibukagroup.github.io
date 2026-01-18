@@ -48,8 +48,6 @@ collections:
     output: true
   asibuka-logistics:
     output: true
-  asibuka-projects:
-    output: true
   products:
     output: true
   statics:
