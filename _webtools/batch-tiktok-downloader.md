@@ -10,6 +10,9 @@ author: ASIBUKA Group
 robots: noindex, nofollow
 lang: id
 comments: true
+sitemap: false
+toc: false
+is_amp: false
 ---
 <style>
     .containerx textarea{
