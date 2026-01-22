@@ -14,7 +14,7 @@ sitemap: false
 toc: false
 is_amp: false
 ---
-<input style='height:2rem;width:98%' id="url" placeholder="https://www.tiktok.com/@user/video/123">
+<input style='height:3rem;width:100%' id="url" placeholder="https://www.tiktok.com/@user/video/123">
 <button class='btn block' onclick="extract()">Extract</button>
 
 <div id="status"></div>
