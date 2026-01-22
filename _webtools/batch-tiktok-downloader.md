@@ -79,19 +79,14 @@ is_amp: false
     t = g("tiktokUrls"),
     d = g("resultY"),
     b = g("progressY");
-
   const MAX_RETRY = 3;
   const RETRY_DELAY = 15;
   const NEXT_DELAY = 30;
-
   const sleep = ms => new Promise(res => setTimeout(res, ms));
-
   let urls = [], paused = false, index = 0, success = 0;
-
   const waitIfPaused = async () => {
     while (paused) await sleep(500);
   };
-
   const countdown = async (sec, label) => {
     for (let i = sec; i > 0; i--) {
       await waitIfPaused();
@@ -100,21 +95,18 @@ is_amp: false
       d.lastChild.remove();
     }
   };
-
   p.onclick = () => {
     paused = true;
     p.disabled = true;
     r.disabled = false;
     d.innerHTML += "<b>⏸️ Paused</b><br>";
   };
-
   r.onclick = () => {
     paused = false;
     p.disabled = false;
     r.disabled = true;
     d.innerHTML += "<b>▶️ Resumed</b><br>";
   };
-
   const downloadFile = async (url, filename) => {
     const blob = await fetch(url).then(r => r.blob());
     const a = document.createElement("a");
@@ -125,44 +117,28 @@ is_amp: false
     document.body.removeChild(a);
     URL.revokeObjectURL(a.href);
   };
-
   const downloadTikTok = async (url) => {
     for (let attempt = 1; attempt <= MAX_RETRY; attempt++) {
       try {
         const res = await fetch(
           `https://www.tikwm.com/api/?url=${encodeURIComponent(url)}&hd=1`
         ).then(r => r.json());
-
         if (res.code !== 0) throw "API error";
-
         const data = res.data;
         const username = data.author?.unique_id || "tiktok";
         const id = data.id || Date.now();
-
-        /* ===============================
-           SLIDESHOW (IMAGE POST)
-        =============================== */
         if (Array.isArray(data.images) && data.images.length > 0) {
           const filename = `${username}_${id}_slideshow.mp4`;
-
-          // TikWM sudah menyediakan slideshow video + audio
           await downloadFile(data.play, filename);
-
           d.innerHTML += `🖼️➡️🎬 Slideshow → ${filename}<br>`;
           success++;
           return true;
         }
-
-        /* ===============================
-           NORMAL VIDEO
-        =============================== */
         const filename = `${username}_${id}.mp4`;
         await downloadFile(data.play, filename);
-
         d.innerHTML += `🎬 ${filename}<br>`;
         success++;
         return true;
-
       } catch (e) {
         d.innerHTML += `❌ Gagal (percobaan ${attempt}/${MAX_RETRY})<br>`;
         if (attempt < MAX_RETRY) {
@@ -170,32 +146,26 @@ is_amp: false
         }
       }
     }
-
     d.innerHTML += "⛔ Dilewati setelah gagal semua percobaan<br>";
     return false;
   };
-
   s.onclick = async () => {
     urls = t.value.split("\n").map(v => v.trim()).filter(Boolean);
     if (!urls.length) return alert("Masukkan URL terlebih dahulu");
-
     s.disabled = true;
     p.disabled = false;
     r.disabled = true;
     d.innerHTML = `⏳ Memproses ${urls.length} item...<br><br>`;
     b.style.width = "0%";
-
     for (; index < urls.length; index++) {
       await waitIfPaused();
       d.innerHTML += `▶️ (${index + 1}/${urls.length}) ${urls[index]}<br>`;
       await downloadTikTok(urls[index]);
       b.style.width = ((index + 1) / urls.length) * 100 + "%";
-
       if (index < urls.length - 1) {
         await countdown(NEXT_DELAY, "Video berikutnya dalam");
       }
     }
-
     d.innerHTML += `<br><b>🎉 Selesai!</b> Berhasil: ${success}/${urls.length}`;
     p.disabled = r.disabled = true;
   };
