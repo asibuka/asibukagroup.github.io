@@ -52,6 +52,7 @@ is_amp: false
       font-weight: bold;
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 <div class="containerx">
 
   <p>Masukkan <b>URL TikTok (1 per baris)</b>:</p>
@@ -71,7 +72,108 @@ is_amp: false
 
   <div class="result" id="resultY"></div>
 </div>
-<script>const s=document.getElementById("startBtnY"),p=document.getElementById("pauseBtny"),r=document.getElementById("resumeBtny"),t=document.getElementById("tiktokUrls"),o=document.getElementById("resultY"),b=document.getElementById("progressY"),MAX_RETRY=3,RETRY_DELAY=15,NEXT_DELAY=30;let u=[],pa=!1,i=0,c=0;const sleep=e=>new Promise(n=>setTimeout(n,e)),wait=async()=>{for(;pa;)await sleep(500)},count=async(e,n)=>{for(let a=e;a>0;a--)await wait(),o.innerHTML+=`<div class="countdown">⏳ ${n} ${a} detik...</div>`,await sleep(1e3),o.lastChild.remove()};p.onclick=(()=>{pa=!0,p.disabled=!0,r.disabled=!1,o.innerHTML+="<b>⏸️ Paused</b><br>"}),r.onclick=(()=>{pa=!1,p.disabled=!1,r.disabled=!0,o.innerHTML+="<b>▶️ Resumed</b><br>"});async function download(e){for(let n=1;n<=MAX_RETRY;n++)try{const n=await fetch(`https://www.tikwm.com/api/?url=${encodeURIComponent(e)}&hd=1`).then(e=>e.json());if(0!==n.code)throw Error();const a=n.data,d=(a.author?.unique_id||"tiktok").replace(/[^\w\-]/g,"_"),l=a.id||Date.now();if(a.play){const e=`${d}_${l}.mp4`,n=await fetch(a.play).then(e=>e.blob()),a=document.createElement("a");return a.href=URL.createObjectURL(n),a.download=e,document.body.appendChild(a),a.click(),document.body.removeChild(a),URL.revokeObjectURL(a.href),o.innerHTML+=`🎬 ✅ ${e}<br>`,c++,!0}if(a.images?.length){let e=1;for(const n of a.images){await wait();const a=await fetch(n).then(e=>e.blob()),t=a.type.includes("png")?"png":"jpg",i=`${d}_${l}_img${e}.${t}`,c=document.createElement("a");c.href=URL.createObjectURL(a),c.download=i,document.body.appendChild(c),c.click(),document.body.removeChild(c),URL.revokeObjectURL(c.href),o.innerHTML+=`🖼️ ✅ ${i}<br>`,e++}return c++,!0}throw Error()}catch(e){if(o.innerHTML+=`❌ Gagal (percobaan ${n}/${MAX_RETRY})<br>`,n<MAX_RETRY)await count(RETRY_DELAY,"Retry dalam")}return o.innerHTML+="⛔ Dilewati setelah gagal semua percobaan<br>",!1}s.onclick=async()=>{if(u=t.value.split("\n").map(e=>e.trim()).filter(Boolean),!u.length)return alert("Masukkan URL terlebih dahulu");s.disabled=!0,p.disabled=!1,r.disabled=!0,o.innerHTML=`⏳ Memproses ${u.length} konten...<br><br>`,b.style.width="0%";for(;i<u.length;i++)await wait(),o.innerHTML+=`▶️ (${i+1}/${u.length}) ${u[i]}<br>`,await download(u[i]),b.style.width=(i+1)/u.length*100+"%",i<u.length-1&&await count(NEXT_DELAY,"Konten berikutnya dalam");o.innerHTML+=`<br><b>🎉 Selesai!</b> Berhasil: ${c}/${u.length}`,p.disabled=!0,r.disabled=!0};
+<script>const startBtn=document.getElementById("startBtnY"),
+pauseBtn=document.getElementById("pauseBtny"),
+resumeBtn=document.getElementById("resumeBtny"),
+textarea=document.getElementById("tiktokUrls"),
+resultDiv=document.getElementById("resultY"),
+progressBar=document.getElementById("progressY");
+
+const MAX_RETRY=3,RETRY_DELAY=30,NEXT_DELAY=15;
+let urls=[],paused=false,index=0,success=0;
+
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const waitPause=async()=>{while(paused)await sleep(500)};
+
+pauseBtn.onclick=()=>{paused=true;pauseBtn.disabled=true;resumeBtn.disabled=false;resultDiv.innerHTML+="⏸ Paused<br>"}
+resumeBtn.onclick=()=>{paused=false;pauseBtn.disabled=false;resumeBtn.disabled=true;resultDiv.innerHTML+="▶ Resumed<br>"}
+
+async function countdown(sec,label){
+  for(let i=sec;i>0;i--){
+    await waitPause();
+    resultDiv.innerHTML+=`<div class="countdown">${label} ${i}s</div>`;
+    await sleep(1000);
+    resultDiv.lastChild.remove();
+  }
+}
+
+async function downloadContent(url){
+  for(let attempt=1;attempt<=MAX_RETRY;attempt++){
+    try{
+      const api=await fetch(`https://www.tikwm.com/api/?url=${encodeURIComponent(url)}&hd=1`);
+      const j=await api.json();
+      if(j.code!==0)throw "API";
+
+      const d=j.data;
+      const user=(d.author?.unique_id||"tiktok").replace(/[^\w\-]/g,"_");
+      const id=d.id||Date.now();
+
+      /* ========= VIDEO ========= */
+      if(d.play){
+        const blob=await fetch(d.play).then(r=>r.blob());
+        const a=document.createElement("a");
+        a.href=URL.createObjectURL(blob);
+        a.download=`${user}_${id}.mp4`;
+        a.click();
+        URL.revokeObjectURL(a.href);
+        resultDiv.innerHTML+=`🎬 ${a.download}<br>`;
+        success++;
+        return;
+      }
+
+      /* ========= PHOTO SLIDE ========= */
+      if(d.images?.length){
+        const zip=new JSZip();
+        let i=1;
+        for(const img of d.images){
+          await waitPause();
+          const blob=await fetch(img).then(r=>r.blob());
+          const ext=blob.type.includes("png")?"png":"jpg";
+          zip.file(`${user}_${id}_${i}.${ext}`,blob);
+          i++;
+        }
+        const zipBlob=await zip.generateAsync({type:"blob"});
+        const a=document.createElement("a");
+        a.href=URL.createObjectURL(zipBlob);
+        a.download=`${user}_${id}_images.zip`;
+        a.click();
+        URL.revokeObjectURL(a.href);
+        resultDiv.innerHTML+=`🖼 ZIP ${a.download}<br>`;
+        success++;
+        return;
+      }
+
+      throw "Unknown content";
+    }catch(e){
+      resultDiv.innerHTML+=`❌ Gagal (${attempt}/${MAX_RETRY})<br>`;
+      if(attempt<MAX_RETRY)await countdown(RETRY_DELAY,"Retry in");
+    }
+  }
+  resultDiv.innerHTML+="⛔ Skipped<br>";
+}
+
+startBtn.onclick=async()=>{
+  urls=textarea.value.split("\n").map(v=>v.trim()).filter(Boolean);
+  if(!urls.length)return alert("No URL");
+
+  startBtn.disabled=true;
+  pauseBtn.disabled=false;
+  resumeBtn.disabled=true;
+  resultDiv.innerHTML=`Processing ${urls.length} items...<br><br>`;
+  progressBar.style.width="0%";
+
+  for(;index<urls.length;index++){
+    await waitPause();
+    resultDiv.innerHTML+=`▶ ${index+1}/${urls.length}<br>`;
+    await downloadContent(urls[index]);
+    progressBar.style.width=((index+1)/urls.length*100)+"%";
+    if(index<urls.length-1)await countdown(NEXT_DELAY,"Next in");
+  }
+
+  resultDiv.innerHTML+=`<br>✅ DONE ${success}/${urls.length}`;
+  pauseBtn.disabled=true;
+  resumeBtn.disabled=true;
+}
 </script>
 <!--<script>
   const startBtn = document.getElementById("startBtnY");
