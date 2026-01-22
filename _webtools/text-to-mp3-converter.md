@@ -1,7 +1,6 @@
 ---
 layout: static
 title: Text to MP3 Converter
-date: 2025-04-27 00:00:04
 permalink: /alat/text-to-mp3-converter/
 description: Alat untuk mengkonversi teks menjadi audio atau MP3 dalam berbagai bahasa yang bisa digunakan secara gratis.
 image: https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiemB2cJMHYTXB8Jh2n1ntLFjPtW7CgSW7OrZVDNDrIa-Glo0PbxpaKLCFIjLthHEPz9DvgS7XOaXtOt42IXLJ8EgTTDrRYVcQQGErrmMKGjRkTr0fQoaP13mstGyS6BrTjyFkcd64UBffU1yUJnkCwNpSPpN1H1va_TQUzty1oCZ31TCrA8IvDNI8AACbc/s0-rw/text-to-audio-converter.jpeg

@@ -1,7 +1,6 @@
 ---
 layout: static
-title: Batch Tiktok Downloader
-date: 2025-04-27 00:00:04
+title: Tiktok Downloader
 permalink: /alat/batch-tiktok-downloader/
 description: Alat untuk mendownload video Tiktok tanpa watermark sekaligus.
 image: https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgt9dV74ytZI30Wh4Y2YQOVDAA0m8BgANonjfDgdt_HDDIFLVWBtjUbmfxSmJRIBXtqWaUJFHmt2MeCP4uuQxxHMKC5c89KBv67WB97lsQNQ3DZtDG0mJlGuYk2aO0276N21M7su15rfcxXLUVJMW0vzhqYlrVEKp5bcHT9eSke40SZ30JiMxnQn9Ti-hM/s0-rw/image-viewer.jpeg
@@ -115,18 +114,9 @@ function renderPreview(data) {
   img.src = data.cover || "";
   img.alt = "Video Thumbnail";
 
-  const btnNormal = document.createElement("button");
-  btnNormal.className = "btn block";
-  btnNormal.textContent = "Download";
-  btnNormal.onclick = () => {
-    const url = data.play || data.wmplay;
-    const filename = `${user}_${postId}.mp4`;
-    forceDownload(url, filename);
-  };
-
   const btnHD = document.createElement("button");
   btnHD.className = "btn block";
-  btnHD.textContent = "Download HD";
+  btnHD.textContent = "Download";
   btnHD.onclick = () => {
     const url = data.hdplay || data.play;
     const filename = `${user}_${postId}_HD.mp4`;
@@ -134,7 +124,6 @@ function renderPreview(data) {
   };
 
   box.appendChild(img);
-  box.appendChild(btnNormal);
   box.appendChild(btnHD);
   preview.appendChild(box);
   return;

@@ -1,7 +1,6 @@
 ---
 layout: static
 title: Image Viewer
-date: 2025-04-27 00:00:04
 permalink: /alat/image/
 description: Halaman khusus untuk mengakses gambar melalui Link Khusus dibagikan oleh ASIBUKA.
 image: https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgt9dV74ytZI30Wh4Y2YQOVDAA0m8BgANonjfDgdt_HDDIFLVWBtjUbmfxSmJRIBXtqWaUJFHmt2MeCP4uuQxxHMKC5c89KBv67WB97lsQNQ3DZtDG0mJlGuYk2aO0276N21M7su15rfcxXLUVJMW0vzhqYlrVEKp5bcHT9eSke40SZ30JiMxnQn9Ti-hM/s0-rw/image-viewer.jpeg
