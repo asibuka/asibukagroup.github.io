@@ -71,70 +71,12 @@ is_amp: false
 
   <div class="result" id="resultY"></div>
 </div>
-<script>const startBtn = document.getElementById("startBtnY");
-const pauseBtn = document.getElementById("pauseBtny");
-const resumeBtn = document.getElementById("resumeBtny");
-const textarea = document.getElementById("tiktokUrls");
-const resultDiv = document.getElementById("resultY");
-const progressBar = document.getElementById("progressY");
-
-const MAX_RETRY = 3;
-const RETRY_DELAY = 15;
-const NEXT_DELAY = 30;
-
-let urls = [];
-let paused = false;
-let currentIndex = 0;
-let success = 0;
-
-const sleep = ms => new Promise(r => setTimeout(r, ms));
-
-async function waitWhilePaused() {
-  while (paused) await sleep(500);
-}
-
-async function countdown(seconds, label) {
-  for (let i = seconds; i > 0; i--) {
-    await waitWhilePaused();
-    resultDiv.innerHTML += `<div class="countdown">⏳ ${label} ${i} detik...</div>`;
-    await sleep(1000);
-    resultDiv.lastChild.remove();
-  }
-}
-
-pauseBtn.onclick = () => {
-  paused = true;
-  pauseBtn.disabled = true;
-  resumeBtn.disabled = false;
-  resultDiv.innerHTML += "<b>⏸️ Paused</b><br>";
-};
-
-resumeBtn.onclick = () => {
-  paused = false;
-  pauseBtn.disabled = false;
-  resumeBtn.disabled = true;
-  resultDiv.innerHTML += "<b>▶️ Resumed</b><br>";
-};
-
-function createDownloadButton(url, filename) {
-  const btn = document.createElement("button");
-  btn.textContent = "⬇ Download";
-  btn.onclick = () => {
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = filename;
-    a.target = "_blank";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  };
-  return btn;
-}
-
-async function extractPreview(url) {
+<script>async function extractPreview(url) {
   for (let attempt = 1; attempt <= MAX_RETRY; attempt++) {
     try {
-      const res = await fetch(`https://www.tikwm.com/api/?url=${encodeURIComponent(url)}`);
+      const res = await fetch(
+        `https://www.tikwm.com/api/?url=${encodeURIComponent(url)}`
+      );
       const json = await res.json();
       if (json.code !== 0) throw "API error";
 
@@ -147,39 +89,84 @@ async function extractPreview(url) {
       card.style.padding = "10px";
       card.style.margin = "10px 0";
 
-      /* ===== VIDEO ===== */
+      /* ==================================================
+         PHOTO SLIDE (PRIORITY)
+      ================================================== */
+      if (d.images && d.images.length > 0) {
+        const img = document.createElement("img");
+        img.src = d.images[0];
+        img.width = 240;
+
+        card.append(
+          "🖼️ Photo Slide",
+          document.createElement("br"),
+          img,
+          document.createElement("br")
+        );
+
+        /* Download Images */
+        const imgBtn = document.createElement("button");
+        imgBtn.textContent = "⬇ Download Images";
+        imgBtn.onclick = () => {
+          d.images.forEach((imgUrl, i) => {
+            const a = document.createElement("a");
+            a.href = imgUrl;
+            a.download = `${username}_${contentId}_${i + 1}.jpg`;
+            a.target = "_blank";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+          });
+        };
+
+        /* Download Video Version */
+        const videoBtn = document.createElement("button");
+        videoBtn.textContent = "⬇ Download Video Version";
+        videoBtn.style.marginLeft = "8px";
+        videoBtn.onclick = () => {
+          const a = document.createElement("a");
+          a.href = d.play;
+          a.download = `${username}_${contentId}.mp4`;
+          a.target = "_blank";
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        };
+
+        card.append(imgBtn, videoBtn);
+        resultDiv.appendChild(card);
+        success++;
+        return;
+      }
+
+      /* ==================================================
+         VIDEO ONLY
+      ================================================== */
       if (d.play) {
         const video = document.createElement("video");
         video.src = d.play;
         video.controls = true;
         video.width = 240;
 
-        const btn = createDownloadButton(
-          d.play,
-          `${username}_${contentId}.mp4`
+        const btn = document.createElement("button");
+        btn.textContent = "⬇ Download Video";
+        btn.onclick = () => {
+          const a = document.createElement("a");
+          a.href = d.play;
+          a.download = `${username}_${contentId}.mp4`;
+          a.target = "_blank";
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        };
+
+        card.append(
+          "🎬 Video",
+          document.createElement("br"),
+          video,
+          document.createElement("br"),
+          btn
         );
-
-        card.append("🎬 Video", document.createElement("br"), video, document.createElement("br"), btn);
-        resultDiv.appendChild(card);
-        success++;
-        return;
-      }
-
-      /* ===== PHOTO SLIDE ===== */
-      if (d.images?.length) {
-        const img = document.createElement("img");
-        img.src = d.images[0];
-        img.width = 240;
-
-        card.append("🖼️ Photo Slide", document.createElement("br"), img, document.createElement("br"));
-
-        d.images.forEach((imgUrl, i) => {
-          const btn = createDownloadButton(
-            imgUrl,
-            `${username}_${contentId}_${i + 1}.jpg`
-          );
-          card.appendChild(btn);
-        });
 
         resultDiv.appendChild(card);
         success++;
@@ -195,34 +182,6 @@ async function extractPreview(url) {
 
   resultDiv.innerHTML += "⛔ Gagal extract preview<br>";
 }
-
-startBtn.onclick = async () => {
-  urls = textarea.value.split("\n").map(u => u.trim()).filter(Boolean);
-  if (!urls.length) return alert("Masukkan URL terlebih dahulu");
-
-  startBtn.disabled = true;
-  pauseBtn.disabled = false;
-  resumeBtn.disabled = true;
-  resultDiv.innerHTML = `⏳ Mengekstrak ${urls.length} konten...<br><br>`;
-  progressBar.style.width = "0%";
-
-  for (; currentIndex < urls.length; currentIndex++) {
-    await waitWhilePaused();
-    await extractPreview(urls[currentIndex]);
-
-    progressBar.style.width =
-      ((currentIndex + 1) / urls.length) * 100 + "%";
-
-    if (currentIndex < urls.length - 1) {
-      await countdown(NEXT_DELAY, "Konten berikutnya dalam");
-    }
-  }
-
-  resultDiv.innerHTML += `<br><b>🎉 Selesai!</b> Berhasil: ${success}/${urls.length}`;
-  pauseBtn.disabled = true;
-  resumeBtn.disabled = true;
-};
-
 </script>
 <!--<script>
   const startBtn = document.getElementById("startBtnY");
