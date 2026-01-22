@@ -15,221 +15,170 @@ toc: false
 is_amp: false
 ---
 <style>
-body {
-    background:#0f172a;
-    color:#e5e7eb;
-    font-family:system-ui, sans-serif;
-    margin:0;
-    padding:20px;
-}
-.container {
-    max-width:900px;
-    margin:auto;
-}
-h1 {
-    text-align:center;
-    margin-bottom:16px;
-}
-textarea {
-    width:100%;
-    height:130px;
-    background:#020617;
-    color:#e5e7eb;
-    border:1px solid #334155;
-    border-radius:6px;
-    padding:10px;
-    resize:vertical;
-}
-button {
-    background:#22c55e;
-    color:#022c22;
-    border:none;
-    padding:10px 18px;
-    border-radius:6px;
-    font-weight:600;
-    cursor:pointer;
-}
-button:disabled {
-    background:#475569;
-    cursor:not-allowed;
-}
-.status {
-    margin-top:10px;
-    font-size:14px;
-    color:#94a3b8;
-}
-.results {
-    margin-top:30px;
-    display:grid;
-    gap:20px;
-}
-.card {
-    background:#020617;
-    border:1px solid #334155;
-    border-radius:8px;
-    padding:12px;
-}
-.card h3 {
-    margin:6px 0 10px;
-}
-video, img {
-    width:100%;
-    border-radius:6px;
-}
-.download-group {
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-    margin-top:10px;
-}
-.download-group a {
-    background:#3b82f6;
-    color:#fff;
-    text-decoration:none;
-    padding:6px 10px;
-    border-radius:4px;
-    font-size:14px;
-}
-.slider {
-    display:flex;
-    gap:10px;
-    overflow-x:auto;
-    scroll-snap-type:x mandatory;
-}
-.slide {
-    min-width:220px;
-    scroll-snap-align:start;
-}
-.slide img {
-    margin-bottom:6px;
-}
-.error {
-    color:#f87171;
-    font-size:14px;
-}
-</style>
-<div class="container">
-    <h1>🎵 TikTok Batch Downloader<br><small style="color:#94a3b8">HD • No Watermark</small></h1>
+    .containerx textarea{
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 14px;
+      height: 160px;
+      width: 99%;
+      resize: vertical;
+    }
+    .containerx .controls {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .containerx .result {
+      margin-top: 15px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .containerx .progress-bar {
+      width: 100%;
+      background: #ddd;
+      height: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+    .containerx .progress {
+      height: 100%;
+      width: 0%;
+      background: #28a745;
+      transition: width .3s;
+    }
+    .containerx .countdown {
+      color: #d9534f;
+      font-weight: bold;
+    }
+  </style>
+<div class="containerx">
 
-    <textarea id="urls" placeholder="1 URL TikTok per baris"></textarea>
-    <br><br>
-    <button id="start">Mulai Proses</button>
-    <div class="status" id="status"></div>
+  <p>Masukkan <b>URL TikTok (1 per baris)</b>:</p>
 
-    <div class="results" id="results"></div>
+  <textarea id="tiktokUrls" placeholder="https://www.tiktok.com/@user/video/123"></textarea>
+
+  <button id="startBtnY" class='btn block'>Mulai Download</button>
+
+  <div class="controls">
+    <button id="pauseBtny" class="btn block" disabled>Pause</button>
+    <button id="resumeBtny" class="btn block" disabled>Resume</button>
+  </div>
+
+  <div class="progress-bar">
+    <div class="progress" id="progressY"></div>
+  </div>
+
+  <div class="result" id="resultY"></div>
 </div>
-
-<script>
-const DELAY = 30000;      // 30 detik
-const MAX_RETRY = 3;
-
-const startBtn = document.getElementById("start");
-const statusEl = document.getElementById("status");
-const resultsEl = document.getElementById("results");
-
-startBtn.onclick = async () => {
-    const urls = document.getElementById("urls")
-        .value.split("\n")
-        .map(u => u.trim())
-        .filter(Boolean);
-
-    if (!urls.length) return alert("Masukkan URL TikTok");
-
-    startBtn.disabled = true;
-    resultsEl.innerHTML = "";
-
-    for (let i = 0; i < urls.length; i++) {
-        statusEl.textContent = `Memproses ${i + 1} / ${urls.length}`;
-        await processWithRetry(urls[i]);
-
-        if (i < urls.length - 1) {
-            await delay(DELAY);
-        }
-    }
-
-    statusEl.textContent = "Selesai ✔";
-    startBtn.disabled = false;
-};
-
-async function processWithRetry(url) {
-    for (let attempt = 1; attempt <= MAX_RETRY; attempt++) {
-        try {
-            const data = await fetchData(url);
-            render(data);
-            return;
-        } catch (err) {
-            if (attempt === MAX_RETRY) {
-                renderError(url);
-            }
-        }
-    }
-}
-
-async function fetchData(url) {
-    // GANTI endpoint ini dengan backend extractor Anda
-    const res = await fetch("/api/tiktok/extract", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url })
-    });
-
-    if (!res.ok) throw new Error("Fetch gagal");
-    return res.json();
-}
-
-function render(data) {
-    const card = document.createElement("div");
-    card.className = "card";
-    card.innerHTML = `<h3>${data.title || "TikTok Post"}</h3>`;
-
-    if (data.type === "video") {
-        card.innerHTML += `
-            <video controls src="${data.video_hd}"></video>
-            <div class="download-group">
-                <a href="${data.video_hd}" download>Download Video HD</a>
-                ${data.audio ? `<a href="${data.audio}" download>Download Audio</a>` : ""}
-            </div>
-        `;
-    }
-
-    if (data.type === "slide") {
-        const slider = document.createElement("div");
-        slider.className = "slider";
-
-        data.images.forEach(img => {
-            const slide = document.createElement("div");
-            slide.className = "slide";
-            slide.innerHTML = `
-                <img src="${img}">
-                <div class="download-group">
-                    <a href="${img}" download>Download Gambar</a>
-                </div>
-            `;
-            slider.appendChild(slide);
-        });
-
-        card.appendChild(slider);
-        card.innerHTML += `
-            <div class="download-group">
-                <a href="${data.video_hd}" download>Download Sebagai Video (HD)</a>
-            </div>
-        `;
-    }
-
-    resultsEl.appendChild(card);
-}
-
-function renderError(url) {
-    const card = document.createElement("div");
-    card.className = "card";
-    card.innerHTML = `
-        <h3>Gagal</h3>
-        <div class="error">${url}</div>
-    `;
-    resultsEl.appendChild(card);
-}
-
-function delay(ms) {
-    return new Promise(r => setTimeout(r, ms));
-}
+<script>(()=>{const g=id=>document.getElementById(id),s=g("startBtnY"),p=g("pauseBtny"),r=g("resumeBtny"),t=g("tiktokUrls"),d=g("resultY"),b=g("progressY"),MAX_RETRY=3,RETRY_DELAY=15,NEXT_DELAY=30,sleep=m=>new Promise(e=>setTimeout(e,m));let u=[],paused=!1,i=0,ok=0;const wait=async()=>{for(;paused;)await sleep(500)},cd=async(n,l)=>{for(let i=n;i>0;i--){await wait(),d.innerHTML+=`<div class="countdown">⏳ ${l} ${i} detik...</div>`,await sleep(1e3),d.lastChild.remove()}};p.onclick=()=>{paused=!0,p.disabled=!0,r.disabled=!1,d.innerHTML+="<b>⏸️ Paused</b><br>"},r.onclick=()=>{paused=!1,p.disabled=!1,r.disabled=!0,d.innerHTML+="<b>▶️ Resumed</b><br>"};const dl=async url=>{for(let a=1;a<=MAX_RETRY;a++)try{let j=await fetch(`https://www.tikwm.com/api/?url=${encodeURIComponent(url)}&hd=1`).then(r=>r.json());if(j.code!==0)throw 0;let v=j.data.play,u=j.data.author?.unique_id||"tiktok",id=j.data.id||Date.now(),f=`${u.replace(/[^\w\-]/g,"_")}_${id}.mp4`,blob=await fetch(v).then(r=>r.blob()),A=document.createElement("a");A.href=URL.createObjectURL(blob),A.download=f,document.body.appendChild(A),A.click(),document.body.removeChild(A),URL.revokeObjectURL(A.href),d.innerHTML+=`✅ ${f}<br>`,ok++;return!0}catch(e){d.innerHTML+=`❌ Gagal (percobaan ${a}/${MAX_RETRY})<br>`,a<MAX_RETRY&&await cd(RETRY_DELAY,"Retry dalam")}return d.innerHTML+="⛔ Dilewati setelah gagal semua percobaan<br>",!1};s.onclick=async()=>{if(u=t.value.split("\n").map(e=>e.trim()).filter(Boolean),!u.length)return alert("Masukkan URL terlebih dahulu");s.disabled=!0,p.disabled=!1,r.disabled=!0,d.innerHTML=`⏳ Memproses ${u.length} video...<br><br>`,b.style.width="0%";for(;i<u.length;i++)await wait(),d.innerHTML+=`▶️ (${i+1}/${u.length}) ${u[i]}<br>`,await dl(u[i]),b.style.width=100*(i+1)/u.length+"%",i<u.length-1&&await cd(NEXT_DELAY,"Video berikutnya dalam");d.innerHTML+=`<br><b>🎉 Selesai!</b> Berhasil: ${ok}/${u.length}`,p.disabled=r.disabled=!0}})();
 </script>
+<!--<script>
+  const startBtn = document.getElementById("startBtnY");
+  const pauseBtn = document.getElementById("pauseBtny");
+  const resumeBtn = document.getElementById("resumeBtny");
+  const textarea = document.getElementById("tiktokUrls");
+  const resultDiv = document.getElementById("resultY");
+  const progressBar = document.getElementById("progressY");
+  const MAX_RETRY = 3;       // jumlah retry
+  const RETRY_DELAY = 15;   // detik
+  const NEXT_DELAY = 30;    // detik antar video
+  let urls = [];
+  let paused = false;
+  let currentIndex = 0;
+  let success = 0;
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  async function waitWhilePaused() {
+    while (paused) {
+      await sleep(500);
+    }
+  }
+  async function countdown(seconds, label) {
+    for (let i = seconds; i > 0; i--) {
+      await waitWhilePaused();
+      resultDiv.innerHTML +=
+        `<div class="countdown">⏳ ${label} ${i} detik...</div>`;
+      await sleep(1000);
+      resultDiv.lastChild.remove();
+    }
+  }
+  pauseBtn.onclick = () => {
+    paused = true;
+    pauseBtn.disabled = true;
+    resumeBtn.disabled = false;
+    resultDiv.innerHTML += "<b>⏸️ Paused</b><br>";
+  };
+  resumeBtn.onclick = () => {
+    paused = false;
+    pauseBtn.disabled = false;
+    resumeBtn.disabled = true;
+    resultDiv.innerHTML += "<b>▶️ Resumed</b><br>";
+  };
+  async function downloadWithRetry(url) {
+    for (let attempt = 1; attempt <= MAX_RETRY; attempt++) {
+      try {
+        const apiRes = await fetch(
+          `https://www.tikwm.com/api/?url=${encodeURIComponent(url)}&hd=1`
+        );
+        const apiData = await apiRes.json();
+        if (apiData.code !== 0) throw new Error("API error");
+        const videoUrl = apiData.data.play;
+        const username = apiData.data.author?.unique_id || "tiktok";
+        const contentId = apiData.data.id || Date.now();
+        const safeUser = username.replace(/[^\w\-]/g, "_");
+        const fileName = `${safeUser}_${contentId}.mp4`;
+        const videoRes = await fetch(videoUrl);
+        const blob = await videoRes.blob();
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = fileName;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(a.href);
+        resultDiv.innerHTML += `✅ ${fileName}<br>`;
+        success++;
+        return true;
+      } catch (err) {
+        resultDiv.innerHTML +=
+          `❌ Gagal (percobaan ${attempt}/${MAX_RETRY})<br>`;
+        if (attempt < MAX_RETRY) {
+          await countdown(RETRY_DELAY, "Retry dalam");
+        }
+      }
+    }
+    resultDiv.innerHTML += "⛔ Dilewati setelah gagal semua percobaan<br>";
+    return false;
+  }
+  startBtn.onclick = async () => {
+    urls = textarea.value
+      .split("\n")
+      .map(u => u.trim())
+      .filter(Boolean);
+    if (!urls.length) {
+      alert("Masukkan URL terlebih dahulu");
+      return;
+    }
+    startBtn.disabled = true;
+    pauseBtn.disabled = false;
+    resumeBtn.disabled = true;
+    resultDiv.innerHTML = `⏳ Memproses ${urls.length} video...<br><br>`;
+    progressBar.style.width = "0%";
+    for (; currentIndex < urls.length; currentIndex++) {
+      await waitWhilePaused();
+      const url = urls[currentIndex];
+      resultDiv.innerHTML +=
+        `▶️ (${currentIndex + 1}/${urls.length}) ${url}<br>`;
+      await downloadWithRetry(url);
+      progressBar.style.width =
+        ((currentIndex + 1) / urls.length) * 100 + "%";
+      if (currentIndex < urls.length - 1) {
+        await countdown(NEXT_DELAY, "Video berikutnya dalam");
+      }
+    }
+    resultDiv.innerHTML +=
+      `<br><b>🎉 Selesai!</b> Berhasil: ${success}/${urls.length}`;
+    pauseBtn.disabled = true;
+    resumeBtn.disabled = true;
+  };
+</script>-->
