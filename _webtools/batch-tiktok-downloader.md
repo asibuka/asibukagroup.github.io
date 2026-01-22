@@ -72,101 +72,113 @@ is_amp: false
 
   <div class="result" id="resultY"></div>
 </div>
-<script>const startBtn=document.getElementById("startBtnY"),
-pauseBtn=document.getElementById("pauseBtny"),
-resumeBtn=document.getElementById("resumeBtny"),
-textarea=document.getElementById("tiktokUrls"),
-resultDiv=document.getElementById("resultY"),
-progressBar=document.getElementById("progressY");
+<script>const startBtn=startBtn=document.getElementById("startBtn"),
+pauseBtn=document.getElementById("pauseBtn"),
+resumeBtn=document.getElementById("resumeBtn"),
+ta=document.getElementById("tiktokUrls"),
+res=document.getElementById("result"),
+bar=document.getElementById("progressY");
 
 const MAX_RETRY=3,RETRY_DELAY=30,NEXT_DELAY=15;
-let urls=[],paused=false,index=0,success=0;
+let paused=false,idx=0,ok=0,urls=[];
 
-const sleep=ms=>new Promise(r=>setTimeout(r,ms));
-const waitPause=async()=>{while(paused)await sleep(500)};
+const sleep=t=>new Promise(r=>setTimeout(r,t));
+const wait=async()=>{while(paused)await sleep(400)};
 
-pauseBtn.onclick=()=>{paused=true;pauseBtn.disabled=true;resumeBtn.disabled=false;resultDiv.innerHTML+="⏸ Paused<br>"}
-resumeBtn.onclick=()=>{paused=false;pauseBtn.disabled=false;resumeBtn.disabled=true;resultDiv.innerHTML+="▶ Resumed<br>"}
+pauseBtn.onclick=()=>{paused=true;pauseBtn.disabled=true;resumeBtn.disabled=false;res.innerHTML+="⏸ Paused<br>"}
+resumeBtn.onclick=()=>{paused=false;pauseBtn.disabled=false;resumeBtn.disabled=true;res.innerHTML+="▶ Resumed<br>"}
 
 async function countdown(sec,label){
   for(let i=sec;i>0;i--){
-    await waitPause();
-    resultDiv.innerHTML+=`<div class="countdown">${label} ${i}s</div>`;
+    await wait();
+    res.innerHTML+=`<div class="countdown">${label} ${i}s</div>`;
     await sleep(1000);
-    resultDiv.lastChild.remove();
+    res.lastChild.remove();
   }
 }
 
-async function downloadContent(url){
+function triggerDownload(url,name){
+  const a=document.createElement("a");
+  a.href=url;
+  a.download=name;
+  a.target="_blank";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
+async function process(url){
   for(let attempt=1;attempt<=MAX_RETRY;attempt++){
     try{
-      const api=await fetch(`https://www.tikwm.com/api/?url=${encodeURIComponent(url)}&hd=1`);
-      const j=await api.json();
+      const r=await fetch(`https://www.tikwm.com/api/?url=${encodeURIComponent(url)}`);
+      const j=await r.json();
       if(j.code!==0)throw "API";
 
       const d=j.data;
       const user=(d.author?.unique_id||"tiktok").replace(/[^\w\-]/g,"_");
       const id=d.id||Date.now();
+
+      /* VIDEO */
       if(d.play){
-        const blob=await fetch(d.play).then(r=>r.blob());
-        const a=document.createElement("a");
-        a.href=URL.createObjectURL(blob);
-        a.download=`${user}_${id}.mp4`;
-        a.click();
-        URL.revokeObjectURL(a.href);
-        resultDiv.innerHTML+=`🎬 ${a.download}<br>`;
-        success++;
-        return;
-      }
-      if(d.images?.length){
-        const zip=new JSZip();
-        let i=1;
-        for(const img of d.images){
-          await waitPause();
-          const blob=await fetch(img).then(r=>r.blob());
-          const ext=blob.type.includes("png")?"png":"jpg";
-          zip.file(`${user}_${id}_${i}.${ext}`,blob);
-          i++;
-        }
-        const zipBlob=await zip.generateAsync({type:"blob"});
-        const a=document.createElement("a");
-        a.href=URL.createObjectURL(zipBlob);
-        a.download=`${user}_${id}_images.zip`;
-        a.click();
-        URL.revokeObjectURL(a.href);
-        resultDiv.innerHTML+=`🖼 ZIP ${a.download}<br>`;
-        success++;
-        return;
+        triggerDownload(d.play,`${user}_${id}.mp4`);
+        res.innerHTML+=`🎬 ${user}_${id}.mp4<br>`;
+        ok++; return;
       }
 
-      throw "Unknown content";
+      /* PHOTO SLIDE */
+      if(d.images?.length){
+        try{
+          const zip=new JSZip();
+          let n=1;
+          for(const img of d.images){
+            await wait();
+            const b=await fetch(img).then(r=>r.blob());
+            zip.file(`${user}_${id}_${n}.jpg`,b);
+            n++;
+          }
+          const blob=await zip.generateAsync({type:"blob"});
+          triggerDownload(URL.createObjectURL(blob),`${user}_${id}_images.zip`);
+          res.innerHTML+=`🖼 ZIP ${user}_${id}_images.zip<br>`;
+        }catch{
+          res.innerHTML+="⚠ ZIP failed → downloading images individually<br>";
+          let n=1;
+          for(const img of d.images){
+            triggerDownload(img,`${user}_${id}_${n}.jpg`);
+            n++;
+            await sleep(500);
+          }
+        }
+        ok++; return;
+      }
+
+      throw "Unknown";
     }catch(e){
-      resultDiv.innerHTML+=`❌ Gagal (${attempt}/${MAX_RETRY})<br>`;
+      res.innerHTML+=`❌ Failed (${attempt}/${MAX_RETRY})<br>`;
       if(attempt<MAX_RETRY)await countdown(RETRY_DELAY,"Retry in");
     }
   }
-  resultDiv.innerHTML+="⛔ Skipped<br>";
+  res.innerHTML+="⛔ Skipped<br>";
 }
 
 startBtn.onclick=async()=>{
-  urls=textarea.value.split("\n").map(v=>v.trim()).filter(Boolean);
-  if(!urls.length)return alert("No URL");
+  urls=ta.value.split("\n").map(v=>v.trim()).filter(Boolean);
+  if(!urls.length)return alert("No URLs");
 
   startBtn.disabled=true;
   pauseBtn.disabled=false;
   resumeBtn.disabled=true;
-  resultDiv.innerHTML=`Processing ${urls.length} items...<br><br>`;
-  progressBar.style.width="0%";
+  res.innerHTML=`Processing ${urls.length} items...<br><br>`;
+  bar.style.width="0%";
 
-  for(;index<urls.length;index++){
-    await waitPause();
-    resultDiv.innerHTML+=`▶ ${index+1}/${urls.length}<br>`;
-    await downloadContent(urls[index]);
-    progressBar.style.width=((index+1)/urls.length*100)+"%";
-    if(index<urls.length-1)await countdown(NEXT_DELAY,"Next in");
+  for(;idx<urls.length;idx++){
+    await wait();
+    res.innerHTML+=`▶ ${idx+1}/${urls.length}<br>`;
+    await process(urls[idx]);
+    bar.style.width=((idx+1)/urls.length*100)+"%";
+    if(idx<urls.length-1)await countdown(NEXT_DELAY,"Next in");
   }
 
-  resultDiv.innerHTML+=`<br>✅ DONE ${success}/${urls.length}`;
+  res.innerHTML+=`<br>✅ DONE ${ok}/${urls.length}`;
   pauseBtn.disabled=true;
   resumeBtn.disabled=true;
 }
