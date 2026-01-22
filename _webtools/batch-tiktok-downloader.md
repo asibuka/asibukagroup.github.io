@@ -14,7 +14,109 @@ sitemap: false
 toc: false
 is_amp: false
 ---
-<style>
+<input id="url" placeholder="https://www.tiktok.com/@user/video/123">
+<button onclick="extract()">Extract</button>
+
+<div id="status"></div>
+<div id="preview" class='slider-container'></div>
+
+<script>
+async function extract() {
+  const url = document.getElementById("url").value.trim();
+  const status = document.getElementById("status");
+  const preview = document.getElementById("preview");
+
+  preview.innerHTML = "";
+  status.textContent = "";
+
+  if (!url) {
+    status.textContent = "❌ Masukkan URL TikTok terlebih dahulu";
+    return;
+  }
+
+  status.textContent = "⏳ Mengambil data...";
+
+  try {
+    const res = await fetch(
+      `https://www.tikwm.com/api/?url=${encodeURIComponent(url)}&hd=1`
+    );
+    const json = await res.json();
+
+    if (json.code !== 0 || !json.data) {
+      status.textContent = "❌ Data tidak valid";
+      return;
+    }
+
+    status.textContent = "✅ Berhasil";
+    renderPreview(json.data);
+
+  } catch (err) {
+    status.textContent = "❌ Gagal mengambil data (CORS / jaringan)";
+  }
+}
+
+function renderPreview(data) {
+  const preview = document.getElementById("preview");
+
+  /* ===============================
+     SLIDE IMAGE POST
+  =============================== */
+  if (Array.isArray(data.images) && data.images.length > 0) {
+    data.images.forEach((imgUrl, index) => {
+      const box = document.createElement("div");
+      box.className = "card";
+
+      const img = document.createElement("img");
+      img.src = imgUrl;
+      img.alt = "Image " + (index + 1);
+
+      const btn = document.createElement("a");
+      btn.className = "btn block";
+      btn.href = imgUrl;
+      btn.download = "";
+      btn.innerHTML = `<button>Download</button>`;
+
+      box.appendChild(img);
+      box.appendChild(btn);
+      preview.appendChild(box);
+    });
+    return;
+  }
+
+  /* ===============================
+     VIDEO POST
+  =============================== */
+  if (data.wmplay) {
+    const box = document.createElement("div");
+    box.className = "card";
+
+    const video = document.createElement("video");
+    video.src = data.wmplay;
+    video.controls = true;
+
+    const btnNormal = document.createElement("a");
+    btnNormal.className = "btn block";
+    btnNormal.href = data.play || data.wmplay;
+    btnNormal.download = "";
+    btnNormal.innerHTML = `<button>⬇️ Download Video</button>`;
+
+    const btnHD = document.createElement("a");
+    btnHD.className = "btn block";
+    btnHD.href = data.hdplay || data.play;
+    btnHD.download = "";
+    btnHD.innerHTML = `<button class="btn-secondary">⬇️ Download Video HD</button>`;
+
+    box.appendChild(video);
+    box.appendChild(btnNormal);
+    box.appendChild(btnHD);
+    preview.appendChild(box);
+    return;
+  }
+
+  preview.textContent = "⚠️ Tidak ada media yang dapat ditampilkan";
+}
+</script>
+<!--<style>
     .containerx textarea{
       padding: 10px;
       margin-top: 10px;
@@ -71,6 +173,9 @@ is_amp: false
 
   <div class="result" id="resultY"></div>
 </div>
+<<<<<<< HEAD
+<script>(()=>{const g=id=>document.getElementById(id),s=g("startBtnY"),p=g("pauseBtny"),r=g("resumeBtny"),t=g("tiktokUrls"),d=g("resultY"),b=g("progressY"),MAX_RETRY=3,RETRY_DELAY=15,NEXT_DELAY=30,sleep=m=>new Promise(e=>setTimeout(e,m));let u=[],paused=!1,i=0,ok=0;const wait=async()=>{for(;paused;)await sleep(500)},cd=async(n,l)=>{for(let i=n;i>0;i--){await wait(),d.innerHTML+=`<div class="countdown">⏳ ${l} ${i} detik...</div>`,await sleep(1e3),d.lastChild.remove()}};p.onclick=()=>{paused=!0,p.disabled=!0,r.disabled=!1,d.innerHTML+="<b>⏸️ Paused</b><br>"},r.onclick=()=>{paused=!1,p.disabled=!1,r.disabled=!0,d.innerHTML+="<b>▶️ Resumed</b><br>"};const dl=async url=>{for(let a=1;a<=MAX_RETRY;a++)try{let j=await fetch(`https://www.tikwm.com/api/?url=${encodeURIComponent(url)}&hd=1`).then(r=>r.json());if(j.code!==0)throw 0;let v=j.data.play,u=j.data.author?.unique_id||"tiktok",id=j.data.id||Date.now(),f=`${u.replace(/[^\w\-]/g,"_")}_${id}.mp4`,blob=await fetch(v).then(r=>r.blob()),A=document.createElement("a");A.href=URL.createObjectURL(blob),A.download=f,document.body.appendChild(A),A.click(),document.body.removeChild(A),URL.revokeObjectURL(A.href),d.innerHTML+=`✅ ${f}<br>`,ok++;return!0}catch(e){d.innerHTML+=`❌ Gagal (percobaan ${a}/${MAX_RETRY})<br>`,a<MAX_RETRY&&await cd(RETRY_DELAY,"Retry dalam")}return d.innerHTML+="⛔ Dilewati setelah gagal semua percobaan<br>",!1};s.onclick=async()=>{if(u=t.value.split("\n").map(e=>e.trim()).filter(Boolean),!u.length)return alert("Masukkan URL terlebih dahulu");s.disabled=!0,p.disabled=!1,r.disabled=!0,d.innerHTML=`⏳ Memproses ${u.length} video...<br><br>`,b.style.width="0%";for(;i<u.length;i++)await wait(),d.innerHTML+=`▶️ (${i+1}/${u.length}) ${u[i]}<br>`,await dl(u[i]),b.style.width=100*(i+1)/u.length+"%",i<u.length-1&&await cd(NEXT_DELAY,"Video berikutnya dalam");d.innerHTML+=`<br><b>🎉 Selesai!</b> Berhasil: ${ok}/${u.length}`,p.disabled=r.disabled=!0}})();
+=======
 <script>
 (() => {
   const g = id => document.getElementById(id),
@@ -189,6 +294,7 @@ is_amp: false
     p.disabled = r.disabled = true;
   };
 })();
+>>>>>>> 0dcf287832a3482a5ce216107a11ece69a8312ad
 </script>
 <!--<script>
   const startBtn = document.getElementById("startBtnY");
