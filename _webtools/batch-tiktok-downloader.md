@@ -52,7 +52,6 @@ is_amp: false
       font-weight: bold;
     }
   </style>
-  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 <div class="containerx">
 
   <p>Masukkan <b>URL TikTok (1 per baris)</b>:</p>
@@ -72,116 +71,158 @@ is_amp: false
 
   <div class="result" id="resultY"></div>
 </div>
-<script>const startBtn=startBtn=document.getElementById("startBtn"),
-pauseBtn=document.getElementById("pauseBtn"),
-resumeBtn=document.getElementById("resumeBtn"),
-ta=document.getElementById("tiktokUrls"),
-res=document.getElementById("result"),
-bar=document.getElementById("progressY");
+<script>const startBtn = document.getElementById("startBtnY");
+const pauseBtn = document.getElementById("pauseBtny");
+const resumeBtn = document.getElementById("resumeBtny");
+const textarea = document.getElementById("tiktokUrls");
+const resultDiv = document.getElementById("resultY");
+const progressBar = document.getElementById("progressY");
 
-const MAX_RETRY=3,RETRY_DELAY=30,NEXT_DELAY=15;
-let paused=false,idx=0,ok=0,urls=[];
+const MAX_RETRY = 3;
+const RETRY_DELAY = 15;
+const NEXT_DELAY = 30;
 
-const sleep=t=>new Promise(r=>setTimeout(r,t));
-const wait=async()=>{while(paused)await sleep(400)};
+let urls = [];
+let paused = false;
+let currentIndex = 0;
+let success = 0;
 
-pauseBtn.onclick=()=>{paused=true;pauseBtn.disabled=true;resumeBtn.disabled=false;res.innerHTML+="⏸ Paused<br>"}
-resumeBtn.onclick=()=>{paused=false;pauseBtn.disabled=false;resumeBtn.disabled=true;res.innerHTML+="▶ Resumed<br>"}
+const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-async function countdown(sec,label){
-  for(let i=sec;i>0;i--){
-    await wait();
-    res.innerHTML+=`<div class="countdown">${label} ${i}s</div>`;
+async function waitWhilePaused() {
+  while (paused) await sleep(500);
+}
+
+async function countdown(seconds, label) {
+  for (let i = seconds; i > 0; i--) {
+    await waitWhilePaused();
+    resultDiv.innerHTML += `<div class="countdown">⏳ ${label} ${i} detik...</div>`;
     await sleep(1000);
-    res.lastChild.remove();
+    resultDiv.lastChild.remove();
   }
 }
 
-function triggerDownload(url,name){
-  const a=document.createElement("a");
-  a.href=url;
-  a.download=name;
-  a.target="_blank";
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
+pauseBtn.onclick = () => {
+  paused = true;
+  pauseBtn.disabled = true;
+  resumeBtn.disabled = false;
+  resultDiv.innerHTML += "<b>⏸️ Paused</b><br>";
+};
+
+resumeBtn.onclick = () => {
+  paused = false;
+  pauseBtn.disabled = false;
+  resumeBtn.disabled = true;
+  resultDiv.innerHTML += "<b>▶️ Resumed</b><br>";
+};
+
+function createDownloadButton(url, filename) {
+  const btn = document.createElement("button");
+  btn.textContent = "⬇ Download";
+  btn.onclick = () => {
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    a.target = "_blank";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
+  return btn;
 }
 
-async function process(url){
-  for(let attempt=1;attempt<=MAX_RETRY;attempt++){
-    try{
-      const r=await fetch(`https://www.tikwm.com/api/?url=${encodeURIComponent(url)}`);
-      const j=await r.json();
-      if(j.code!==0)throw "API";
+async function extractPreview(url) {
+  for (let attempt = 1; attempt <= MAX_RETRY; attempt++) {
+    try {
+      const res = await fetch(`https://www.tikwm.com/api/?url=${encodeURIComponent(url)}`);
+      const json = await res.json();
+      if (json.code !== 0) throw "API error";
 
-      const d=j.data;
-      const user=(d.author?.unique_id||"tiktok").replace(/[^\w\-]/g,"_");
-      const id=d.id||Date.now();
+      const d = json.data;
+      const username = (d.author?.unique_id || "tiktok").replace(/[^\w\-]/g, "_");
+      const contentId = d.id || Date.now();
 
-      /* VIDEO */
-      if(d.play){
-        triggerDownload(d.play,`${user}_${id}.mp4`);
-        res.innerHTML+=`🎬 ${user}_${id}.mp4<br>`;
-        ok++; return;
+      const card = document.createElement("div");
+      card.style.border = "1px solid #444";
+      card.style.padding = "10px";
+      card.style.margin = "10px 0";
+
+      /* ===== VIDEO ===== */
+      if (d.play) {
+        const video = document.createElement("video");
+        video.src = d.play;
+        video.controls = true;
+        video.width = 240;
+
+        const btn = createDownloadButton(
+          d.play,
+          `${username}_${contentId}.mp4`
+        );
+
+        card.append("🎬 Video", document.createElement("br"), video, document.createElement("br"), btn);
+        resultDiv.appendChild(card);
+        success++;
+        return;
       }
 
-      /* PHOTO SLIDE */
-      if(d.images?.length){
-        try{
-          const zip=new JSZip();
-          let n=1;
-          for(const img of d.images){
-            await wait();
-            const b=await fetch(img).then(r=>r.blob());
-            zip.file(`${user}_${id}_${n}.jpg`,b);
-            n++;
-          }
-          const blob=await zip.generateAsync({type:"blob"});
-          triggerDownload(URL.createObjectURL(blob),`${user}_${id}_images.zip`);
-          res.innerHTML+=`🖼 ZIP ${user}_${id}_images.zip<br>`;
-        }catch{
-          res.innerHTML+="⚠ ZIP failed → downloading images individually<br>";
-          let n=1;
-          for(const img of d.images){
-            triggerDownload(img,`${user}_${id}_${n}.jpg`);
-            n++;
-            await sleep(500);
-          }
-        }
-        ok++; return;
+      /* ===== PHOTO SLIDE ===== */
+      if (d.images?.length) {
+        const img = document.createElement("img");
+        img.src = d.images[0];
+        img.width = 240;
+
+        card.append("🖼️ Photo Slide", document.createElement("br"), img, document.createElement("br"));
+
+        d.images.forEach((imgUrl, i) => {
+          const btn = createDownloadButton(
+            imgUrl,
+            `${username}_${contentId}_${i + 1}.jpg`
+          );
+          card.appendChild(btn);
+        });
+
+        resultDiv.appendChild(card);
+        success++;
+        return;
       }
 
-      throw "Unknown";
-    }catch(e){
-      res.innerHTML+=`❌ Failed (${attempt}/${MAX_RETRY})<br>`;
-      if(attempt<MAX_RETRY)await countdown(RETRY_DELAY,"Retry in");
+      throw "Unsupported content";
+    } catch (err) {
+      resultDiv.innerHTML += `❌ Gagal (percobaan ${attempt}/${MAX_RETRY})<br>`;
+      if (attempt < MAX_RETRY) await countdown(RETRY_DELAY, "Retry dalam");
     }
   }
-  res.innerHTML+="⛔ Skipped<br>";
+
+  resultDiv.innerHTML += "⛔ Gagal extract preview<br>";
 }
 
-startBtn.onclick=async()=>{
-  urls=ta.value.split("\n").map(v=>v.trim()).filter(Boolean);
-  if(!urls.length)return alert("No URLs");
+startBtn.onclick = async () => {
+  urls = textarea.value.split("\n").map(u => u.trim()).filter(Boolean);
+  if (!urls.length) return alert("Masukkan URL terlebih dahulu");
 
-  startBtn.disabled=true;
-  pauseBtn.disabled=false;
-  resumeBtn.disabled=true;
-  res.innerHTML=`Processing ${urls.length} items...<br><br>`;
-  bar.style.width="0%";
+  startBtn.disabled = true;
+  pauseBtn.disabled = false;
+  resumeBtn.disabled = true;
+  resultDiv.innerHTML = `⏳ Mengekstrak ${urls.length} konten...<br><br>`;
+  progressBar.style.width = "0%";
 
-  for(;idx<urls.length;idx++){
-    await wait();
-    res.innerHTML+=`▶ ${idx+1}/${urls.length}<br>`;
-    await process(urls[idx]);
-    bar.style.width=((idx+1)/urls.length*100)+"%";
-    if(idx<urls.length-1)await countdown(NEXT_DELAY,"Next in");
+  for (; currentIndex < urls.length; currentIndex++) {
+    await waitWhilePaused();
+    await extractPreview(urls[currentIndex]);
+
+    progressBar.style.width =
+      ((currentIndex + 1) / urls.length) * 100 + "%";
+
+    if (currentIndex < urls.length - 1) {
+      await countdown(NEXT_DELAY, "Konten berikutnya dalam");
+    }
   }
 
-  res.innerHTML+=`<br>✅ DONE ${ok}/${urls.length}`;
-  pauseBtn.disabled=true;
-  resumeBtn.disabled=true;
-}
+  resultDiv.innerHTML += `<br><b>🎉 Selesai!</b> Berhasil: ${success}/${urls.length}`;
+  pauseBtn.disabled = true;
+  resumeBtn.disabled = true;
+};
+
 </script>
 <!--<script>
   const startBtn = document.getElementById("startBtnY");
