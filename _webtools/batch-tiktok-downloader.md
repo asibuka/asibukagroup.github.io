@@ -14,8 +14,8 @@ sitemap: false
 toc: false
 is_amp: false
 ---
-<input id="url" placeholder="https://www.tiktok.com/@user/video/123">
-<button onclick="extract()">Extract</button>
+<input style='height:2rem;width:98%' id="url" placeholder="https://www.tiktok.com/@user/video/123">
+<button class='btn block' onclick="extract()">Extract</button>
 
 <div id="status"></div>
 <div id="preview" class='slider-container'></div>
@@ -108,36 +108,37 @@ function renderPreview(data) {
      VIDEO POST
   =============================== */
   if (data.wmplay) {
-    const box = document.createElement("div");
-    box.className = "card";
+  const box = document.createElement("div");
+  box.className = "card";
 
-    const video = document.createElement("video");
-    video.src = data.wmplay;
-    video.controls = true;
-    const btnNormal = document.createElement("button");
-    btnNormal.className = "btn block";
-    btnNormal.textContent = "Download";
-    btnNormal.onclick = () => {
-      const url = data.play || data.wmplay;
-      const filename = `${user}_${postId}.mp4`;
-      forceDownload(url, filename);
-    };
-    const btnHD = document.createElement("button");
-    btnHD.className = "btn block";
-    btnHD.textContent = "Download HD";
-    btnHD.onclick = () => {
-      const url = data.hdplay || data.play;
-      const filename = `${user}_${postId}_HD.mp4`;
-      forceDownload(url, filename);
-    };
+  const img = document.createElement("img");
+  img.src = data.cover || "";
+  img.alt = "Video Thumbnail";
 
-    box.appendChild(video);
-    box.appendChild(btnNormal);
-    box.appendChild(btnHD);
-    preview.appendChild(box);
-    return;
-  }
+  const btnNormal = document.createElement("button");
+  btnNormal.className = "btn block";
+  btnNormal.textContent = "Download";
+  btnNormal.onclick = () => {
+    const url = data.play || data.wmplay;
+    const filename = `${user}_${postId}.mp4`;
+    forceDownload(url, filename);
+  };
 
+  const btnHD = document.createElement("button");
+  btnHD.className = "btn block";
+  btnHD.textContent = "Download HD";
+  btnHD.onclick = () => {
+    const url = data.hdplay || data.play;
+    const filename = `${user}_${postId}_HD.mp4`;
+    forceDownload(url, filename);
+  };
+
+  box.appendChild(img);
+  box.appendChild(btnNormal);
+  box.appendChild(btnHD);
+  preview.appendChild(box);
+  return;
+}
   preview.textContent = "⚠️ Tidak ada media yang dapat ditampilkan";
 }
 
