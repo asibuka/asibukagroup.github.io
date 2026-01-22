@@ -55,8 +55,26 @@ async function extract() {
   }
 }
 
+/* ===============================
+   HELPER: FORCE DOWNLOAD
+=============================== */
+async function forceDownload(url, filename) {
+  const res = await fetch(url);
+  const blob = await res.blob();
+
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(a.href);
+}
+
 function renderPreview(data) {
   const preview = document.getElementById("preview");
+  const user = data.author?.unique_id || "tiktok";
+  const postId = data.id || Date.now();
 
   /* ===============================
      SLIDE IMAGE POST
@@ -70,11 +88,14 @@ function renderPreview(data) {
       img.src = imgUrl;
       img.alt = "Image " + (index + 1);
 
-      const btn = document.createElement("a");
+      const btn = document.createElement("button");
       btn.className = "btn block";
-      btn.href = imgUrl;
-      btn.download = "";
-      btn.innerHTML = `<button>Download</button>`;
+      btn.textContent = "Download";
+      btn.onclick = () => {
+        const ext = imgUrl.split(".").pop().split("?")[0] || "jpg";
+        const filename = `${user}_${postId}_${index + 1}.${ext}`;
+        forceDownload(imgUrl, filename);
+      };
 
       box.appendChild(img);
       box.appendChild(btn);
@@ -93,18 +114,22 @@ function renderPreview(data) {
     const video = document.createElement("video");
     video.src = data.wmplay;
     video.controls = true;
-
-    const btnNormal = document.createElement("a");
+    const btnNormal = document.createElement("button");
     btnNormal.className = "btn block";
-    btnNormal.href = data.play || data.wmplay;
-    btnNormal.download = "";
-    btnNormal.innerHTML = `<button>⬇️ Download Video</button>`;
-
-    const btnHD = document.createElement("a");
+    btnNormal.textContent = "Download";
+    btnNormal.onclick = () => {
+      const url = data.play || data.wmplay;
+      const filename = `${user}_${postId}.mp4`;
+      forceDownload(url, filename);
+    };
+    const btnHD = document.createElement("button");
     btnHD.className = "btn block";
-    btnHD.href = data.hdplay || data.play;
-    btnHD.download = "";
-    btnHD.innerHTML = `<button class="btn-secondary">⬇️ Download Video HD</button>`;
+    btnHD.textContent = "Download HD";
+    btnHD.onclick = () => {
+      const url = data.hdplay || data.play;
+      const filename = `${user}_${postId}_HD.mp4`;
+      forceDownload(url, filename);
+    };
 
     box.appendChild(video);
     box.appendChild(btnNormal);
@@ -115,6 +140,7 @@ function renderPreview(data) {
 
   preview.textContent = "⚠️ Tidak ada media yang dapat ditampilkan";
 }
+
 </script>
 <!--<style>
     .containerx textarea{
