@@ -71,8 +71,7 @@ is_amp: false
 
   <div class="result" id="resultY"></div>
 </div>
-<script>
-(() => {
+<script>(() => {
   const g = id => document.getElementById(id),
     s = g("startBtnY"),
     p = g("pauseBtny"),
@@ -109,8 +108,7 @@ is_amp: false
     d.innerHTML += "<b>▶️ Resumed</b><br>";
   };
   const downloadFile = async (url, filename) => {
-    const res = await fetch(url);
-    const blob = await res.blob();
+    const blob = await fetch(url).then(r => r.blob());
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
     a.download = filename;
@@ -119,14 +117,6 @@ is_amp: false
     document.body.removeChild(a);
     URL.revokeObjectURL(a.href);
   };
-  const downloadImages = async (images, user, id) => {
-    for (let i = 0; i < images.length; i++) {
-      await waitIfPaused();
-      const imgUrl = images[i];
-      const fname = `${user}_${id}_img_${i + 1}.jpg`;
-      await downloadFile(imgUrl, fname);
-      d.innerHTML += `🖼️ ${fname}<br>`;
-    }};
   const downloadTikTok = async (url) => {
     for (let attempt = 1; attempt <= MAX_RETRY; attempt++) {
       try {
@@ -135,27 +125,18 @@ is_amp: false
         ).then(r => r.json());
         if (res.code !== 0) throw "API error";
         const data = res.data;
-        const user = data.author?.unique_id || "tiktok";
+        const username = data.author?.unique_id || "tiktok";
         const id = data.id || Date.now();
         if (Array.isArray(data.images) && data.images.length > 0) {
-          const videoUrl = data.hdplay || data.play;
-          if (!videoUrl) throw "Slideshow video tidak tersedia";
-          const head = await fetch(videoUrl, { method: "HEAD" });
-          if (!head.headers.get("content-type")?.includes("video")) {
-            throw "Slideshow bukan video";
-          }
-          const videoName = `${user}_${id}_slideshow.mp4`;
-          await downloadFile(videoUrl, videoName);
-          d.innerHTML += `🎬 ${videoName}<br>`;
-          await downloadImages(data.images, user, id);
+          const filename = `${username}_${id}_slideshow.mp4`;
+          await downloadFile(data.play, filename);
+          d.innerHTML += `🖼️➡️🎬 Slideshow → ${filename}<br>`;
           success++;
           return true;
         }
-        const videoUrl = data.hdplay || data.play;
-        if (!videoUrl) throw "Video tidak tersedia";
-        const videoName = `${user}_${id}.mp4`;
-        await downloadFile(videoUrl, videoName);
-        d.innerHTML += `🎬 ${videoName}<br>`;
+        const filename = `${username}_${id}.mp4`;
+        await downloadFile(data.play, filename);
+        d.innerHTML += `🎬 ${filename}<br>`;
         success++;
         return true;
       } catch (e) {
