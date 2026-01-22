@@ -107,8 +107,6 @@ async function downloadContent(url){
       const d=j.data;
       const user=(d.author?.unique_id||"tiktok").replace(/[^\w\-]/g,"_");
       const id=d.id||Date.now();
-
-      /* ========= VIDEO ========= */
       if(d.play){
         const blob=await fetch(d.play).then(r=>r.blob());
         const a=document.createElement("a");
@@ -120,8 +118,6 @@ async function downloadContent(url){
         success++;
         return;
       }
-
-      /* ========= PHOTO SLIDE ========= */
       if(d.images?.length){
         const zip=new JSZip();
         let i=1;
