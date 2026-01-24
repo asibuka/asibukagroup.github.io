@@ -124,6 +124,7 @@ Lorem ipsum dolor sit amet, *consectetur* adipiscing elit. **Pellentesque** ut c
 	 margin: 0.5rem auto;
 	 width: 100%;
 }
+details:not(summary){padding:.5rem}
  details::details-content {
 	 height: 0;
 	 interpolate-size: allow-keywords;
