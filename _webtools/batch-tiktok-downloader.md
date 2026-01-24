@@ -13,67 +13,45 @@ sitemap: false
 toc: false
 is_amp: false
 ---
-<textarea
-  id="url"
-  style="height:6rem;width:100%"
-  placeholder="https://www.tiktok.com/@user/video/123
-https://www.tiktok.com/@user/video/456">
-</textarea>
-
-<button class="btn block" onclick="extract()">Extract</button>
+<input style='height:3rem;width:100%' id="url" placeholder="https://www.tiktok.com/@user/video/123">
+<button class='btn block' onclick="extract()">Extract</button>
 
 <div id="status"></div>
-<div id="preview" class="slider-container"></div>
+<div id="preview" class='slider-container'></div>
 
 <script>
 async function extract() {
-  const textarea = document.getElementById("url");
+  const url = document.getElementById("url").value.trim();
   const status = document.getElementById("status");
   const preview = document.getElementById("preview");
 
   preview.innerHTML = "";
   status.textContent = "";
 
-  // ambil URL per baris
-  const urls = textarea.value
-    .split("\n")
-    .map(u => u.trim())
-    .filter(Boolean);
-
-  if (!urls.length) {
+  if (!url) {
     status.textContent = "❌ Masukkan URL TikTok terlebih dahulu";
     return;
   }
 
-  status.textContent = `⏳ Memproses ${urls.length} URL...`;
+  status.textContent = "⏳ Mengambil data...";
 
-  for (let i = 0; i < urls.length; i++) {
-    const url = urls[i];
-    status.textContent = `⏳ (${i + 1}/${urls.length}) Mengambil data...`;
+  try {
+    const res = await fetch(
+      `https://www.tikwm.com/api/?url=${encodeURIComponent(url)}&hd=1`
+    );
+    const json = await res.json();
 
-    try {
-      const res = await fetch(
-        `https://www.tikwm.com/api/?url=${encodeURIComponent(url)}&hd=1`
-      );
-      const json = await res.json();
-
-      if (json.code !== 0 || !json.data) {
-        const err = document.createElement("div");
-        err.textContent = `❌ Gagal extract: ${url}`;
-        preview.appendChild(err);
-        continue;
-      }
-
-      renderPreview(json.data);
-
-    } catch (err) {
-      const errBox = document.createElement("div");
-      errBox.textContent = `❌ Error fetch: ${url}`;
-      preview.appendChild(errBox);
+    if (json.code !== 0 || !json.data) {
+      status.textContent = "❌ Data tidak valid";
+      return;
     }
-  }
 
-  status.textContent = `✅ Selesai memproses ${urls.length} URL`;
+    status.textContent = "✅ Berhasil";
+    renderPreview(json.data);
+
+  } catch (err) {
+    status.textContent = "❌ Gagal mengambil data (CORS / jaringan)";
+  }
 }
 
 /* ===============================
@@ -129,34 +107,31 @@ function renderPreview(data) {
      VIDEO POST
   =============================== */
   if (data.wmplay) {
-    const box = document.createElement("div");
-    box.className = "card";
+  const box = document.createElement("div");
+  box.className = "card";
 
-    const img = document.createElement("img");
-    img.src = data.cover || "";
-    img.alt = "Video Thumbnail";
+  const img = document.createElement("img");
+  img.src = data.cover || "";
+  img.alt = "Video Thumbnail";
 
-    const btnHD = document.createElement("button");
-    btnHD.className = "btn block";
-    btnHD.textContent = "Download";
-    btnHD.onclick = () => {
-      const url = data.hdplay || data.play;
-      const filename = `${user}_${postId}_HD.mp4`;
-      forceDownload(url, filename);
-    };
+  const btnHD = document.createElement("button");
+  btnHD.className = "btn block";
+  btnHD.textContent = "Download";
+  btnHD.onclick = () => {
+    const url = data.hdplay || data.play;
+    const filename = `${user}_${postId}_HD.mp4`;
+    forceDownload(url, filename);
+  };
 
-    box.appendChild(img);
-    box.appendChild(btnHD);
-    preview.appendChild(box);
-    return;
-  }
-
-  const warn = document.createElement("div");
-  warn.textContent = "⚠️ Tidak ada media yang dapat ditampilkan";
-  preview.appendChild(warn);
+  box.appendChild(img);
+  box.appendChild(btnHD);
+  preview.appendChild(box);
+  return;
 }
-</script>
+  preview.textContent = "⚠️ Tidak ada media yang dapat ditampilkan";
+}
 
+</script>
 <!--<style>
     .containerx textarea{
       padding: 10px;
