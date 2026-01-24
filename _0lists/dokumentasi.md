@@ -115,19 +115,14 @@ Lorem ipsum dolor sit amet, *consectetur* adipiscing elit. **Pellentesque** ut c
 
 <details name="info-sum" open>
   <summary>Click to see more information about #1</summary>
-	<div class="ctn-info">
-		
-		<p>
-			Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus nobis beatae exercitationem ratione, eum vero modi iusto cumque porro animi quia molestias totam assumenda atque maiores est repellendus ex accusamus.
-		</p>
-  </div>
+	<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus nobis beatae exercitationem ratione, eum vero modi iusto cumque porro animi quia molestias totam assumenda atque maiores est repellendus ex accusamus.</p>
 </details>
 <style>
     details {
 	 cursor: pointer;
 	 margin-inline: auto;
 	 margin: 0.5rem auto;
-	 width: 95%;
+	 width: 100%;
 }
  details::details-content {
 	 height: 0;
@@ -170,4 +165,5 @@ Lorem ipsum dolor sit amet, *consectetur* adipiscing elit. **Pellentesque** ut c
 	 transition: background-color 0.5s ease-in-out, transform 0.5s ease-in-out;
 	 width: 1.5rem;
 }
+summary > * {padding:.5rem}
  </style>
