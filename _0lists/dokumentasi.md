@@ -111,3 +111,63 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing elit](https://www.asibuka.co
 
 Lorem ipsum dolor sit amet, *consectetur* adipiscing elit. **Pellentesque** ut commodo dolor. ~~Phasellus~~ eu venenatis tellus. _Pellentesque_ habitant morbi --- tristique senectus et netus et malesuada fames ac turpis egestas. `Morbi` purus turpis, consequat eget felis in, accumsan fringilla dui. Quisque aliquam lorem ut ipsum consequat convallis. Maecenas convallis mi libero, hendrerit molestie ipsum congue ut. Fusce facilisis interdum consectetur. Donec blandit est ac justo porttitor, ac feugiat erat aliquet. Pellentesque quis semper lacus. Nullam ac sagittis quam, ut pellentesque est. Etiam tempus tortor sed justo volutpat sollicitudin. Aliquam tempus finibus dignissim.
 
+<h2 class='main-heading'>Accordion</h2>
+
+<details name="info-sum" open>
+  <summary>Click to see more information about #1</summary>
+	<div class="ctn-info">
+		
+		<p>
+			Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus nobis beatae exercitationem ratione, eum vero modi iusto cumque porro animi quia molestias totam assumenda atque maiores est repellendus ex accusamus.
+		</p>
+  </div>
+</details>
+<style>
+    details {
+	 cursor: pointer;
+	 margin-inline: auto;
+	 margin: 0.5rem auto;
+	 width: 95%;
+}
+ details::details-content {
+	 height: 0;
+	 interpolate-size: allow-keywords;
+	 opacity: 0;
+	 overflow: hidden;
+	 transition: height 0.5s ease-in-out, content-visibility 0.5s ease-in-out, opacity 0.5s ease-in-out, scale 0.5s ease-in-out;
+	 transition-behavior: allow-discrete;
+}
+ details[open] > summary {
+	 color: white;
+}
+ details[open] > summary:after {
+	 background-color: white;
+	 transform: rotate(45deg);
+}
+ details[open]::details-content {
+	 height: auto;
+	 opacity: 1;
+}
+ summary {
+	 background-color: #004aad;
+	 color: white;
+	 list-style: none;
+	 padding: 1rem;
+	 position: relative;
+	 transition: color 0.5s ease-in-out;
+}
+ summary:after {
+	 background-color: white;
+	 border-radius: 50%;
+	 content: '+';
+	 color: black;
+	 font-size: 1.75rem;
+	 height: 1.5rem;
+	 line-height: 1.5rem;
+	 position: absolute;
+	 right: 1rem;
+	 text-align: center;
+	 transition: background-color 0.5s ease-in-out, transform 0.5s ease-in-out;
+	 width: 1.5rem;
+}
+ </style>
