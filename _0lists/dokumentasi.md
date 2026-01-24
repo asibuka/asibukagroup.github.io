@@ -111,22 +111,3 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing elit](https://www.asibuka.co
 
 Lorem ipsum dolor sit amet, *consectetur* adipiscing elit. **Pellentesque** ut commodo dolor. ~~Phasellus~~ eu venenatis tellus. _Pellentesque_ habitant morbi --- tristique senectus et netus et malesuada fames ac turpis egestas. `Morbi` purus turpis, consequat eget felis in, accumsan fringilla dui. Quisque aliquam lorem ut ipsum consequat convallis. Maecenas convallis mi libero, hendrerit molestie ipsum congue ut. Fusce facilisis interdum consectetur. Donec blandit est ac justo porttitor, ac feugiat erat aliquet. Pellentesque quis semper lacus. Nullam ac sagittis quam, ut pellentesque est. Etiam tempus tortor sed justo volutpat sollicitudin. Aliquam tempus finibus dignissim.
 
-- [x] Task 1
-- [ ] Task 2
-- [x] Task 3
-
-graph TD
-A[Start] --> B{Is it working?}
-B -- Yes --> C[Continue]
-B -- No --> D[Fix it]
-C --> E[End]
-D --> E[End]
-
-```mermaid
-graph TD
-A[Start] --> B{Is it working?}
-B -- Yes --> C[Continue]
-B -- No --> D[Fix it]
-C --> E[End]
-D --> E[End]
-```
