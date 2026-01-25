@@ -2,7 +2,7 @@
 {% if page.is_amp %}
 <amp-img itemprop="contentUrl" src="{{ include.src | default: 'https://asibuka.com/assets/img/ASIBUKA-Blue.webp' }}" title="{{ include.title | default: 'image' }}" alt="{{ include.title | default: 'image' }}" width="{{ include.width | default: '1600' }}" height="{{ include.height | default: '900' }}" layout="{{ include.layout | default: 'responsive' }}"></amp-img>
 {% else %}
-<img itemprop="contentUrl" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="{{ include.src | default: 'https://asibuka.com/assets/img/ASIBUKA-Blue.webp' }}" title="{{ include.title | default: 'image' }}" alt="{{ include.title | default: 'image' }}" width="{{ include.width | default: '1600' }}" height="{{ include.height | default: '900' }}">
+<img fetchpriority="{{ include.fetchpriority | default: 'auto' }}" itemprop="contentUrl" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="{{ include.src | default: 'https://asibuka.com/assets/img/ASIBUKA-Blue.webp' }}" title="{{ include.title | default: 'image' }}" alt="{{ include.title | default: 'image' }}" width="{{ include.width | default: '1600' }}" height="{{ include.height | default: '900' }}">
 {% endif %}
 <span itemprop="creator author" itemtype="https://schema.org/Organization" itemscope><meta itemprop="name" content="ASIBUKA Group" /></span>
 <meta itemprop="url" content="{{ include.src | default: 'https://asibuka.com/assets/img/ASIBUKA-Blue.webp' }}" />
