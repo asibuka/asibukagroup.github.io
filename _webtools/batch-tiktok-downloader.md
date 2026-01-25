@@ -13,6 +13,10 @@ sitemap: false
 toc: false
 is_amp: false
 ---
+{% if page.is_amp %}
+<p class="text-center">Mohon maaf, fitur ini tidak tersedia di versi AMP. Silahkan klik tombol di bawah untuk masuk ke versi asli.</p>
+<p class="text-center"><a class='btn block' href="{{ page.url | remove: '/amp/' | relative_url }}" title="Buka Versi Asli">Buka Versi Asli</a></p>
+{% else %}
 <form id='tiktokdownloader'>
 <label for='url'>* Masukkan 1 URL per baris</label>
 <textarea id="url" placeholder="https://www.tiktok.com/@user/video/123"></textarea>
@@ -20,6 +24,18 @@ is_amp: false
 <div id="status"></div>
 <div id="preview" class="slider-container"></div>
 </form>
+{% endif %}
+
+## Cara Penggunaan
+
+1. Buka aplikasi / situs Tiktok.
+2. Cari postingan yang ingin diunduh.
+3. Tekan share dan copy URL dari postingan.
+4. Tempelkan url yang sudah di copy ke kolom yang tersedia di atas.
+5. Tekan tombol Ektract.
+6. Tunggu Proses ekstraksi selesai. Jika gagal silahkan refresh dan ulangi dari langkah empat.
+7. Jika berhasil, silahkan tekan tombol Download.
+
 
 <!--<script>
 async function extract() {
