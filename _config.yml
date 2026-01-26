@@ -57,8 +57,7 @@ collections:
 rss_excluded_collections:
   - 0lists
   - asibuka-logistics
-  - products
-  - services
+  - statics
   - webtools
 # ------------------------------
 # Default Value

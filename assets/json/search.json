@@ -2,30 +2,25 @@
 layout: null
 permalink: /search.json
 ---
-{% assign target_collections = "statics, products" | split: ", " %}
-{% assign custom_docs = "" | split: "" %}
+{% assign target_collections = "statics,products" | split: "," %}
 
-{%- for collection in site.collections -%}
-  {%- if target_collections contains collection.label -%}
-    {% assign custom_docs = custom_docs | concat: collection.docs %}
-  {%- endif -%}
-{%- endfor -%}
+{% include collect_docs.html only=target_collections %}
 
-{%- assign raw_items = site.posts | concat: custom_docs -%}
-{%- assign filtered_items = raw_items | reject: "search", false -%}
+{% assign raw_items = site.posts | concat: all_items %}
+{% assign filtered_items = raw_items | reject: "search", false %}
 
-{%- assign unique_urls = "" | split: "" -%}
-{%- assign final_items = "" | split: "" -%}
+{% assign unique_urls = "" | split: "" %}
+{% assign final_items = "" | split: "" %}
 
-{%- for item in filtered_items -%}
-  {%- unless unique_urls contains item.url -%}
+{% for item in filtered_items %}
+  {% unless unique_urls contains item.url %}
     {% assign unique_urls = unique_urls | push: item.url %}
     {% assign final_items = final_items | push: item %}
-  {%- endunless -%}
-{%- endfor -%}
+  {% endunless %}
+{% endfor %}
 
 [
-{%- for item in final_items -%}
+{% for item in final_items %}
 {
   "title": {{ item.title | jsonify }},
   "url": {{ item.url | relative_url | jsonify }},
@@ -34,5 +29,5 @@ permalink: /search.json
   "image": {{ item.image | jsonify }},
   "author": {{ item.author | jsonify }}
 }{% unless forloop.last %},{% endunless %}
-{%- endfor -%}
+{% endfor %}
 ]

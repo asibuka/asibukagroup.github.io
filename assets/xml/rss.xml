@@ -8,16 +8,16 @@ permalink: /rss.xml
     <title>{{ site.title }}</title>
     <link>{{ site.url }}</link>
     <description>{{ site.description }}</description>
-    <language>en-us</language>
+    <language>id-ID</language>
     <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
-
-    {% for post in site.posts %}
-    <item>
-      <title>{{ post.title }}</title>
-      <link>{{ site.url }}{{ post.url }}</link>
-      <description><![CDATA[{{ post.excerpt | strip_html | truncatewords: 200 }}]]></description>
-      <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-    </item>
-    {% endfor %}
+{% include collection_exclude.html %}
+{% for post in all_items %}
+  <item>
+    <title>{{ post.title }}</title>
+    <link>{{ site.url }}{{ post.url }}</link>
+    <description><![CDATA[{{ post.excerpt | strip_html | truncatewords: 200 }}]]></description>
+    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
+  </item>
+{% endfor %}
   </channel>
 </rss>

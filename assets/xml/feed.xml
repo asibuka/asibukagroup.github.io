@@ -2,7 +2,6 @@
 layout: none
 permalink: /feed.xml
 ---
-
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
@@ -17,7 +16,7 @@ permalink: /feed.xml
     <title>{{ post.title }}</title>
     <link>{{ site.url }}{{ post.url }}</link>
     <description><![CDATA[{{ post.excerpt | strip_html | truncatewords: 200 }}]]></description>
-    <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
   </item>
 {% endfor %}
   </channel>

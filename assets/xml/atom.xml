@@ -12,13 +12,13 @@ permalink: /atom.xml
     <name>{{ site.author | default: "Admin" }}</name>
   </author>
   <id>{{ site.url }}/</id>
-
-  {% for post in site.posts %}
+{% include collection_exclude.html %}
+{% for post in all_items %}
   <entry>
     <title>{{ post.title }}</title>
     <link href="{{ site.url }}{{ post.url }}"/>
     <id>{{ site.url }}{{ post.url }}</id>
-    <updated>{{ post.date | date_to_rfc3339 }}</updated>
+    <updated>{{ site.time | date_to_rfc3339 }}</updated>
     <summary type="html"><![CDATA[{{ post.excerpt | strip_html | truncatewords: 50 }}]]></summary>
   </entry>
   {% endfor %}
