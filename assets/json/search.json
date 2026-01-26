@@ -27,10 +27,10 @@ permalink: /search.json
   "image": {{ item.image | default: "" | jsonify }},
   "author": {{ item.author | default: "" | jsonify }},
   "price": {{ item.price
-    | default: ""
-    | replace_regex: '(\d)(?=(\d{3})+(?!\d))', '\1.'
-    | prepend: "Rp"
-    | jsonify }}
+  | default: ""
+  | replace_regex: "(\\d)(?=(\\d{3})+(?!\\d))", '\1.'
+  | prepend: "Rp"
+  | jsonify }}
 }{% unless forloop.last %},{% endunless %}
 {% endfor %}
 ]
