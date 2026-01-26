@@ -11,18 +11,7 @@ permalink: /feed.xml
     <description>{{ site.description }}</description>
     <language>en-us</language>
     <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
-
-{% assign excluded_collections = "statics,webtools,products,services,asibuka-logistics" | split: "," %}
-{% assign all_items = "" | split: "" %}
-
-{% for collection in site.collections %}
-  {% unless excluded_collections contains collection.label %}
-    {% assign all_items = all_items | concat: collection.docs %}
-  {% endunless %}
-{% endfor %}
-
-{% assign all_items = all_items | where_exp: "item", "item.date" | sort: "date" | reverse %}
-
+{% include collection_exclude.html %}
 {% for post in all_items %}
   <item>
     <title>{{ post.title }}</title>

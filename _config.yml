@@ -54,6 +54,12 @@ collections:
     output: true
   webtools:
     output: true
+rss_excluded_collections:
+  - 0lists
+  - asibuka-logistics
+  - products
+  - services
+  - webtools
 # ------------------------------
 # Default Value
 # ------------------------------
