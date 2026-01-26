@@ -19,5 +19,6 @@ permalink: /feed.xml
     <description><![CDATA[{{ post.excerpt | strip_html | truncatewords: 200 }}]]></description>
     <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
   </item>
+{% endfor %}
   </channel>
 </rss>
