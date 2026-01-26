@@ -44,11 +44,11 @@ collections:
     output: true
   blog-ad-networks:
     output: true
-  anime:
-    output: true
   asibuka-logistics:
     output: true
   products:
+    output: true
+  services:
     output: true
   statics:
     output: true

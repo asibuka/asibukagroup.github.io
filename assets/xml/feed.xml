@@ -2,6 +2,7 @@
 layout: none
 permalink: /feed.xml
 ---
+
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
@@ -11,13 +12,23 @@ permalink: /feed.xml
     <language>en-us</language>
     <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
 
-    {% for post in site.posts %}
-    <item>
-      <title>{{ post.title }}</title>
-      <link>{{ site.url }}{{ post.url }}</link>
-      <description><![CDATA[{{ post.excerpt | strip_html | truncatewords: 200 }}]]></description>
-      <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-    </item>
-    {% endfor %}
+{% assign excluded_collections = "statics,webtools,products,services,asibuka-logistics" | split: "," %}
+{% assign all_items = "" | split: "" %}
+
+{% for collection in site.collections %}
+  {% unless excluded_collections contains collection.label %}
+    {% assign all_items = all_items | concat: collection.docs %}
+  {% endunless %}
+{% endfor %}
+
+{% assign all_items = all_items | where_exp: "item", "item.date" | sort: "date" | reverse %}
+
+{% for post in all_items %}
+  <item>
+    <title>{{ post.title }}</title>
+    <link>{{ site.url }}{{ post.url }}</link>
+    <description><![CDATA[{{ post.excerpt | strip_html | truncatewords: 200 }}]]></description>
+    <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+  </item>
   </channel>
 </rss>

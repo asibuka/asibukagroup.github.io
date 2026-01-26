@@ -9,6 +9,8 @@ author: ASIBUKA Group
 robots: index, follow
 lang: id
 comments: true
+sitemap: false
+toc: false
 ---
 {% if page.is_amp %}
 <p class="text-center">Mohon maaf, fitur ini tidak tersedia di versi AMP. Silahkan klik tombol di bawah untuk masuk ke versi asli.</p>
