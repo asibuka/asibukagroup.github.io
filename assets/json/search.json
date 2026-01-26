@@ -2,9 +2,7 @@
 layout: null
 permalink: /search.json
 ---
-{% assign target_collections = "statics,products" | split: "," %}
-
-{% include collect_docs.html only=target_collections %}
+{% include collection_exclude.html %}
 
 {% assign raw_items = site.posts | concat: all_items %}
 {% assign filtered_items = raw_items | reject: "search", false %}
@@ -26,8 +24,8 @@ permalink: /search.json
   "url": {{ item.url | relative_url | jsonify }},
   "date": "{{ item.date | date_to_xmlschema }}",
   "content": {{ item.description | truncate: 150 | jsonify }},
-  "image": {{ item.image | jsonify }},
-  "author": {{ item.author | jsonify }}
+  "image": {{ item.image | default: "" | jsonify }},
+  "author": {{ item.author | default: "" | jsonify }}
 }{% unless forloop.last %},{% endunless %}
 {% endfor %}
 ]

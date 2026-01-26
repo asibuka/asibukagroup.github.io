@@ -1,8 +1,13 @@
-{% assign excluded = site.rss_excluded_collections | default: "" %}
+{% assign excluded = include.exclude
+  | default: site.rss_excluded_collections
+  | default: "" %}
+
 {% assign all_items = "" | split: "" %}
+
 {% for collection in site.collections %}
   {% unless excluded contains collection.label %}
     {% assign all_items = all_items | concat: collection.docs %}
   {% endunless %}
 {% endfor %}
-{% assign all_items = all_items | where_exp: "item", "item.date" | sort: "date" | reverse %}
+
+{% assign all_items = all_items | where_exp: "item", "item.title or item.description" %}
