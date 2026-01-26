@@ -9,7 +9,7 @@ permalink: /feed.xml
     <title>{{ site.title }}</title>
     <link>{{ site.url }}</link>
     <description>{{ site.description }}</description>
-    <language>en-us</language>
+    <language>id-ID</language>
     <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
 {% include collection_exclude.html %}
 {% for post in all_items %}
