@@ -67,6 +67,10 @@ Hingga saat ini, ASIBUKA Logistics telah bekerja sama dengan beberapa usaha logi
 <td>Ongoing</td>
 <td><a class='btn block' title='Lihat Laporan' href='{{ page.url | replace: "/amp/" , "" }}?function=komisi-asibuka-logistics&title=Laporan%20Keuangan%20Periode%20Ongoing&title1=Ringkasan&id1=2PACX-1vTPeqxEnkAUsKekA0eIwQVVYkwNwbjolgYHMSLBbMgM4vK9WStDfwXZW6raUkGvqah1BSPc7WXHCYa0&gid1=254558185'>Lihat Laporan</a></td>
 </tr>
+<tr>
+<td>2026-01</td>
+<td><a class='btn block' title='Lihat Laporan' href='{{ page.url | replace: "/amp/" , "" }}?function=komisi-asibuka-logistics&title=Laporan%20Laba%20Rugi%20Periode%202026-1&title1=Ringkasan&id1=2PACX-1vT-WIP5kJQgmfgwPPNXMFKCbiLRAmftVy2ufetelsLt7pFxsSWhjDctaW6RsnU-mBIbx29aVSRSFZIy&gid1=254558185'>Lihat Laporan</a></td>
+</tr>
 </table>
 </div>
 <!--<h2 class='main-heading'>Neraca Keuangan</h2>

@@ -25,6 +25,10 @@ toc: false
 <td><a class='btn block' title='Lihat Laporan' href='{{ page.url | replace: "/amp/" , "" }}?function=komisi-asibuka-logistics&title=Pegawai%20-%20Muhammad%20Filah%20Habibi%20Periode%20Ongoing&title1=Ringkasan&id1=2PACX-1vTPeqxEnkAUsKekA0eIwQVVYkwNwbjolgYHMSLBbMgM4vK9WStDfwXZW6raUkGvqah1BSPc7WXHCYa0&gid1=367521391'>Lihat Laporan</a></td>
 </tr>
 <tr>
+<td>2026-01</td>
+<td><a class='btn block' title='Lihat Laporan' href='{{ page.url | replace: "/amp/" , "" }}?function=komisi-asibuka-logistics&title=Pegawai%20-%20Muhammad%20Filah%20Habibi%20Periode%202026-1&title1=Ringkasan&id1=2PACX-1vT-WIP5kJQgmfgwPPNXMFKCbiLRAmftVy2ufetelsLt7pFxsSWhjDctaW6RsnU-mBIbx29aVSRSFZIy&gid1=367521391'>Lihat Laporan</a></td>
+</tr>
+<tr>
 <td>2025-12</td>
 <td><a class='btn block' title='Lihat Laporan' href='{{ page.url | replace: "/amp/" , "" }}?function=komisi-asibuka-logistics&title=Pegawai%20-%20Muhammad%20Filah%20Habibi%20Periode%202025-12&title1=Ringkasan&id1=2PACX-1vRk_9L1wOHflg7w0_C5Fu6KCE1vywPDAkREZJ7dzB1RIEv7-n59RAOkiTQ46mkevSn14mKhDRk-SijM&gid1=367521391'>Lihat Laporan</a></td>
 </tr>
