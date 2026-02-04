@@ -22,7 +22,6 @@ is_amp: false
 <button id='tiktokdownloader' class="btn block" onclick="extract()">Extract</button>
 <div id="status"></div>
 <div id="preview" class="slider-container"></div>
-{% endif %}
 
 ## Cara Penggunaan
 
@@ -33,7 +32,7 @@ is_amp: false
 5. Tekan tombol Ektract.
 6. Tunggu Proses ekstraksi selesai. Jika gagal silahkan refresh dan ulangi dari langkah empat.
 7. Jika berhasil, silahkan tekan tombol Download.
-
+{% endif %}
 <!--<script>
 async function extract() {
   const textarea = document.getElementById("url");
