@@ -27,6 +27,8 @@ sitemap: false
 <div id="output"></div>
 
 > Alat ini tidak diperuntukkan untuk umum. Hanya untuk operasional ASIBUKA Group.
+
+{% endif %}
 <!--
 <script>async function run() { const urls = document.getElementById("urls").value .split("\n") .map(u => u.trim()) .filter(Boolean); if (urls.length === 0) { alert("Masukkan minimal 1 URL"); return; } document.getElementById("output").innerHTML = "Loading..."; let rows = []; for (const url of urls) { try { const res = await fetch(url); const json = await res.json(); if (json.status !== 200) { rows.push({ error: json.message }); continue; } rows.push({ awb: json.data.summary.awb, courier: json.data.summary.courier, status: json.data.summary.status, desc: json.data.history?.[0]?.desc || "-", date: json.data.history?.[0]?.date || "-" }); } catch (err) { rows.push({ error: err.message }); } } renderTable(rows); } function renderTable(data) { let html = <table> <tr> <th>AWB</th> <th>Courier</th> <th>Status</th> <th>Latest Update</th> <th>Date</th> <th>Error</th> </tr> ; data.forEach(r => { html += <tr> <td>${r.awb || "-"}</td> <td>${r.courier || "-"}</td> <td>${r.status || "-"}</td> <td>${r.desc || "-"}</td> <td>${r.date || "-"}</td> <td class="error">${r.error || ""}</td> </tr> ; }); html += "</table>"; document.getElementById("output").innerHTML = html; }</script>
 -->
