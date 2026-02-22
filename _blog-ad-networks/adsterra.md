@@ -20,6 +20,9 @@ Adsterra adalah jaringan periklanan digital global yang menghubungkan pengiklan 
 
 Antarmuka publisher di Adsterra dirancang cukup sederhana dan ramah pengguna, bahkan bagi pemula. Dashboard menampilkan ringkasan statistik utama seperti impresi, klik, konversi, dan estimasi pendapatan secara real-time, sehingga memudahkan publisher memantau performa trafik mereka. Navigasinya tertata rapi dengan menu yang jelas untuk menambahkan website atau sumber trafik, membuat unit iklan, serta mengakses laporan detail berdasarkan tanggal, geo, atau format iklan. Selain itu, tersedia fitur notifikasi dan dukungan account manager yang membantu publisher mengoptimalkan monetisasi.
 
+{% include ads/adsterra-socialbar.js %}
+{% include ads/adsterra-popunder.js %}
+
 Proses pendaftaran sebagai publisher tergolong mudah dan cepat. Calon publisher hanya perlu mengisi formulir pendaftaran dengan informasi dasar seperti email, password, dan tipe trafik (website, social media, atau direct link). Setelah verifikasi email, pengguna dapat langsung menambahkan sumber trafik mereka untuk ditinjau. Tim Adsterra biasanya melakukan proses moderasi untuk memastikan trafik memenuhi kebijakan mereka, termasuk terkait konten dan kualitas pengunjung. Jika disetujui, publisher dapat langsung membuat placement iklan dan mulai menghasilkan pendapatan. Secara keseluruhan, prosesnya cukup efisien dan tidak terlalu rumit dibandingkan beberapa jaringan iklan lain.
 
 <h2 class='main-heading'>Monetisasi dan Penghasilan</h2>
@@ -80,5 +83,3 @@ Jika kamu berminat mencoba, silahkan tekan tombol di bawah ini:
 
 <a href='https://beta.publishers.adsterra.com/referral/qPc72MHCYz' title='Adsterra' target='_blank' rel='nofollow noopener noreferrer' class='btn block'>Daftar Adsterra</a>
 {% include ads/adsterra-native.js %}
-{% include ads/adsterra-socialbar.js %}
-{% include ads/adsterra-popunder.js %}
