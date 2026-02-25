@@ -117,54 +117,11 @@ Lorem ipsum dolor sit amet, *consectetur* adipiscing elit. **Pellentesque** ut c
   <summary>Click to see more information about #1</summary>
 	<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus nobis beatae exercitationem ratione, eum vero modi iusto cumque porro animi quia molestias totam assumenda atque maiores est repellendus ex accusamus.</p>
 </details>
-<style>
-    details {
-	 cursor: pointer;
-	 margin-inline: auto;
-	 margin: 0.5rem auto;
-	 width: 100%;
-}
-details > :not(summary){padding:1rem}
- details::details-content {
-	 height: 0;
-	 interpolate-size: allow-keywords;
-	 opacity: 0;
-	 overflow: hidden;
-	 transition: height 0.5s ease-in-out, content-visibility 0.5s ease-in-out, opacity 0.5s ease-in-out, scale 0.5s ease-in-out;
-	 transition-behavior: allow-discrete;
-}
- details[open] > summary {
-	 color: white;
-}
- details[open] > summary:after {
-	 background-color: white;
-	 transform: rotate(45deg);
-}
- details[open]::details-content {
-	 height: auto;
-	 opacity: 1;
-}
- summary {
-	 background-color: #004aad;
-	 color: white;
-	 list-style: none;
-	 padding: 1rem;
-	 position: relative;
-	 transition: color 0.5s ease-in-out;
-}
- summary:after {
-	 background-color: white;
-	 border-radius: 50%;
-	 content: '+';
-	 color: black;
-	 font-size: 1.75rem;
-	 height: 1.5rem;
-	 line-height: 1.5rem;
-	 position: absolute;
-	 right: 1rem;
-	 text-align: center;
-	 transition: background-color 0.5s ease-in-out, transform 0.5s ease-in-out;
-	 width: 1.5rem;
-}
-summary > * {padding:.5rem}
- </style>
+
+### Cara Penggunaan via HTML
+```html
+<details name="info-sum" open>
+  <summary>Click to see more information about #1</summary>
+	<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus nobis beatae exercitationem ratione, eum vero modi iusto cumque porro animi quia molestias totam assumenda atque maiores est repellendus ex accusamus.</p>
+</details>
+```

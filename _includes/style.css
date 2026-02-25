@@ -44,6 +44,17 @@ blockquote{font-size:1rem;padding:.75rem 1.25rem}
 }
 body.dark blockquote{background-color:#2c2c2c;color:#ddd;border-left-color:#4d8eff;box-shadow:0 2px 6px #0000004d}
 {% endif %}
+{% if content contains '<details' %}
+details{cursor:pointer;margin-inline:auto;margin:.5rem auto;width:100%}
+details > :not(summary){padding:1rem}
+details::details-content{height:0;interpolate-size:allow-keywords;opacity:0;overflow:hidden;transition:height .5s ease-in-out,content-visibility .5s ease-in-out,opacity .5s ease-in-out,scale .5s ease-in-out;transition-behavior:allow-discrete}
+details[open] > summary{color:#fff}
+details[open] > summary:after{background-color:#fff;transform:rotate(45deg)}
+details[open]::details-content{height:auto;opacity:1}
+summary{background-color:#004aad;color:#fff;list-style:none;padding:1rem;position:relative;transition:color .5s ease-in-out}
+summary:after{background-color:#fff;border-radius:50%;content:'+';color:#000;font-size:1.75rem;height:1.5rem;line-height:1.5rem;position:absolute;right:1rem;text-align:center;transition:background-color .5s ease-in-out,transform .5s ease-in-out;width:1.5rem}
+summary > *{padding:.5rem}
+{% endif %}
 {% if content contains '<pre' %}
 /* Syntax Highlighter */
 pre code{display:block;padding:16px;margin:0;overflow-x:auto;white-space:pre-wrap;word-wrap:break-word;background-color:#2d2d2d;color:#f8f8f2;border-radius:8px;font-family:Consolas,Monaco,"Andale Mono",monospace;font-size:14px}
