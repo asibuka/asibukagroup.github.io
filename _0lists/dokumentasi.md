@@ -8,7 +8,7 @@ description: Halaman berisi dokumentasi styling dari ASIBUKA Group.
 keywords: dokumentasi, styling
 robots: noindex, nofollow
 author: ASIBUKA Group
-toc: false
+toc: true
 is_amp: false
 comments: false
 sitemap: false
@@ -111,7 +111,96 @@ Lorem ipsum dolor sit amet, [consectetur adipiscing elit](https://www.asibuka.co
 
 Lorem ipsum dolor sit amet, *consectetur* adipiscing elit. **Pellentesque** ut commodo dolor. ~~Phasellus~~ eu venenatis tellus. _Pellentesque_ habitant morbi --- tristique senectus et netus et malesuada fames ac turpis egestas. `Morbi` purus turpis, consequat eget felis in, accumsan fringilla dui. Quisque aliquam lorem ut ipsum consequat convallis. Maecenas convallis mi libero, hendrerit molestie ipsum congue ut. Fusce facilisis interdum consectetur. Donec blandit est ac justo porttitor, ac feugiat erat aliquet. Pellentesque quis semper lacus. Nullam ac sagittis quam, ut pellentesque est. Etiam tempus tortor sed justo volutpat sollicitudin. Aliquam tempus finibus dignissim.
 
+<h2 class='main-heading'>Table</h2>
+
+### Hasil
+
+<div class='table-container'>
+<table>
+  <tr>
+    <th>Company</th>
+    <th>Contact</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>Centro comercial Moctezuma</td>
+    <td>Francisco Chang</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>Ernst Handel</td>
+    <td>Roland Mendel</td>
+    <td>Austria</td>
+  </tr>
+  <tr>
+    <td>Island Trading</td>
+    <td>Helen Bennett</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>Laughing Bacchus Winecellars</td>
+    <td>Yoshi Tannamuri</td>
+    <td>Canada</td>
+  </tr>
+  <tr>
+    <td>Magazzini Alimentari Riuniti</td>
+    <td>Giovanni Rovelli</td>
+    <td>Italy</td>
+  </tr>
+</table>
+</div>
+
+### Cara Penggunaan via HTML
+```html
+<div class='table-container'>
+<table>
+  <tr>
+    <th>Company</th>
+    <th>Contact</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>Centro comercial Moctezuma</td>
+    <td>Francisco Chang</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>Ernst Handel</td>
+    <td>Roland Mendel</td>
+    <td>Austria</td>
+  </tr>
+  <tr>
+    <td>Island Trading</td>
+    <td>Helen Bennett</td>
+    <td>UK</td>
+  </tr>
+  <tr>
+    <td>Laughing Bacchus Winecellars</td>
+    <td>Yoshi Tannamuri</td>
+    <td>Canada</td>
+  </tr>
+  <tr>
+    <td>Magazzini Alimentari Riuniti</td>
+    <td>Giovanni Rovelli</td>
+    <td>Italy</td>
+  </tr>
+</table>
+</div>
+```
+
 <h2 class='main-heading'>Accordion</h2>
+
+### Hasil
 
 <details name="info-sum" open>
   <summary>Click to see more information about #1</summary>
@@ -125,3 +214,4 @@ Lorem ipsum dolor sit amet, *consectetur* adipiscing elit. **Pellentesque** ut c
 	<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus nobis beatae exercitationem ratione, eum vero modi iusto cumque porro animi quia molestias totam assumenda atque maiores est repellendus ex accusamus.</p>
 </details>
 ```
+<h2 class='main-heading'>Accordion</h2>
