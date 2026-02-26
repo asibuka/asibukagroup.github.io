@@ -1,5 +1,5 @@
 ---
-layout: static
+layout: post
 title: "Review Ad Networks: Mondiad"
 permalink: /ad-networks/mondiad/
 lang: id

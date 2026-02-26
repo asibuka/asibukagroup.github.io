@@ -156,6 +156,7 @@ Lorem ipsum dolor sit amet, *consectetur* adipiscing elit. **Pellentesque** ut c
 </div>
 
 ### Cara Penggunaan via HTML
+
 ```html
 <div class='table-container'>
 <table>

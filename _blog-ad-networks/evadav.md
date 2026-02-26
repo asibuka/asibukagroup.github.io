@@ -1,5 +1,5 @@
 ---
-layout: static
+layout: post
 title: "Review Ad Networks: Evadav"
 permalink: /ad-networks/evadav/
 lang: id
