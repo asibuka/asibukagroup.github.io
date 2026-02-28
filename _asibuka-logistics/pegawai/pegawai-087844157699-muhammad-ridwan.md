@@ -24,6 +24,10 @@ toc: false
 <td><a class='btn block' title='Lihat Laporan' href='{{ page.url | replace: "/amp/" , "" }}?function=komisi-asibuka-logistics&title=Pegawai%20-%20Muhammad%20Ridwan%20Periode%20Ongoing&title1=Ringkasan&id1=2PACX-1vTPeqxEnkAUsKekA0eIwQVVYkwNwbjolgYHMSLBbMgM4vK9WStDfwXZW6raUkGvqah1BSPc7WXHCYa0&gid1=2120199378'>Lihat Laporan</a></td>
 </tr>
 <tr>
+<td>2026-02</td>
+<td><a class='btn block' title='Lihat Laporan' href='{{ page.url | replace: "/amp/" , "" }}?function=komisi-asibuka-logistics&title=Pegawai%20-%20Muhammad%20Ridwan%20Periode%202026-2&title1=Ringkasan&id1=2PACX-1vRs81kNa3aWZ-fzi0D4NdpQqUyckClT1M3X-6KgExw-kINoTHSQEaALJvjH2gNHh10cNo_LsDLQtz9-&gid1=2120199378'>Lihat Laporan</a></td>
+</tr>
+<tr>
 <td>2026-01</td>
 <td><a class='btn block' title='Lihat Laporan' href='{{ page.url | replace: "/amp/" , "" }}?function=komisi-asibuka-logistics&title=Pegawai%20-%20Muhammad%20Ridwan%20Periode%202026-1&title1=Ringkasan&id1=2PACX-1vT-WIP5kJQgmfgwPPNXMFKCbiLRAmftVy2ufetelsLt7pFxsSWhjDctaW6RsnU-mBIbx29aVSRSFZIy&gid1=2120199378'>Lihat Laporan</a></td>
 </tr>
