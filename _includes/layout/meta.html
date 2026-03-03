@@ -70,6 +70,10 @@
 <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ page.url | replace:'/amp/','/' }}">
 {% unless page.is_amp %}<link rel='amphtml' href="{{ site.url }}{{ page.url | replace:'index.html','' }}amp/">{% endunless %}
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
+<!-- Google AdSense -->
+<noscript class='noscript'>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4951061355072034" crossorigin="anonymous"></script>
+</noscript>
 <!-- Preload / DNS Prefetch -->
 {% if page.url == "/" or page.url == "/amp/" %}
 {% endif %}
