@@ -7,7 +7,7 @@ const body=document.body,darkToggle=document.getElementById("darkToggle"),savedM
 const postUrls=[{% for post in site.blog-ad-networks %}{% unless post.url contains '/404.html' or post.url contains '/search.json' or post.url contains '/amp/' %}"{{ post.url | relative_url }}",{% endunless %}{% endfor %}],randomUrl=postUrls[Math.floor(Math.random()*postUrls.length)];document.addEventListener("DOMContentLoaded",function(){const n=document.getElementById("random-post-link");n&&randomUrl&&(n.href=randomUrl)});
 {% if page.url contains "ad-networks" %}
 /* Ad Networks Key Down */
-document.dispatchEvent(new KeyboardEvent("keydown",{key:"ArrowDown",code:"ArrowDown",keyCode:40,which:40,bubbles:!0}));
+window.addEventListener("load",function(){setTimeout(function(){window.scrollBy({top:150,behavior:"smooth"})},2e3)});
 {% endif %}
 /* Search Page */
 {% if page.url contains "/search" %}
