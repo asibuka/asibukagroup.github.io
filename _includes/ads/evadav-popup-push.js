@@ -1,6 +1,6 @@
 {% unless page.is_amp %}
 <div itemscope itemtype='https://schema.org/WPAdblock' class='evadav-popup-push-ad'></div>
-<script>Defer.dom(".evadav-native-ad", 1000, "loaded", function () {
+<script>Defer.dom(".evadav-popup-push-ad", 1000, "loaded", function () {
     var container = document.querySelector(".evadav-popup-push-ad");
     if (container) {
         var a = document.createElement("script");
