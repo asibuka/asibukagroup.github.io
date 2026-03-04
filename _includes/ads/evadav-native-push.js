@@ -1,4 +1,15 @@
 {% unless page.is_amp %}
 <div itemscope itemtype='https://schema.org/WPAdblock' class='evadav-native-push-ad'></div>
-<script>Defer.dom(".evadav-native-push-ad",1000,"loaded",function(){var a=document.createElement("script");a.src="https://curoax.com/na/waWQiOjExOTc4NzksInNpZCI6MTQ2MDQwOSwid2lkIjo3MTA5NzgsInNyYyI6Mn0=eyJ.js",document.body.appendChild(a),console.info("Adsterra Social Bar ad is loaded.")},{rootMargin:"150%"});</script>
+<script>Defer.dom(".evadav-native-ad", 1000, "loaded", function () {
+    var container = document.querySelector(".evadav-native-push-ad");
+    
+    if (container) {
+        var a = document.createElement("script");
+        a.src = "https://curoax.com/na/waWQiOjExOTc4NzksInNpZCI6MTQ2MDQwOSwid2lkIjo3MTA5NzgsInNyYyI6Mn0=eyJ.js";
+        container.appendChild(a);
+        console.info("Loaded.");
+    } else {
+        console.warn("Container element not found.");
+    }
+}, { rootMargin: "150%" });</script>
 {% endunless %}
