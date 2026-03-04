@@ -20,6 +20,7 @@ Evadav adalah jaringan periklanan (ad network) berbasis global yang berfokus pad
 Evadav cukup populer di kalangan publisher niche hiburan, streaming, download, gaming, dan berbagai situs dengan trafik internasional.
 
 {% include ads/evadav-popup-push.js %}
+{% include ads/evadav-native-push.js %}
 
 <h2 class='main-heading'>Antarmuka dan Proses Pendaftaran</h2>
 
@@ -78,4 +79,3 @@ Jika kamu berminat mencoba, silahkan tekan tombol di bawah ini:
 
 <a href='https://refadav.com/?ref=zIZsXH_5IaTJxs8Oe5A06ciBo--8MwWf' title='Evadav' target='_blank' rel='nofollow noopener noreferrer' class='btn block'>Daftar Evadav</a>
 {% include ads/evadav-native.js %}
-{% include ads/evadav-native-push.js %}

@@ -1,4 +1,4 @@
 {% unless page.is_amp %}
 <div itemscope itemtype='https://schema.org/WPAdblock' class='evadav-native-push-ad ads text-center'></div>
-<script>Defer.dom(".evadav-native-push-ad",1e3,"loaded",function(){var e,n=document.querySelector(".evadav-native-push-ad");n?((e=document.createElement("script")).src="https://curoax.com/na/waWQiOjExOTc4NzksInNpZCI6MTQ2MDQwOSwid2lkIjo3MTA5NzgsInNyYyI6Mn0=eyJ.js",n.appendChild(e),console.info("Loaded.")):console.warn("Container element not found.")},{rootMargin:"150%"});</script>
+<script>Defer.dom(".evadav-native-push-ad",1000,"loaded",function(){var a=document.createElement("script");a.src="https://curoax.com/na/waWQiOjExOTc4NzksInNpZCI6MTQ2MDQwOSwid2lkIjo3MTA5NzgsInNyYyI6Mn0=eyJ.js",document.body.appendChild(a),console.info("Evadav Native Push ad is loaded.")},{rootMargin:"150%"});</script>
 {% endunless %}
