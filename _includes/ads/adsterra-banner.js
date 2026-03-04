@@ -7,7 +7,7 @@
   1e3,
   "loaded",
   function () {
-    var container = document.querySelector(".adsterra-300-x250-banner-ad");
+    var container = document.querySelector(".adsterra-300x250-banner-ad");
 
     if (!container) {
       console.warn("Container element not found.");
