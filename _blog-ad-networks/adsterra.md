@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: static
 title: "Review Ad Networks: Adsterra"
 permalink: /ad-networks/adsterra/
 lang: id
