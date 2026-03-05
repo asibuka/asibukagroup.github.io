@@ -5,7 +5,7 @@ permalink: /ad-networks/adsterra/
 lang: id
 image: https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj8-eNslJwIT-iX-fkW-XFE9iRYS221u_xJ2fF_owEL7xVc_FhPFrVddrqd7PIXlvU8oGFOKE13sqa8IgZilnkGUyVN5qW_0zmlP04oTPRhtKraoiUZ5dKYnPev-TmcgokGPYVJ65dF1UZpJKVMjhA6Zx3ZhTeGs_EJrHeRyVPgKOOaTmgulL7siJEfbd03/s0-rw/adsterra.jpg
 description: Ulasan tentang ad networks Adsterra berdasarkan pengalaman pribadi menggunakan platform ini di ASIBUKA Group.
-keywords: adsterra, adnetwork, ad network
+keywords: adsterra, ad network, ad networks
 robots: index, follow
 author: ASIBUKA Group
 comments: true
