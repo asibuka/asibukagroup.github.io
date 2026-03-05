@@ -25,10 +25,6 @@ let utterance,voices=[],isSpeaking=!1,isFinished=!0,isCancelling=!1,blocks=[],cu
 <svg id="play-icon" viewBox="0 0 24 24">
 <path d="M8 5v14l11-7z"/>
 </svg>`}
-{% if page.url contains "ad-networks" %}
-/* Ad Networks Scroll Down */
-window.addEventListener("load",function(){setTimeout(function(){window.scrollBy({top:150,behavior:"smooth"})},2e3)});
-{% endif %}
 {% if page.url contains "/search" %}
 /* Search Page */
 (()=>{document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("search-box"),t=document.getElementById("results");if(!t)return console.error("Results container not found.");const n=new URLSearchParams(window.location.search).get("q")||"";e.value=n,fetch("/search.json").then(e=>e.json()).then(r=>{const a=lunr(function(){this.ref("url"),this.field("title"),this.field("content"),r.forEach(e=>this.add(e))}),d=e=>{const n=a.search(e);t.innerHTML=n.length?"":"<div class=\"no-results\">No results found.</div>",n.forEach(e=>{const n=r.find(t=>t.url===e.ref);n&&o(n)})},s=e=>{t.innerHTML="",e.forEach(o)},o=e=>{const n=document.createElement("article");n.className="post-container";const i=e.price&&/\d/.test(e.price)?`<p class="price"><strong>Price:</strong> ${e.price}</p>`:e.author&&e.author.trim()!==""?`<p class="author"><strong>Author:</strong> ${e.author}</p>`:"";n.innerHTML=`${e.image?`<div class="post-image"><a href="${e.url}" title="${e.title}"><img src="${e.image}" alt="${e.title}" /></a></div>`:""}<div class="post-content"><h2><a href="${e.url}" title="${e.title}">${e.title}</a></h2>${i}<p class="summary">${e.content}</p></div>`,t.appendChild(n)};n.trim()?d(n):s(r),e.addEventListener("input",function(){this.value.trim()?d(this.value):s(r)})}).catch(e=>console.error("Error fetching search.json:",e))})})();
