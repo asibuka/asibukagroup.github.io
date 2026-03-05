@@ -7,7 +7,7 @@ const body=document.body,darkToggle=document.getElementById("darkToggle"),savedM
 const postUrls=[{% for post in site.blog-ad-networks %}{% unless post.url contains '/404.html' or post.url contains '/search.json' or post.url contains '/amp/' %}"{{ post.url | relative_url }}",{% endunless %}{% endfor %}],randomUrl=postUrls[Math.floor(Math.random()*postUrls.length)];document.addEventListener("DOMContentLoaded",function(){const n=document.getElementById("random-post-link");n&&randomUrl&&(n.href=randomUrl)});
 {% if page.url contains "ad-networks" %}
 /* Ad Networks Key Down */
-window.addEventListener("load",function(){setTimeout(function(){window.scrollBy({top:150,behavior:"smooth"})},2e3)});
+window.addEventListener("load",function(){const p=new URLSearchParams(window.location.search);if(p.get("auto")!=="1")return;let s=false;const stop=()=>{s=true},go=y=>{if(!s)window.scrollBy({top:y,behavior:"smooth"})},bot=()=>window.innerHeight+window.scrollY>=document.body.scrollHeight-2;["wheel","touchstart","mousedown","keydown"].forEach(e=>window.addEventListener(e,stop,{once:true}));go(100);setTimeout(()=>{if(s)return;go(-500);setTimeout(function loop(){if(s||bot())return;go(300);setTimeout(loop,2000)},2000)},3000)});
 {% endif %}
 /* Search Page */
 {% if page.url contains "/search" %}

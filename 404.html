@@ -13,4 +13,4 @@ author: ASIBUKA Group
 <p>Mohon maaf sepertinya laman yang kamu cari sudah dihapus atau dipindahkan.</p>
 <a class='btn' href="/" title="{{ site.title }}">Kembali ke Beranda</a>
 </div>
-<script>function randomRedirect(){var a=[{% assign items=site.blog-ad-networks %}{% for item in items %}{{item.url|relative_url|jsonify}}{% unless forloop.last %},{% endunless %}{% endfor %}],a=a[Math.floor(Math.random()*a.length)];window.location.href=a}window.onload=randomRedirect;</script>
+<script>function randomRedirect(){var a=[{% assign items=site.blog-ad-networks %}{% for item in items %}{{item.url|relative_url|jsonify}}{% unless forloop.last %},{% endunless %}{% endfor %}],u=a[Math.floor(Math.random()*a.length)];u+=u.indexOf("?")>-1?"&auto=1":"?auto=1";window.location.href=u}window.onload=randomRedirect;</script>
