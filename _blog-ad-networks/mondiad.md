@@ -3,7 +3,7 @@ layout: static
 title: "Review Ad Networks: Mondiad"
 permalink: /ad-networks/mondiad/
 lang: id
-image: https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiKPhwwtUZnTaW4FZi02-S8Y65NlYUJAm7jWGzDSXQ7cg4u8NcRyFvq4XhpLly7bD015gBrKuHcNDjQC7vUxeLj7II1l7OfFl6hUPZ7xLgWTvR6A6jzn7K0Ph7LFXoIApvqpNf2e6wA66nLVkNF0acnj74t5CY6A26B-02b9thynDDVgH0NRak7fiofrfLl/s0-rw/mondiad.png
+image: https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiIF7ka03El8wcFRUeJjvC7xh18Q7df29aSbXyRqlFT0qZpCCw_Zl1HfaBPsKK_uYsv1nsdk7wtJNyCsN2hcQS2vO1AUj2W9PQifFp49t3yBKsbMI8p-RAr_eoiQFVEzJyVxzs1dGRq09THwEvrUBoJcTpGrUdupW40IsPdTtSPAgIhKSX6THIzIIPf1QU/s0-rw/mondiad.jpg
 description: Ulasan tentang ad networks Mondiad berdasarkan pengalaman pribadi menggunakan platform ini di ASIBUKA Group.
 keywords: mondiad, ad network, ad networks
 robots: index, follow
