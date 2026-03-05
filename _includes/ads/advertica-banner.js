@@ -1,0 +1,4 @@
+{% unless page.is_amp %}
+<div itemscope itemtype='https://schema.org/WPAdblock' class='advertica-banner-ad ads text-center'><ins class='o3a028afc10' data-domain="//data527.click" data-affquery="/e83bc08bc6bada0dae2d/3a028afc10/?placementName=ResponsiveBanner"><</ins></div>
+<script>Defer.dom(".advertica-banner-ad",1e3,"loaded",function(){var c=document.querySelector(".advertica-banner-ad");if(!c){console.warn("Container element not found.");return;}var s=document.createElement("script");s.src="//data527.click/js/responsive.js";s.async=true;c.appendChild(s);console.info("Advertica Banner Loaded.");},{rootMargin:"150%"});</script>
+{% endunless %}
