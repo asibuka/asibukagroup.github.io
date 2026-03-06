@@ -29,6 +29,9 @@
 {% if page.is_amp %}
 <amp-auto-ads type="adsense" data-ad-client="ca-pub-4951061355072034"></amp-auto-ads>
 {% endif %}
+{% if page.url contains "/ad-networks" %}
+<div id='randomizer'></div>
+{% endif %}
 {% include layout/noprint.html %}
 {% include layout/back_to_top.html %}
 {% unless page.is_amp %}{% include js/script-body.js %}{% endunless %}
