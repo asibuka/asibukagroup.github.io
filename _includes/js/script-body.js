@@ -46,8 +46,9 @@ document.querySelectorAll("pre code").forEach(a=>{const b=a.innerHTML.split("\n"
 Defer.dom('.sharethis', 100, 'loaded', function(){Defer.js('https://platform-api.sharethis.com/js/sharethis.js#property=680fdc5c069b9100198cfeb5&product=inline-share-buttons&source=platform', 'sharethis-js', 0, function (){console.info('ShareThis is loaded.');})}, {rootMargin: "150%"});
 {% endif %}
 {% if page.comments == true %}
-/* Disqus */
-Defer.dom("#disqus_thread",100,"loaded",function(){var a=document.createElement("script");a.src="https://{{ site.disqus_shortname }}.disqus.com/embed.js",a.setAttribute("data-timestamp",+new Date),document.body.appendChild(a),console.info("Disqus is loaded.")},{rootMargin:"150%"});
+/* Disqus
+Defer.dom("#disqus_thread",100,"loaded",function(){var a=document.createElement("script");a.src="https://{{ site.disqus_shortname }}.disqus.com/embed.js",a.setAttribute("data-timestamp",+new Date),document.body.appendChild(a),console.info("Disqus is loaded.")},{rootMargin:"150%"}); */
+document.getElementById("open-comments").onclick=function(){var t=document.getElementById("disqus_thread");t.style.display="block";if(!window.disqusLoaded){window.disqusLoaded=1;var d=document,s=d.createElement("script");s.src="https://{{ site.disqus_shortname }}.disqus.com/embed.js";s.setAttribute("data-timestamp",+new Date);(d.head||d.body).appendChild(s)}this.style.display="none"};
 {% endif %}
 /* Google Analytics */
 window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-MM1JFHYPM1"),Defer.js("https://www.googletagmanager.com/gtag/js?id=G-MM1JFHYPM1","google-analytics-sdk",0,function(){console.info("Google Tag Manager is loaded.")},!1);
