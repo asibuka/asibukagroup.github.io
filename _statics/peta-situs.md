@@ -43,8 +43,8 @@ author: ASIBUKA Group
         <tr>
           <td><a href='{{ post.url }}' title='{{ post.title }}'>{{ post.title }}</a></td>
           <td>{{ post.author | default: "Unknown" }}</td>
-          <td><a href='/{{ post_year }}/' title='{{ post_year }}'>{{ post_year }}</a></td>
-          <td><a href='/{{ post_year }}/{{ post_month }}/' title='{{ post_month }}'>{{ post.date | date: "%B" }}</a></td>
+          <td>{{ post_year }}</td>
+          <td>{{ post.date | date: "%B" }}</td>
           <td>{{ post.categories | join: ", " }}</td>
           <td>{{ post.tags | join: ", " }}</td>
         </tr>
