@@ -45,8 +45,6 @@ author: ASIBUKA Group
           <td>{{ post.author | default: "Unknown" }}</td>
           <td>{{ post_year }}</td>
           <td>{{ post.date | date: "%B" }}</td>
-          <td>{{ post.categories | join: ", " }}</td>
-          <td>{{ post.tags | join: ", " }}</td>
         </tr>
       {% endif %}
     {% endfor %}
