@@ -14,6 +14,9 @@ comments: true
 
 PopCash.net adalah jaringan iklan yang mengkhususkan diri dalam format pop-under dan telah beroperasi sejak tahun 2012. Platform ini menghubungkan pengiklan dengan penerbit (publisher) melalui sistem yang sederhana dan mudah digunakan, dengan fokus utama pada monetisasi melalui iklan pop-under—yakni iklan yang terbuka di tab baru di belakang jendela browser utama saat pengguna mengklik halaman.
 
+{% include ads/adsterra-banner.js %}
+{% include ads/adsterra-socialbar.js %}
+
 <h2 class='main-heading'>Antarmuka dan Proses Pendaftaran</h2>
 
 PopCash memiliki antarmuka yang ramah pengguna, baik untuk pengiklan maupun penerbit. Proses pendaftaran sangat cepat, dan situs web biasanya disetujui dalam waktu kurang dari 24 jam. Dashboard yang disediakan cukup informatif, dengan statistik dasar seperti tayangan, klik, dan pendapatan.

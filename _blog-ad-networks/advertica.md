@@ -59,6 +59,7 @@ Secara keseluruhan, sistem monetisasi Advertica cukup fleksibel karena menggabun
 Kualitas iklan merupakan salah satu faktor penting yang menentukan keberhasilan sebuah ad network, baik dari sisi pendapatan publisher maupun kenyamanan pengunjung website. Advertica menyediakan berbagai format iklan seperti banner display, pop-up, pop-under, redirect, dan direct link ads, yang dapat dipasang pada berbagai posisi di halaman website. Format tersebut biasanya didukung oleh sistem monetisasi berbasis CPM, CPC, dan CPA, sehingga pengiklan dapat menjalankan kampanye dengan berbagai jenis tujuan pemasaran.
 
 {% include ads/adsterra-banner.js %}
+{% include ads/adsterra-socialbar.js %}
 
 Dari sisi tampilan, iklan banner standar biasanya tidak terlalu mengganggu pengalaman pengguna jika ditempatkan dengan baik di dalam layout website. Namun beberapa format lain seperti pop-under atau redirect ads cenderung lebih agresif karena membuka halaman baru atau mengarahkan pengguna ke situs lain. Format iklan seperti ini memang sering memberikan potensi pendapatan yang lebih tinggi, tetapi juga dapat memengaruhi kenyamanan pengunjung jika digunakan terlalu sering atau ditempatkan secara berlebihan. Dalam praktik periklanan digital, iklan yang terlalu intrusif seperti pop-up otomatis atau redirect dapat menurunkan persepsi pengguna terhadap sebuah situs.
 

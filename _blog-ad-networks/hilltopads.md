@@ -31,6 +31,9 @@ Platform ini sering digunakan oleh situs streaming, download, entertainment, dan
 
 Antarmuka (interface) platform HilltopAds dirancang cukup sederhana dan mudah dipahami, baik untuk publisher maupun advertiser. Setelah login, pengguna akan langsung diarahkan ke halaman dashboard yang menampilkan ringkasan statistik seperti pendapatan, performa traffic, dan informasi akun. Menu navigasi biasanya berada di sisi kiri layar dan berisi berbagai fitur utama seperti statistik, pengelolaan situs atau kampanye, riwayat pembayaran, serta pengaturan akun. Statistik pada dashboard diperbarui secara berkala sehingga pengguna dapat memantau performa iklan secara hampir real-time. Selain itu, di bagian atas dashboard terdapat informasi saldo akun, ID pengguna, serta akses cepat ke dukungan atau account manager yang dapat membantu jika pengguna mengalami kendala saat menggunakan platform.
 
+{% include ads/adsterra-banner.js %}
+{% include ads/adsterra-socialbar.js %}
+
 Proses pendaftaran di HilltopAds juga tergolong mudah dan tidak memerlukan langkah yang rumit. Saat mendaftar, pengguna hanya perlu mengisi formulir dengan data dasar seperti nama, email, dan kata sandi, lalu memilih jenis akun sebagai publisher atau advertiser. Setelah formulir dikirim, pengguna harus melakukan verifikasi email untuk mengaktifkan akun dan mengakses dashboard. Menariknya, HilltopAds memungkinkan satu akun digunakan untuk dua peran sekaligus, sehingga pengguna yang awalnya mendaftar sebagai publisher dapat mengaktifkan fitur advertiser melalui pengaturan akun tanpa perlu membuat akun baru. Bagi publisher, langkah selanjutnya biasanya adalah menambahkan situs dan memverifikasi kepemilikan domain sebelum mulai menampilkan iklan, sedangkan advertiser perlu melakukan deposit saldo dan membuat kampanye iklan melalui dashboard.
 
 <h2 class='main-heading'>Monetisasi dan Penghasilan</h2>
