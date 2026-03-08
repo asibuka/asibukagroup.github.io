@@ -1,5 +1,5 @@
 ---
-layout: static
+layout: post
 title: "Review Ad Networks: Advertica"
 permalink: /ad-networks/advertica/
 lang: id
@@ -107,4 +107,3 @@ Namun, seperti banyak jaringan iklan berbasis performa lainnya, hasil yang diper
 Jika kamu berminat mencoba, silahkan tekan tombol di bawah ini:
 
 <a href='https://adv.so/927769' title='Advertica' target='_blank' rel='nofollow noopener noreferrer' class='btn block'>Daftar Advertica</a>
-{% include ads/adsterra-native.js %}

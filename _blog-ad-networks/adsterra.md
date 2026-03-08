@@ -1,5 +1,5 @@
 ---
-layout: static
+layout: post
 title: "Review Ad Networks: Adsterra"
 permalink: /ad-networks/adsterra/
 lang: id
@@ -81,5 +81,3 @@ PopCash.net adalah pilihan yang baik bagi pemilik situs yang ingin memonetisasi 
 Jika kamu berminat mencoba, silahkan tekan tombol di bawah ini:
 
 <a href='https://beta.publishers.adsterra.com/referral/qPc72MHCYz' title='Adsterra' target='_blank' rel='nofollow noopener noreferrer' class='btn block'>Daftar Adsterra</a>
-{% include ads/adsterra-native.js %}
-{% include ads/evadav-native.js %}

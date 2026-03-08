@@ -1,5 +1,5 @@
 ---
-layout: static
+layout: post
 title: "Review Ad Networks: Mondiad"
 permalink: /ad-networks/mondiad/
 lang: id
@@ -82,4 +82,3 @@ Secara keseluruhan, Mondiad merupakan ad network yang layak direkomendasikan, te
 Jika kamu berminat mencoba, silahkan tekan tombol di bawah ini:
 
 <a href='https://mondiad.com?refid=26075' title='Mondiad' target='_blank' rel='nofollow noopener noreferrer' class='btn block'>Daftar Mondiad</a>
-{% include ads/mondiad-native.js %}

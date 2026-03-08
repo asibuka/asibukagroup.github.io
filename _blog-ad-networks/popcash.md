@@ -1,5 +1,5 @@
 ---
-layout: static
+layout: post
 title: "Review Ad Networks: Popcash"
 permalink: /ad-networks/popcash/
 lang: id

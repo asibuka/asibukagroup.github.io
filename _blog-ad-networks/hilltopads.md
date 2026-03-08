@@ -1,5 +1,5 @@
 ---
-layout: static
+layout: post
 title: "Review Ad Networks: HilltopAds"
 permalink: /ad-networks/hilltopads/
 lang: id

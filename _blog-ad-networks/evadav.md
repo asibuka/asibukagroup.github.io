@@ -1,5 +1,5 @@
 ---
-layout: static
+layout: post
 title: "Review Ad Networks: Evadav"
 permalink: /ad-networks/evadav/
 lang: id
@@ -80,4 +80,3 @@ Secara keseluruhan, Evadav merupakan platform ad network yang menawarkan berbaga
 Jika kamu berminat mencoba, silahkan tekan tombol di bawah ini:
 
 <a href='https://refadav.com/?ref=zIZsXH_5IaTJxs8Oe5A06ciBo--8MwWf' title='Evadav' target='_blank' rel='nofollow noopener noreferrer' class='btn block'>Daftar Evadav</a>
-{% include ads/evadav-native.js %}
