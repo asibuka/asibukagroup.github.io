@@ -21,8 +21,6 @@ Evadav cukup populer di kalangan publisher niche hiburan, streaming, download, g
 
 {% include ads/evadav-popup-push.js %}
 {% include ads/evadav-native-push.js %}
-{% include ads/adsterra-banner.js %}
-{% include ads/adsterra-socialbar.js %}
 
 <h2 class='main-heading'>Antarmuka dan Proses Pendaftaran</h2>
 

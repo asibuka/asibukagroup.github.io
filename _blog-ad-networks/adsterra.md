@@ -14,8 +14,6 @@ comments: true
 
 Adsterra adalah jaringan periklanan digital global yang menghubungkan pengiklan dan publisher melalui berbagai format iklan berbasis performa. Didirikan pada tahun 2013, Adsterra menawarkan solusi monetisasi seperti popunder, social bar, native ads, banner, dan direct link, dengan fokus pada model pembayaran CPA, CPC, CPM, dan CPI. Platform ini dikenal karena sistem anti-fraud internalnya, jangkauan trafik internasional yang luas, serta proses persetujuan yang relatif ramah bagi publisher pemula maupun profesional. Dengan dukungan manajer akun pribadi dan dashboard pelaporan real-time, Adsterra menjadi salah satu opsi populer bagi pelaku affiliate marketing dan pemilik website yang ingin memaksimalkan pendapatan dari trafik mereka.
 
-{% include ads/adsterra-banner.js %}
-{% include ads/adsterra-socialbar.js %}
 {% include ads/adsterra-popunder.js %}
 
 <h2 class='main-heading'>Antarmuka dan Proses Pendaftaran</h2>

@@ -14,7 +14,6 @@ comments: true
 
 Advertica adalah salah satu platform ad network yang menghubungkan pemilik website (publisher) dengan pengiklan (advertiser). Melalui platform ini, publisher dapat menampilkan berbagai format iklan di situs mereka dan memperoleh penghasilan dari trafik yang dimiliki. Sistem seperti ini merupakan bagian dari ekosistem periklanan digital, di mana ad network berperan sebagai perantara yang mencocokkan ruang iklan milik publisher dengan kebutuhan promosi dari advertiser.
 
-{% include ads/advertica-banner.js %}
 {% include ads/advertica-push.js %}
 {% include ads/advertica-tabunder.js %}
 
@@ -28,8 +27,6 @@ Selain itu, Advertica memberikan fleksibilitas dalam sistem pembayaran. Publishe
 
 Salah satu hal yang cukup menonjol dari platform Advertica adalah desain antarmuka (user interface) dashboard publisher yang relatif sederhana dan mudah digunakan. Setelah login, pengguna akan langsung melihat panel utama yang menampilkan statistik penting seperti jumlah tayangan iklan, klik, konversi, serta estimasi pendapatan secara harian. Dashboard ini juga menyediakan laporan trafik yang cukup detail, termasuk data performa berdasarkan negara, sumber trafik, dan jenis iklan yang digunakan. Dengan tampilan statistik yang rapi, publisher dapat memantau performa monetisasi website mereka secara real-time dan melakukan optimasi jika diperlukan.
 
-{% include ads/hilltopads-banner.js %}
-
 Di dalam dashboard tersebut, Advertica juga menyediakan berbagai menu penting seperti pembuatan ad tag, laporan performa, pengaturan pembayaran, dan manajemen akun. Salah satu fitur yang memudahkan publisher adalah Ad Tag Generator, yaitu alat untuk membuat kode iklan secara otomatis. Pengguna hanya perlu memilih format iklan yang diinginkan, menentukan nama placement, lalu sistem akan menghasilkan kode JavaScript atau tracking link yang siap dipasang di website. Pendekatan ini membuat proses integrasi iklan menjadi cukup cepat bahkan bagi publisher yang masih pemula.
 
 Proses pendaftaran di Advertica juga tergolong sederhana dan cepat. Calon publisher cukup mengisi formulir registrasi melalui halaman pendaftaran dengan beberapa informasi dasar seperti email, password, dan data akun. Setelah proses registrasi selesai, sistem akan mengirimkan email aktivasi yang berisi tautan untuk mengaktifkan akun. Ketika tautan tersebut diklik, akun langsung aktif tanpa perlu proses verifikasi tambahan atau persetujuan manual yang panjang.
@@ -41,8 +38,6 @@ Secara keseluruhan, kombinasi antara dashboard yang sederhana, alat pembuatan ik
 <h2 class='main-heading'>Monetisasi dan Penghasilan</h2>
 
 Advertica menyediakan beberapa metode monetisasi yang memungkinkan publisher memperoleh penghasilan dari trafik website mereka. Platform ini mendukung berbagai model pembayaran iklan seperti CPM (Cost per Mille), CPC (Cost per Click), dan CPA (Cost per Action). Dengan sistem ini, pendapatan publisher dapat berasal dari beberapa sumber sekaligus, seperti jumlah tayangan iklan, klik yang dilakukan pengunjung, atau tindakan tertentu seperti pendaftaran dan pembelian yang dihasilkan dari iklan tersebut.
-
-{% include ads/mondiad-banner.js %}
 
 Salah satu metode monetisasi utama di Advertica adalah melalui format iklan tradisional, seperti banner display dengan ukuran standar (misalnya 300×250, 728×90, atau 160×600), pop-under, redirect, serta direct link ads. Iklan ini biasanya dibayar berdasarkan model CPM atau CPC, sehingga publisher dapat menghasilkan uang setiap kali iklan ditampilkan atau diklik oleh pengunjung. Model ini cocok untuk website dengan trafik yang stabil karena pendapatan dapat meningkat seiring bertambahnya jumlah impresi halaman.
 
@@ -57,9 +52,6 @@ Secara keseluruhan, sistem monetisasi Advertica cukup fleksibel karena menggabun
 <h2 class='main-heading'>Kualitas Iklan dan Pengalaman Pengguna</h2>
 
 Kualitas iklan merupakan salah satu faktor penting yang menentukan keberhasilan sebuah ad network, baik dari sisi pendapatan publisher maupun kenyamanan pengunjung website. Advertica menyediakan berbagai format iklan seperti banner display, pop-up, pop-under, redirect, dan direct link ads, yang dapat dipasang pada berbagai posisi di halaman website. Format tersebut biasanya didukung oleh sistem monetisasi berbasis CPM, CPC, dan CPA, sehingga pengiklan dapat menjalankan kampanye dengan berbagai jenis tujuan pemasaran.
-
-{% include ads/adsterra-banner.js %}
-{% include ads/adsterra-socialbar.js %}
 
 Dari sisi tampilan, iklan banner standar biasanya tidak terlalu mengganggu pengalaman pengguna jika ditempatkan dengan baik di dalam layout website. Namun beberapa format lain seperti pop-under atau redirect ads cenderung lebih agresif karena membuka halaman baru atau mengarahkan pengguna ke situs lain. Format iklan seperti ini memang sering memberikan potensi pendapatan yang lebih tinggi, tetapi juga dapat memengaruhi kenyamanan pengunjung jika digunakan terlalu sering atau ditempatkan secara berlebihan. Dalam praktik periklanan digital, iklan yang terlalu intrusif seperti pop-up otomatis atau redirect dapat menurunkan persepsi pengguna terhadap sebuah situs.
 
