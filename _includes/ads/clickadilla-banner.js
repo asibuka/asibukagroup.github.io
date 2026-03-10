@@ -1,6 +1,4 @@
 {% unless page.is_amp %}
-<div itemscope itemtype='https://schema.org/WPAdblock' class='ads text-center'>
-<div class='clickadilla-banner-ad' data-banner-id="1447384"></div>
-</div>
-<script>Defer.dom(".clickadilla-banner-ad",1e3,"loaded",function(){var e,n=document.querySelector(".clickadilla-banner-ad");n?((e=document.createElement("script")).src="https://js.wpadmngr.com/static/adManager.js";e.setAttribute('data-admpid','323807'),n.appendChild(e),console.info("Mondiad Banner Loaded.")):console.warn("Container element not found.")},{rootMargin:"150%"});</script>
+<div itemscope itemtype='https://schema.org/WPAdblock' class='clickadilla-banner-ad ads text-center'><div data-banner-id="1447384"></div></div>
+<script>Defer.dom(".clickadilla-banner-ad",1e3,"loaded",function(){var c=document.querySelector(".clickadilla-banner-ad");if(!c){console.warn("Container element not found.");return;}var s=document.createElement("script");s.src="https://js.wpadmngr.com/static/adManager.js";s.async=true;s.setAttribute('data-admpid','323807');c.appendChild(s);console.info("Clickadilla Banner Loaded.");},{rootMargin:"150%"});</script>
 {% endunless %}

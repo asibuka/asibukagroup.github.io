@@ -1,4 +1,4 @@
 {% unless page.is_amp %}
-<div itemscope itemtype='https://schema.org/WPAdblock' class='clickadilla-inpage-push-ad ads text-center'></div>
-<script>Defer.dom(".clickadilla-inpage-push-ad",1000,"loaded",function(){var a=document.createElement("script");a.src="https://js.wpadmngr.com/static/adManager.js";a.setAttribute('data-admpid','430441'),document.body.appendChild(a),console.info("Monetag In Page Push ad is loaded.")},{rootMargin:"150%"});</script>
+<div itemscope itemtype='https://schema.org/WPAdblock' class='clickadilla-inpage-push-ad ads text-center'><div data-banner-id="1447384"></div></div>
+<script>Defer.dom(".clickadilla-inpage-push-ad",1e3,"loaded",function(){var c=document.querySelector(".clickadilla-inpage-push-ad");if(!c){console.warn("Container element not found.");return;}var s=document.createElement("script");s.src="https://js.wpadmngr.com/static/adManager.js";s.async=true;s.setAttribute('data-admpid','430441');c.appendChild(s);console.info("Clickadilla Banner Loaded.");},{rootMargin:"150%"});</script>
 {% endunless %}
