@@ -1,4 +1,11 @@
 {% unless page.is_amp %}
 <div itemscope itemtype='https://schema.org/WPAdblock' class='clickadilla-banner-ad ads text-center'><div data-banner-id="1447384"></div></div>
-<script>Defer.dom(".clickadilla-banner-ad",1e3,"loaded",function(){var c=document.querySelector(".clickadilla-banner-ad");if(!c){console.warn("Container element not found.");return;}var s=document.createElement("script");s.src="https://js.wpadmngr.com/static/adManager.js";s.async=true;s.setAttribute('data-admpid','323807');c.appendChild(s);console.info("Clickadilla Banner Loaded.");},{rootMargin:"150%"});</script>
+<script>Defer.dom(".clickadilla-banner-ad",1e3,"loaded",function(){
+var c=document.querySelector(".clickadilla-banner-ad");
+if(!c){console.warn("Container element not found.");return}
+var s=document.createElement("script");
+s.src="https://js.wpadmngr.com/static/adManager.js";
+s.async=true;s.setAttribute('data-admpid','323807');
+c.appendChild(s);
+console.info("Clickadilla Banner Loaded.")},{rootMargin:"150%"});</script>
 {% endunless %}
