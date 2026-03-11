@@ -2,7 +2,13 @@
 permalink: /sw.js
 layout: null
 ---
-
+self.options = {
+    "domain": "3nbf4.com",
+    "zoneId": 10706310
+}
+self.lary = ""
+importScripts('https://3nbf4.com/act/files/service-worker.min.js?r=sw')
+/*
 const CACHE_NAME = "jekyll-pwa-v{{ site.time | date: '%Y%m%d%H%M%S' }}";
 
 const PRECACHE_MANIFEST = [
@@ -78,10 +84,4 @@ self.addEventListener("activate", event => {
       );
     })
   );
-});
-self.options = {
-    "domain": "couphaithuph.net",
-    "zoneId": 9302596
-}
-self.lary = ""
-importScripts('https://couphaithuph.net/act/files/service-worker.min.js?r=sw')
+});*/
