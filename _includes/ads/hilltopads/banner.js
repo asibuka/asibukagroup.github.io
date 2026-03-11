@@ -1,0 +1,4 @@
+{% unless page.is_amp %}
+<div itemscope itemtype='https://schema.org/WPAdblock' class='hilltopads-300x250-banner-ad ads text-center'></div>
+<script>Defer.dom(".hilltopads-300x250-banner-ad",1e3,"loaded",function(){var c=document.querySelector(".hilltopads-300x250-banner-ad");if(!c){console.warn("Container element not found.");return}var s=document.createElement("script");s.src="\/\/elaborate-analysis.com\/bzXWV.sPdGGIlJ0aYDWGcf\/uefmE9\/ujZ-UvlfkEPwTzYgz\/MmDbEay\/M\/zdIGtXNIj-Mfw\/MqTVIBzmMmwU";s.async=true;c.appendChild(s);console.info("hilltopads 300x250 Loaded.");},{rootMargin:"150%"})</script>
+{% endunless %}

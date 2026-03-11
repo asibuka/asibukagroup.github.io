@@ -14,7 +14,7 @@ comments: true
 
 HilltopAds adalah jaringan iklan global yang menghubungkan publisher (pemilik website/aplikasi) dengan advertiser (pengiklan) untuk memonetisasi traffic. Platform ini berdiri sejak 2013 dan melayani traffic dari 250+ negara dengan miliaran impresi setiap bulan.
 
-{% include ads/hilltopads-popunder.js %}
+{% include ads/hilltopads/popunder.js %}
 
 Beberapa ciri utamanya:
 * Platform self-serve untuk advertiser dan publisher
