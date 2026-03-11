@@ -46,7 +46,7 @@ Secara keseluruhan, Monetag memungkinkan publisher memonetisasi hampir seluruh t
 
 <h2 class='main-heading'>Kualitas Iklan dan Pengalaman Pengguna</h2>
 
-{% include ads/monetag-vignette.js %}
+{% include ads/monetag/vignette.js %}
 
 Dari segi kualitas iklan, Monetag menyediakan berbagai jenis kampanye dari pengiklan global yang mencakup banyak kategori, mulai dari aplikasi, layanan online, game, hingga berbagai produk digital. Jaringan ini bekerja dengan sistem otomatis yang menampilkan iklan berdasarkan jenis trafik, lokasi pengunjung, dan perangkat yang digunakan. Dengan sistem tersebut, iklan yang ditampilkan biasanya cukup relevan dengan audiens sehingga dapat membantu meningkatkan rasio klik dan potensi pendapatan bagi publisher.
 
