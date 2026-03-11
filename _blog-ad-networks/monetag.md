@@ -14,7 +14,7 @@ comments: true
 
 Monetag adalah sebuah jaringan periklanan (ad network) global yang dirancang untuk membantu pemilik website, aplikasi, dan berbagai sumber trafik online memonetisasi audiens mereka melalui berbagai format iklan digital. Platform ini menyediakan solusi monetisasi berbasis teknologi otomatis dan algoritma cerdas yang mampu menampilkan iklan paling relevan kepada pengunjung, sehingga membantu meningkatkan pendapatan publisher. Monetag mendukung berbagai jenis trafik, termasuk website desktop, mobile web, aplikasi, hingga trafik dari media sosial dan platform seperti Telegram Mini Apps. Dengan jaringan pengiklan yang luas di berbagai negara, platform ini memungkinkan publisher memonetisasi hampir seluruh trafik mereka melalui model pembayaran seperti CPM, CPC, maupun CPA, serta menyediakan berbagai format iklan populer seperti popunder, push notification, in-page push, vignette banner, dan SmartLink.
 
-{% include ads/monetag-push.js %}
+{% include ads/monetag/push.js %}
 
 Sebagai platform monetisasi digital yang berbasis teknologi, Monetag juga dikenal karena penggunaan sistem optimasi berbasis AI yang membantu memilih format dan penempatan iklan secara otomatis untuk memaksimalkan pendapatan dari setiap impresi. Selain itu, jaringan ini menawarkan proses integrasi yang relatif mudah, dukungan terhadap berbagai metode pembayaran, serta jadwal pembayaran mingguan dengan ambang minimum yang relatif rendah. Dengan karakteristik tersebut, Monetag sering digunakan oleh publisher dari berbagai niche, terutama mereka yang mencari alternatif monetisasi selain jaringan iklan yang memiliki kebijakan lebih ketat.
 
@@ -22,7 +22,7 @@ Sebagai platform monetisasi digital yang berbasis teknologi, Monetag juga dikena
 
 Dari sisi antarmuka (interface), platform Monetag dirancang dengan dashboard yang cukup sederhana dan mudah dipahami, bahkan bagi publisher yang baru pertama kali menggunakan ad network. Setelah login, pengguna akan langsung diarahkan ke dashboard utama yang menampilkan berbagai statistik penting seperti jumlah impresi, klik, pendapatan, serta performa trafik berdasarkan negara dan perangkat. Dashboard ini juga menyediakan menu navigasi untuk mengelola situs, membuat zona iklan (ad zone), memantau laporan performa, serta mengatur metode pembayaran. Dengan tampilan yang bersih dan terstruktur, publisher dapat dengan cepat melihat performa monetisasi dan melakukan optimasi pada penempatan iklan mereka.
 
-{% include ads/monetag-direct.js %}
+{% include ads/monetag/direct.js %}
 
 Proses pendaftaran di Monetag juga relatif mudah dan cepat. Calon publisher hanya perlu membuat akun dengan mengisi formulir pendaftaran yang berisi informasi dasar seperti email, nama, dan negara, atau dapat langsung mendaftar menggunakan akun Google. Setelah itu, pengguna harus menyetujui syarat dan ketentuan platform serta melakukan verifikasi email melalui tautan aktivasi yang dikirimkan ke alamat email yang didaftarkan. Setelah akun aktif, pengguna dapat langsung masuk ke dashboard dan mulai menambahkan website atau sumber trafik yang ingin dimonetisasi.
 
@@ -34,7 +34,7 @@ Secara keseluruhan, proses pendaftaran dan penggunaan antarmuka Monetag tergolon
 
 Sistem monetisasi pada Monetag dirancang untuk membantu publisher menghasilkan pendapatan dari berbagai jenis trafik, baik dari website, aplikasi, maupun sumber trafik lain seperti media sosial atau landing page. Platform ini menggunakan beberapa model pembayaran iklan yang umum di industri periklanan digital, seperti CPM (Cost Per Mille), CPC (Cost Per Click), dan CPA (Cost Per Action). Dengan model CPM, publisher memperoleh penghasilan berdasarkan jumlah impresi iklan yang tampil kepada pengunjung, sedangkan model CPC dan CPA memberikan pendapatan ketika pengguna melakukan klik atau tindakan tertentu pada iklan.
 
-{% include ads/monetag-popunder.js %}
+{% include ads/monetag/popunder.js %}
 
 Monetag menyediakan berbagai format iklan yang dapat digunakan untuk memonetisasi trafik, di antaranya popunder, push notification, in-page push, vignette banner, dan SmartLink (direct link). Setiap format memiliki potensi pendapatan yang berbeda tergantung pada kualitas trafik, lokasi pengunjung (geo), jenis perangkat, serta niche website. Sebagai contoh, format popunder dikenal memiliki CPM yang relatif tinggi karena mampu memonetisasi hampir setiap kunjungan pengguna tanpa memerlukan ruang banner pada halaman.
 
