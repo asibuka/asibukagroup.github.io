@@ -3,7 +3,7 @@ layout: post
 title: "Review Ad Networks: Monetag"
 permalink: /ad-networks/monetag/
 lang: id
-image: https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDhXm4mibW10moENpHfe-Rkv68iIncQYXOdC44Dvg08rlAMDEcZqDyNoFLIks5Nj7zNPpbxK3Ab3Urq7l9oFbn8Y2mAJIylamj5BAadbSKI90hWoTq30D6Ud9LrAWK7SIiV79tdp2AHgv22TtiR9Aaskaqk3PNo58F-GkVkH1Q47_OC5QQR_H_B7bLg5w/so-rw/monetag.jpg
+image: https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDhXm4mibW10moENpHfe-Rkv68iIncQYXOdC44Dvg08rlAMDEcZqDyNoFLIks5Nj7zNPpbxK3Ab3Urq7l9oFbn8Y2mAJIylamj5BAadbSKI90hWoTq30D6Ud9LrAWK7SIiV79tdp2AHgv22TtiR9Aaskaqk3PNo58F-GkVkH1Q47_OC5QQR_H_B7bLg5w/s0-rw/monetag.jpg
 description: Ulasan tentang ad networks Monetag berdasarkan pengalaman pribadi menggunakan platform ini di ASIBUKA Group.
 keywords: popcash, popcash.net, ad network, ad networks
 robots: index, follow
