@@ -19,8 +19,8 @@ Evadav adalah jaringan periklanan (ad network) berbasis global yang berfokus pad
 
 Evadav cukup populer di kalangan publisher niche hiburan, streaming, download, gaming, dan berbagai situs dengan trafik internasional.
 
-{% include ads/evadav-popup-push.js %}
-{% include ads/evadav-native-push.js %}
+{% include ads/evadav/popup-push.js %}
+{% include ads/evadav/native-push.js %}
 
 <h2 class='main-heading'>Antarmuka dan Proses Pendaftaran</h2>
 

@@ -54,4 +54,4 @@ PopCash.net adalah pilihan yang baik bagi pemilik situs yang ingin memonetisasi 
 Jika kamu berminat mencoba, silahkan tekan tombol di bawah ini:
 
 <a href='https://popcash.net/register/487104' title='Popcash.net' target='_blank' rel='nofollow noopener noreferrer' class='btn block'>Daftar PopCash.net</a>
-{% include ads/popcash.js %}
+{% include ads/popcash/tabunder.js %}

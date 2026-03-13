@@ -16,7 +16,6 @@ Monetag adalah sebuah jaringan periklanan (ad network) global yang dirancang unt
 
 {% include ads/monetag/push.js %}
 {% include ads/monetag/popunder.js %}
-{% include ads/monetag/vignette.js %}
 {% include ads/monetag/direct.js %}
 
 Sebagai platform monetisasi digital yang berbasis teknologi, Monetag juga dikenal karena penggunaan sistem optimasi berbasis AI yang membantu memilih format dan penempatan iklan secara otomatis untuk memaksimalkan pendapatan dari setiap impresi. Selain itu, jaringan ini menawarkan proses integrasi yang relatif mudah, dukungan terhadap berbagai metode pembayaran, serta jadwal pembayaran mingguan dengan ambang minimum yang relatif rendah. Dengan karakteristik tersebut, Monetag sering digunakan oleh publisher dari berbagai niche, terutama mereka yang mencari alternatif monetisasi selain jaringan iklan yang memiliki kebijakan lebih ketat.

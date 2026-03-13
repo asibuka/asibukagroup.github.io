@@ -9,9 +9,9 @@ layout: default
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"{{ page.url }}"},"headline":"{{ page.title }}","description":"{{ page.description }}","image":"{{ page.image }}","author":{"@type":"Organization","name":"ASIBUKA Group","url":"https://www.asibuka.com"},"publisher":{"@type":"Organization","name":"ASIBUKA Group","logo":{"@type":"ImageObject","url":"https://asibuka.com/assets/img/ASIBUKA-Blue.webp"}},"datePublished":"{{ page.date | date_to_xmlschema }}","dateModified":"{{ page.date | date_to_xmlschema }}"}</script>
 </article>
 {% if page.url contains "/ad-networks" %}
-{% include ads/mondiad-native.js %}
-{% include ads/adsterra-native.js %}
-{% include ads/evadav-native.js %}
+{% include ads/mondiad/native.js %}
+{% include ads/adsterra/native.js %}
+{% include ads/evadav/native.js %}
 {% endif %}
 {% include layout/share-buttons.html %}
 <div {% if page.iframe_function == "true" %}class='hide-on-embed'{% endif %}>
