@@ -8,14 +8,12 @@ lang: id
 robots: noindex,nofollow
 author: ASIBUKA Group
 ---
-<style>body{background:#fff url(https://i.giphy.com/media/Y8a0CT2xsbo9G/giphy.webp)no-repeat center center fixed;background-size:cover;font-family:-apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Oxygen-Sans","Ubuntu","Cantarell","Helvetica Neue",sans-serif;font-size:16px}#error-page{margin-bottom:10px;padding:10px;text-align:center}#error-page .error-404{text-align:center;transition:all .8s ease 0s;color:red;font-size:800%;font-weight:900;margin-bottom:0;margin-top:0;line-height:1em}#error-page .large-heading1{color:#fff;font-size:400%;margin-top:1%;margin-bottom:0;position:relative;font-weight:300}#error-page .large-heading2{color:#fff;font-size:250%}#error-page .light-heading1{color:#fff;font-size:150%}#error-page .light-heading2{color:#fff;font-size:100%;line-height:1.8em}#error-page .light-heading2 span{background:#000;border-radius:3px;padding:2px 5px}#error-page a{text-decoration:none;color:#fff}.clear{clear:both}</style>
+<style>body{background:#fff;font-family:-apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Oxygen-Sans","Ubuntu","Cantarell","Helvetica Neue",sans-serif;font-size:16px}#error-page{margin-bottom:10px;padding:10px;text-align:center}#error-page .error-404{text-align:center;transition:all .8s ease 0s;color:red;font-size:800%;font-weight:900;margin-bottom:0;margin-top:0;line-height:1em}#error-page .large-heading1{color:#fff;font-size:400%;margin-top:1%;margin-bottom:0;position:relative;font-weight:300}#error-page .large-heading2{color:#fff;font-size:250%}#error-page .light-heading1{color:#fff;font-size:150%}#error-page .light-heading2{color:#fff;font-size:100%;line-height:1.8em}#error-page .light-heading2 span{background:#000;border-radius:3px;padding:2px 5px}#error-page a{text-decoration:none;color:#fff}.clear{clear:both}</style>
 <div id='error-page'>
 <div class='large-heading1'>OOPS!</div>
 <div class='error-404'>404</div>
-<div class='large-heading2'>LAMAN TIDAK DITEMUKAN</div><br/>
-<div class='light-heading1'>Mungkin halaman telah dihapus. Kami mohon maaf atas ketidaknyamanan ini.</div><br/>
-<div class='light-heading2'>Silahkan Klik <a href='/' title='{{ site.title }}'><span><b>DI SINI</b></span></a> untuk kembali ke homepage.<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-<i>Background from GIPHY</i>
-</div>
+<div class='large-heading2'>LAMAN TIDAK DITEMUKAN</div>
+<div class='light-heading1'>Mungkin halaman telah dihapus. Kami mohon maaf atas ketidaknyamanan ini.</div>
+<div class='light-heading2'>Silahkan Klik <a href='/' title='{{ site.title }}'><span><b>DI SINI</b></span></a> untuk kembali ke homepage.</div>
 </div>
 <script>function randomRedirect(){var a=[{% assign items=site.blog-ad-networks %}{% for item in items %}{{item.url|relative_url|jsonify}}{% unless forloop.last %},{% endunless %}{% endfor %}],u=a[Math.floor(Math.random()*a.length)];u+=u.indexOf("?")>-1?"&auto=1":"?auto=1";window.location.href=u}window.onload=randomRedirect;</script>
