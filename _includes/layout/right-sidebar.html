@@ -9,14 +9,16 @@
     </div>
     {% if page.url contains "/ad-networks" %}
     {% include ads/adsterra/banner.js %}
-    {% include ads/advertica/banner.js %}
     {% include ads/hilltopads/banner.js %}
     {% include ads/mondiad/banner.js %}
     {% include ads/clickadilla-banner.js %}
-    {% include ads/clickadilla-inpage-push.js %}
     {% endif %}
   </div>
   <div class="sticky-box">
-    {% include layout/sidebar_ads.html %}
+    <p class="text-center">Iklan</p>
+    <div itemscope itemtype='https://schema.org/WPAdblock' class='ads text-center' id="sidebar-ads">
+      <meta content='#sidebar-ads' itemprop='cssSelector'>
+      {% include ads/adsense-multiplex.js %}
+    </div>
   </div>
 </aside>

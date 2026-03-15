@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html {% if page.is_amp %}amp {% endif %}lang="{{ page.lang | default: site.lang }}">
+<head>
+{% include layout/meta.html %}
+</head>
+<body {% if page.is_amp %}[class]="visible ? 'dark' : 'light'"{% else %}class="light"{% endif %} id="top">
+
+</body>
+</html>

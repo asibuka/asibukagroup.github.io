@@ -18,13 +18,15 @@
 <body {% if page.is_amp %}[class]="visible ? 'dark' : 'light'"{% else %}class="light"{% endif %} id="top">
 {% include layout/header.html %}
 {% include layout/nav.html %}
-{% include layout/leaderboard_ads.html %}
+    <div itemscope itemtype='https://schema.org/WPAdblock' class='ads one-column-wrapper adsense-responsive-ad text-center hide-on-print' id="leaderboard-ads">
+        <meta content='#leaderboard-ads' itemprop='cssSelector'>
+        {% include ads/adsense-display.js %}
+    </div>
 <div class="layout hide-on-print">
 {% if page.url contains "/ad-networks" %}
 <div id='randomizer'></div>
+{% include ads/adsterra/popunder.js %}
 {% include ads/adsterra/socialbar.js %}
-{% include ads/hilltopads/video-slider.js %}
-{% include ads/hilltopads/inpage-push.js %}
 {% include ads/mondiad/dynamic.js %}
 {% include ads/mondiad/inpage-push.js %}
 {% include ads/monetag/inpage-push.js %}
