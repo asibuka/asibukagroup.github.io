@@ -17,8 +17,6 @@ author: ASIBUKA Group
       <th>Penulis</th>
       <th>Tahun</th>
       <th>Bulan</th>
-      <th>Kategori</th>
-      <th>Tags</th>
     </tr>
   </thead>
   <tbody>
