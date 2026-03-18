@@ -22,21 +22,13 @@
         <meta content='#leaderboard-ads' itemprop='cssSelector'>
         {% include ads/adsense-display.js %}
     </div>
-<div class="layout hide-on-print">
-{% if page.url contains "/ad-networks" %}
-<div id='randomizer'></div>
-{% include ads/adsterra/popunder.js %}
-{% include ads/adsterra/socialbar.js %}
-{% include ads/mondiad/dynamic.js %}
-{% include ads/mondiad/inpage-push.js %}
-{% include ads/monetag/inpage-push.js %}
-{% endif %}
-<main aria-label="Main Wrapper" class="content-wrapper hide-on-print" id="content-wrapper">
-{{ content }}
-</main>
-{% assign column_layouts = "default,archive,static" | split: "," %}
-{% unless column_layouts contains page.layout %}{% include layout/right-sidebar.html %}{% endunless %}
-</div>
+    <div class="layout hide-on-print">
+        <main aria-label="Main Wrapper" class="content-wrapper hide-on-print" id="content-wrapper">
+            {{ content }}
+        </main>
+        {% assign column_layouts = "default,archive,static" | split: "," %}
+        {% unless column_layouts contains page.layout %}{% include layout/right-sidebar.html %}{% endunless %}
+    </div>
 {% if page.is_amp %}
 <amp-auto-ads type="adsense" data-ad-client="ca-pub-4951061355072034"></amp-auto-ads>
 {% endif %}

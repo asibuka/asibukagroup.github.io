@@ -2,6 +2,13 @@
 layout: default
 ---
 <div {% if page.iframe_function == "true" %}class='hide-on-embed'{% endif %}>{% include layout/breadcrumb.html %}</div>
+{% if page.url contains "/ad-networks" %}
+<div id='randomizer'></div>
+{% include ads/adsterra/popunder.js %}
+{% include ads/adsterra/socialbar.js %}
+{% include ads/mondiad/inpage-push.js %}
+{% include ads/monetag/inpage-push.js %}
+{% endif %}
 <article class="hide-on-print">
 <h1 id="EmbedTitle">{{ page.title }}</h1>
 <div {% if page.iframe_function == "true" %}class='hide-on-embed'{% endif %}></div>
@@ -11,7 +18,6 @@ layout: default
 {% if page.url contains "/ad-networks" %}
 {% include ads/mondiad/native.js %}
 {% include ads/adsterra/native.js %}
-{% include ads/evadav/native.js %}
 {% endif %}
 {% include layout/share-buttons.html %}
 <div {% if page.iframe_function == "true" %}class='hide-on-embed'{% endif %}>
