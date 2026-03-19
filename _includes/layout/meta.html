@@ -68,7 +68,9 @@
 <!-- Canonical -->
 <link rel="canonical" hreflang='{{ page.lang | default: site.lang }}' href="{{ site.url }}{{ page.url | replace:'/amp/','/' }}">
 <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ page.url | replace:'/amp/','/' }}">
-{% unless page.is_amp %}<link rel='amphtml' href="{{ site.url }}{{ page.url | replace:'index.html','' }}amp/">{% endunless %}
+{% unless page.is_amp %}
+<link rel='amphtml' href="{{ site.url }}{{ page.url | replace:'index.html','' }}amp/">
+{% endunless %}
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 <!-- Preload / DNS Prefetch -->
 {% if page.url == "/" or page.url == "/amp/" %}

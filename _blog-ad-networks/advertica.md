@@ -14,8 +14,6 @@ comments: true
 
 Advertica adalah salah satu platform ad network yang menghubungkan pemilik website (publisher) dengan pengiklan (advertiser). Melalui platform ini, publisher dapat menampilkan berbagai format iklan di situs mereka dan memperoleh penghasilan dari trafik yang dimiliki. Sistem seperti ini merupakan bagian dari ekosistem periklanan digital, di mana ad network berperan sebagai perantara yang mencocokkan ruang iklan milik publisher dengan kebutuhan promosi dari advertiser.
 
-{% include ads/advertica/tabunder.js %}
-
 Platform ini menawarkan berbagai model monetisasi seperti CPM (Cost per Mille), CPC (Cost per Click), dan CPA (Cost per Action). Dengan model tersebut, publisher bisa memperoleh pendapatan berdasarkan jumlah tayangan iklan, klik, atau tindakan tertentu yang dilakukan pengguna. Selain iklan banner tradisional, Advertica juga menyediakan format lain seperti popunder, native ads, push notification, hingga direct link, sehingga publisher memiliki banyak pilihan untuk mengoptimalkan pendapatan dari trafik yang dimiliki.
 
 Salah satu hal yang sering dipromosikan oleh Advertica adalah proses pendaftaran yang cepat serta persetujuan website secara instan, sehingga situs baru maupun situs dengan trafik kecil tetap bisa bergabung. Platform ini juga mengklaim menyediakan akses ke berbagai kampanye internasional dan demand iklan dari jaringan besar seperti Google AdX untuk meningkatkan tingkat pengisian iklan (fill rate) dan potensi eCPM.
