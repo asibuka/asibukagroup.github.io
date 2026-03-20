@@ -3,7 +3,6 @@ layout: default
 ---
 <div {% if page.iframe_function == "true" %}class='hide-on-embed'{% endif %}>{% include layout/breadcrumb.html %}</div>
 {% if page.url contains "/ad-networks" %}
-<div id='randomizer'></div>
 {% include ads/adsterra/popunder.js %}
 {% include ads/adsterra/socialbar.js %}
 {% include ads/mondiad/inpage-push.js %}
