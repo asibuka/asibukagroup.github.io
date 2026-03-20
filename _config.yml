@@ -87,6 +87,20 @@ kramdown:
 comments: false
 disqus_shortname: "asibukagroup"
 # ------------------------------
+# Plugins
+# ------------------------------
+plugins_dir: _plugins
+plugins:
+  - jekyll-sitemap
+  - ./_plugins/amp_generator.rb
+  - ./_plugins/minifier.rb
+  - ./_plugins/toc_generator.rb
+whitelist:
+  - jekyll-sitemap
+  - ./_plugins/amp_generator.rb
+  - ./_plugins/minifier.rb
+  - ./_plugins/toc_generator.rb
+# ------------------------------
 # 🌐 Other Settings
 # ------------------------------
 include:
@@ -135,17 +149,3 @@ static_links:
 # ------------------------------
 other_links:
   Web Tools: "/alat/"
-# ------------------------------
-# Plugins
-# ------------------------------
-plugins_dir: _plugins
-plugins:
-  - jekyll-sitemap
-  - ./_plugins/amp_generator.rb
-  - ./_plugins/minifier.rb
-  - ./_plugins/toc_generator.rb
-whitelist:
-  - jekyll-sitemap
-  - ./_plugins/amp_generator.rb
-  - ./_plugins/minifier.rb
-  - ./_plugins/toc_generator.rb
