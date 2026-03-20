@@ -215,4 +215,3 @@ Lorem ipsum dolor sit amet, *consectetur* adipiscing elit. **Pellentesque** ut c
 	<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatibus nobis beatae exercitationem ratione, eum vero modi iusto cumque porro animi quia molestias totam assumenda atque maiores est repellendus ex accusamus.</p>
 </details>
 ```
-<h2 class='main-heading'>Accordion</h2>
