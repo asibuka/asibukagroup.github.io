@@ -1,5 +1,5 @@
 ---
-layout: blank
+layout: null
 title: Preview
 permalink: /preview/
 description: Laman khusus untuk menampilkan preview tampilan web.
@@ -15,7 +15,8 @@ sitemap: false
 <div id='tab-demo'>
 <a class='demologo' expr:href='data:blog.homepageUrl.canonical' expr:title='data:blog.title' id='credit'><data:blog.title/></a>
 <select id='selectOption'/>
-<div class='preview-button'><a class='dlbutton' href='#' id='dl' target='_blank' title='Download'/></div>
+<div class='preview-button'>
+<a class='dlbutton' href='#' id='dl' target='_blank' title='Download'/></div>
 <a class='closebutton' href='javascript:void(0)' onclick='document.getElementById("tab-demo").style.display="none";document.getElementById("view").style.top="0";document.getElementById("view").style.height="100%"' title='Close The Menu'/>
 </div>
 <iframe id='view'/>
