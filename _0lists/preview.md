@@ -16,7 +16,7 @@ sitemap: false
 <a class='demologo' expr:href='data:blog.homepageUrl.canonical' expr:title='data:blog.title' id='credit'><data:blog.title/></a>
 <select id='selectOption'/>
 <div class='preview-button'><a class='dlbutton' href='#' id='dl' target='_blank' title='Download'/></div>
-<a class='closebutton' href='javascript:void(0)' onclick='document.getElementById(&apos;tab-demo&apos;).style.display=&apos;none&apos;;document.getElementById(&apos;view&apos;).style.top=&apos;0&apos;;document.getElementById(&apos;view&apos;).style.height=&apos;100%&apos;' title='Close The Menu'/>
+<a class='closebutton' href='javascript:void(0)' onclick='document.getElementById("tab-demo").style.display="none";document.getElementById("view").style.top="0";document.getElementById("view").style.height="100%"' title='Close The Menu'/>
 </div>
 <iframe id='view'/>
 <script>
