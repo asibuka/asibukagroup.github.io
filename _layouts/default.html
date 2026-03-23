@@ -52,7 +52,26 @@
             {{ content }}
         </main>
         {% assign column_layouts = "default,archive,static" | split: "," %}
-        {% unless column_layouts contains page.layout %}{% include layout/right-sidebar.html %}{% endunless %}
+        {% unless column_layouts contains page.layout %}
+        <aside aria-label="Right Sidebar Section" id="right-sidebar" itemscope="" itemtype="https://www.schema.org/WPSideBar" class="right-sidebar">
+            <meta content="#right-sidebar" itemprop="cssSelector">
+            <div class="static-box">
+                <div class="text-center">
+                    <div class="sharethis-inline-follow-buttons sharethis"></div>
+                    <a target="_blank" href="https://paypal.me/ASIBUKAGroup" rel="nofollow noopener noreferrer" title="Dukung melalui Paypal" class="btn block icon paypal">PayPal</a>
+                    <a target="_blank" href="https://www.patreon.com/c/ASIBUKAGroup" rel="nofollow noopener noreferrer" title="Dukung melalui Patreon" class="btn block icon patreon">Patreon</a>
+                    <a target="_blank" href="https://saweria.co/asibukagroup" rel="nofollow noopener noreferrer" title="Dukung melalui Saweria" class="btn block icon download">Saweria</a>
+                </div>
+            </div>
+            <div class="sticky-box">
+                <p class="text-center">Iklan</p>
+                <div itemscope="" itemtype="https://schema.org/WPAdblock" class="ads text-center" id="sidebar-ads">
+                    <meta content="#sidebar-ads" itemprop="cssSelector">
+                    {% include ads/adsense-multiplex.js %}
+                </div>
+            </div>
+        </aside>
+        {% endunless %}
     </div>
     {% if page.is_amp %}<amp-auto-ads type="adsense" data-ad-client="ca-pub-4951061355072034"></amp-auto-ads>{% endif %}
     {% if page.url contains "/ad-networks" %}<div id='randomizer'></div>{% endif %}
