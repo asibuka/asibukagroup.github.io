@@ -261,7 +261,7 @@ to{transform:rotate(360deg)}
 }
 {% endif %}
 /* Randomizer Button */
-{% if content contains "randomizer" %}
+{% if page.url contains "/ad-networks" %}
 #randomizer{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:50px;height:50px;background:#004AAD;opacity:.01;z-index:9999;cursor:pointer}
 {% endif %}
 /* Text to MP3 Converter */
