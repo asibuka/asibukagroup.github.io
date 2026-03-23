@@ -1,13 +1,6 @@
 ---
 layout: default
 ---
-{% if page.url contains "/ad-networks" %}
-{% include ads/adsterra/popunder.js %}
-{% include ads/adsterra/socialbar.js %}
-{% include ads/mondiad/dynamic.js %}
-{% include ads/mondiad/inpage-push.js %}
-{% include ads/monetag/inpage-push.js %}
-{% endif %}
 <div {% if page.iframe_function == "true" %}class='hide-on-embed'{% endif %}>{% include layout/breadcrumb.html %}</div>
 {% if page.url contains "/ad-networks" %}
 {% include ads/adsterra/popunder.js %}
@@ -27,6 +20,6 @@ layout: default
 {% endif %}
 {% include layout/share-buttons.html %}
 <div {% if page.iframe_function == "true" %}class='hide-on-embed'{% endif %}>
-<div class="post-navigation">{% if page.previous %}<a title='{{ page.next.title }}' href="{{ page.previous.url | relative_url }}" class="nav-button prev-post">← {{ page.previous.title }}</a>{% endif %}{% if page.next %}<a title='{{ page.next.title }}' href="{{ page.next.url | relative_url }}" class="nav-button next-post">{{ page.next.title }} →</a>{% endif %}</div>
+<div class="post-navigation {% if page.iframe_function == "true" %}hide-on-embed{% endif %}">{% if page.previous %}<a title='{{ page.next.title }}' href="{{ page.previous.url | relative_url }}" class="nav-button prev-post">← {{ page.previous.title }}</a>{% endif %}{% if page.next %}<a title='{{ page.next.title }}' href="{{ page.next.url | relative_url }}" class="nav-button next-post">{{ page.next.title }} →</a>{% endif %}</div>
 </div>
 {% include layout/disqus.html %}
