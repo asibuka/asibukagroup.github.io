@@ -10,4 +10,4 @@ layout: default
 <div id="loader" class="loading-spinner"></div>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"{{ page.url }}"},"headline":"{{ page.title }}","description":"{{ page.description }}","image":"{{ page.image }}","author":{"@type":"Organization","name":"ASIBUKA Group","url":"https://www.asibuka.com"},"publisher":{"@type":"Organization","name":"ASIBUKA Group","logo":{"@type":"ImageObject","url":"https://asibuka.com/assets/img/ASIBUKA-Blue.webp"}},"datePublished":"{{ page.date | date_to_xmlschema }}","dateModified":"{{ page.date | date_to_xmlschema }}"}</script>
 </article>
-{% if page.comments == true %}{% include layout/disqus.html %}{% endif %}
+{% include layout/disqus.html %}

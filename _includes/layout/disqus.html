@@ -1,7 +1,9 @@
+{% if page.comments == true %}
 {% if page.is_amp %}
 <p class="text-center">Mohon maaf, fitur ini tidak tersedia di versi AMP. Silahkan klik tombol di bawah untuk menggunakan fitur ini.</p>
 <p class="text-center"><a class='btn block' href="{{ page.url | remove: '/amp/' | relative_url }}#disqus_thread">Buka Versi non AMP</a></p>
 {% else %}
 <button class='btn block hide-on-print' id='open-comments'>Open Comments</button>
 <div id='disqus_thread' class="hide-on-print"></div>
+{% endif %}
 {% endif %}
