@@ -62,6 +62,10 @@
                     <a target="_blank" href="https://www.patreon.com/c/ASIBUKAGroup" rel="nofollow noopener noreferrer" title="Dukung melalui Patreon" class="btn block icon patreon">Patreon</a>
                     <a target="_blank" href="https://saweria.co/asibukagroup" rel="nofollow noopener noreferrer" title="Dukung melalui Saweria" class="btn block icon download">Saweria</a>
                 </div>
+                {% if page.url contains "/ad-networks" %}
+                {% include ads/mondiad/banner.js %}
+                {% include ads/adsterra/banner.js %}
+                {% endif %}
             </div>
             <div class="sticky-box">
                 <p class="text-center">Iklan</p>
