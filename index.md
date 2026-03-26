@@ -13,4 +13,11 @@ lang: id
 <h1 class='main-heading'>{{ page.title }}</h1>
 <p>{{ page.description }}</p>
 {% include image.html src="https://www.asibuka.com/assets/img/ASIBUKA-Blue.webp" width="800" height="800" layout="responsive" title="Logo" fetchpriority="high" %}
+
+Selamat datang di website resmi ASIBUKA Group.
+
+<div id='ip'></div>
+
 {% include ads/adsense-infeed.js %}
+
+{% unless page.is_amp %}<script>async function tampilkanIP(){try{const t=await fetch("https://api.ipify.org?format=json"),n=await t.json();document.getElementById("ip").textContent="IP kamu: "+n.ip}catch(t){document.getElementById("ip").textContent="Gagal mengambil IP"}}tampilkanIP();</script>{% unless page.is_amp %}
