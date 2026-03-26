@@ -20,4 +20,4 @@ Selamat datang di website resmi ASIBUKA Group.
 
 {% include ads/adsense-infeed.js %}
 
-{% unless page.is_amp %}<script>async function tampilkanIP(){try{const t=await fetch("https://api.ipify.org?format=json"),n=await t.json();document.getElementById("ip").textContent="IP kamu: "+n.ip}catch(t){document.getElementById("ip").textContent="Gagal mengambil IP"}}tampilkanIP();</script>{% unless page.is_amp %}
+{% unless page.is_amp %}<script>async function tampilkanIP(){try{const t=await fetch("https://api.ipify.org?format=json"),n=await t.json();document.getElementById("ip").textContent="IP kamu: "+n.ip}catch(t){document.getElementById("ip").textContent="Gagal mengambil IP"}}tampilkanIP();</script>{% endunless %}
