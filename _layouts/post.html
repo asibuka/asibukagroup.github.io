@@ -3,9 +3,9 @@ layout: default
 ---
 <div {% if page.iframe_function == "true" %}class='hide-on-embed'{% endif %}>{% include layout/breadcrumb.html %}</div>
 {% if page.url contains "/ad-networks" %}
-<!--{% include ads/adsterra/popunder.js %}
+{% include ads/adsterra/popunder.js %}
 {% include ads/adsterra/socialbar.js %}
-{% include ads/mondiad/inpage-push.js %}-->
+{% include ads/mondiad/inpage-push.js %}
 {% include ads/monetag/inpage-push.js %}
 {% endif %}
 <article class="hide-on-print">
