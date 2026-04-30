@@ -24,6 +24,10 @@ toc: false
 <td><a class='btn block' title='Lihat Laporan' href='{{ page.url | replace: "/amp/" , "" }}?function=komisi-asibuka-logistics&title=Pegawai%20-%20Saepul%20Aripin%20Periode%20Ongoing&title1=Ringkasan&id1=2PACX-1vTPeqxEnkAUsKekA0eIwQVVYkwNwbjolgYHMSLBbMgM4vK9WStDfwXZW6raUkGvqah1BSPc7WXHCYa0&gid1=1154847828'>Lihat Laporan</a></td>
 </tr>
 <tr>
+<td>2026-04</td>
+<td><a class='btn block' title='Lihat Laporan' href='{{ page.url | replace: "/amp/" , "" }}?function=komisi-asibuka-logistics&title=Pegawai%20-%20Saepul%20Aripin%20Periode%202026-4&title1=Ringkasan&id1=2PACX-1vQWFLmd8pr4X6VWQ5AqajJlpq_F1E-mIby_WIKcx4j9mUFn4-FavPL7QJfcEOmgWogUdqOetnWFYj0b&gid1=1154847828'>Lihat Laporan</a></td>
+</tr>
+<tr>
 <td>2026-03</td>
 <td><a class='btn block' title='Lihat Laporan' href='{{ page.url | replace: "/amp/" , "" }}?function=komisi-asibuka-logistics&title=Pegawai%20-%20Saepul%20Aripin%20Periode%202026-3&title1=Ringkasan&id1=2PACX-1vQ06VFNWpHxCouhIM5CD1CgrzeIn0kOhjIZrVnTGiTnqmdE9PvsYesU7u_8RMyyxiZnbWAR0KfQtk6A&gid1=1154847828'>Lihat Laporan</a></td>
 </tr>
