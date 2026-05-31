@@ -68,6 +68,10 @@ Hingga saat ini, ASIBUKA Logistics telah bekerja sama dengan beberapa usaha logi
 <td><a class='btn block' title='Lihat Laporan' href='{{ page.url | replace: "/amp/" , "" }}?function=komisi-asibuka-logistics&title=Laporan%20Keuangan%20Periode%20Ongoing&title1=Ringkasan&id1=2PACX-1vTPeqxEnkAUsKekA0eIwQVVYkwNwbjolgYHMSLBbMgM4vK9WStDfwXZW6raUkGvqah1BSPc7WXHCYa0&gid1=254558185'>Lihat Laporan</a></td>
 </tr>
 <tr>
+<td>2026-05</td>
+<td><a class='btn block' title='Lihat Laporan' href='{{ page.url | replace: "/amp/" , "" }}?function=komisi-asibuka-logistics&title=Laporan%20Laba%20Rugi%20Periode%202026-5&title1=Ringkasan&id1=2PACX-1vSGI7GQn7ckj5VtlfeH7P-FaxM3hOIzI_fyGwr7YcDvuLdVJ2BCe31-kv0rVs2xoHX7G9JehXWpq5r6&gid1=254558185'>Lihat Laporan</a></td>
+</tr>
+<tr>
 <td>2026-04</td>
 <td><a class='btn block' title='Lihat Laporan' href='{{ page.url | replace: "/amp/" , "" }}?function=komisi-asibuka-logistics&title=Laporan%20Laba%20Rugi%20Periode%202026-4&title1=Ringkasan&id1=2PACX-1vQWFLmd8pr4X6VWQ5AqajJlpq_F1E-mIby_WIKcx4j9mUFn4-FavPL7QJfcEOmgWogUdqOetnWFYj0b&gid1=254558185'>Lihat Laporan</a></td>
 </tr>
