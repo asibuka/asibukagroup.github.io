@@ -21,7 +21,7 @@ toc: false
 </tr>
 <tr>
 <td>Ongoing</td>
-<td><a class='btn block' title='Lihat Laporan' href='{{ page.url | replace: "/amp/" , "" }}?function=komisi-asibuka-logistics&title=SPX%20DOP%20Sukamenak%20Periode%20Ongoing&title1=Ringkasan&id1=2PACX-1vTPeqxEnkAUsKekA0eIwQVVYkwNwbjolgYHMSLBbMgM4vK9WStDfwXZW6raUkGvqah1BSPc7WXHCYa0&gid1=2011159388&title2=Transaksi&id2=2PACX-1vTPeqxEnkAUsKekA0eIwQVVYkwNwbjolgYHMSLBbMgM4vK9WStDfwXZW6raUkGvqah1BSPc7WXHCYa0&gid2=799901051'>Lihat Laporan</a></td>
+<td><a class='btn block' title='Lihat Laporan' href='{{ page.url | replace: "/amp/" , "" }}?function=komisi-asibuka-logistics&title=Mitra%20-%20DOP%20Sukamenak%20Periode%202026-6&title1=Ringkasan&id1=2PACX-1vTPeqxEnkAUsKekA0eIwQVVYkwNwbjolgYHMSLBbMgM4vK9WStDfwXZW6raUkGvqah1BSPc7WXHCYa0&gid1=523394465'>Lihat Laporan</a></td>
 </tr>
 <tr>
 <td>2026-05</td>
