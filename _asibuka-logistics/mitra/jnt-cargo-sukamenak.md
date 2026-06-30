@@ -1,6 +1,6 @@
 ---
 layout: asibuka-logistics
-title: SPX J&T Cargo Sukamenak
+title: "Mitra: J&T Cargo Sukamenak"
 date: 2025-05-02 00:00:04
 permalink: /mitra/spx-jnt-cargo-sukamenak/
 image: https://www.asibuka.com/assets/img/ASIBUKA-Blue.webp
@@ -22,6 +22,10 @@ toc: false
 <tr>
 <td>Ongoing</td>
 <td><a class='btn block' title='Lihat Laporan' href='{{ page.url | replace: "/amp/" , "" }}?function=komisi-asibuka-logistics&title=SPX%20JNT%20Cargo%20Sukamenak%20Periode%202026-6&title1=Ringkasan&id1=2PACX-1vTPeqxEnkAUsKekA0eIwQVVYkwNwbjolgYHMSLBbMgM4vK9WStDfwXZW6raUkGvqah1BSPc7WXHCYa0&gid1=91622534'>Lihat Laporan</a></td>
+</tr>
+<tr>
+<td>2026-06</td>
+<td><a class='btn block' title='Lihat Laporan' href='{{ page.url | replace: "/amp/" , "" }}?function=komisi-asibuka-logistics&title=Mitra%20-%20Cargo%20Sukamenak%20Periode%202026-6&title1=Ringkasan&id1=2PACX-1vQ4lEyWKDS3hUwJlbHf536CdgiVimmtiIITPdbj_rTE8HuVezVxcBQtZ-0700jxubDASTXpjAHes14J&gid1=91622534'>Lihat Laporan</a></td>
 </tr>
 <tr>
 <td>2026-05</td>

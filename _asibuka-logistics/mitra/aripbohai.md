@@ -1,6 +1,6 @@
 ---
 layout: asibuka-logistics
-title: "Mitra ASIBUKA Logistics: Aripbohai"
+title: "Mitra: Aripbohai"
 date: 2025-05-02 00:00:04
 permalink: /mitra/aripbohai/
 image: https://www.asibuka.com/assets/img/ASIBUKA-Blue.webp
@@ -22,6 +22,10 @@ toc: false
 <tr>
 <td>Ongoing</td>
 <td><a class='btn block' title='Lihat Laporan' href='{{ page.url | replace: "/amp/" , "" }}?function=komisi-asibuka-logistics&title=Mitra%20-%20Saripudin%20SiCepat%20Periode%20Ongoing&title1=Ringkasan&id1=2PACX-1vTPeqxEnkAUsKekA0eIwQVVYkwNwbjolgYHMSLBbMgM4vK9WStDfwXZW6raUkGvqah1BSPc7WXHCYa0&gid1=265557075'>Lihat Laporan</a></td>
+</tr>
+<tr>
+<td>2026-06</td>
+<td><a class='btn block' title='Lihat Laporan' href='{{ page.url | replace: "/amp/" , "" }}?function=komisi-asibuka-logistics&title=Mitra%20-%20Aripbohai%20Periode%202026-6&title1=Ringkasan&id1=2PACX-1vQ4lEyWKDS3hUwJlbHf536CdgiVimmtiIITPdbj_rTE8HuVezVxcBQtZ-0700jxubDASTXpjAHes14J&gid1=265557075'>Lihat Laporan</a></td>
 </tr>
 <tr>
 <td>2026-05</td>

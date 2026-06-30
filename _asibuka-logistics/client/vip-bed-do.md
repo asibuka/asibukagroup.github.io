@@ -24,6 +24,10 @@ toc: false
 <td><a class='btn block' title='Lihat Laporan' href='{{ page.url | replace: "/amp/" , "" }}?function=komisi-asibuka-logistics&title=VIP%20-%20BEDDO%20Periode%20Ongoing&title1=Ringkasan&id1=2PACX-1vTPeqxEnkAUsKekA0eIwQVVYkwNwbjolgYHMSLBbMgM4vK9WStDfwXZW6raUkGvqah1BSPc7WXHCYa0&gid1=1860359782'>Lihat Laporan</a></td>
 </tr>
 <tr>
+<td>2026-06</td>
+<td><a class='btn block' title='Lihat Laporan' href='{{ page.url | replace: "/amp/" , "" }}?function=komisi-asibuka-logistics&title=VIP%20-%20BEDDO%20Periode%202026-6&title1=Ringkasan&id1=2PACX-1vQ4lEyWKDS3hUwJlbHf536CdgiVimmtiIITPdbj_rTE8HuVezVxcBQtZ-0700jxubDASTXpjAHes14J&gid1=1860359782'>Lihat Laporan</a></td>
+</tr>
+<tr>
 <td>2026-05</td>
 <td><a class='btn block' title='Lihat Laporan' href='{{ page.url | replace: "/amp/" , "" }}?function=komisi-asibuka-logistics&title=VIP%20-%20BEDDO%20Periode%202026-5&title1=Ringkasan&id1=2PACX-1vSGI7GQn7ckj5VtlfeH7P-FaxM3hOIzI_fyGwr7YcDvuLdVJ2BCe31-kv0rVs2xoHX7G9JehXWpq5r6&gid1=1860359782'>Lihat Laporan</a></td>
 </tr>
