@@ -1,7 +1,6 @@
 ---
 layout: asibuka-logistics
 title: "Cashback VIP Client: TRI JAYA CEMERLANG"
-date: 2025-06-01 00:00:04
 permalink: /client/tri-jaya-cemerlang/
 image: https://www.asibuka.com/assets/img/ASIBUKA-Blue.webp
 description: Daftar Laporan Cashback per bulan dari VIP Client - TRI JAYA CEMERLANG.

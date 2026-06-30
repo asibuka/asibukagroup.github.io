@@ -1,7 +1,6 @@
 ---
 layout: asibuka-logistics
 title: Rekap Pegawai - Muhammad Nurfasha Firmansyah
-date: 2025-05-03 00:00:04
 permalink: /pegawai/08814074258-muhammad-nurfasha-firmansyah/
 image: https://www.asibuka.com/assets/img/ASIBUKA-Blue.webp
 description: Daftar rekapitulasi gaji dan performa per bulan untuk Muhammad Nurfasha Firmansyah.

@@ -1,7 +1,6 @@
 ---
 layout: asibuka-logistics
 title: Rekap Pegawai - Muhammad Ridwan
-date: 2025-09-01 00:00:04
 permalink: /pegawai/087844157699-muhammad-ridwan/
 image: https://www.asibuka.com/assets/img/ASIBUKA-Blue.webp
 description: Daftar rekapitulasi gaji dan performa  per bulan untuk Muhammad Ridwan.

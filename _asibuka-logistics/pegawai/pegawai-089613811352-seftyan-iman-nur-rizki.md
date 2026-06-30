@@ -1,7 +1,6 @@
 ---
 layout: asibuka-logistics
 title: Rekap Pegawai - Seftyan Iman Nur Rizki
-date: 2025-05-03 00:00:04
 permalink: /pegawai/089613811352-seftyan-iman-nur-rizki/
 image: https://www.asibuka.com/assets/img/ASIBUKA-Blue.webp
 description: Daftar rekapitulasi gaji dan performa  per bulan untuk Seftyan Iman Nur Rizki.

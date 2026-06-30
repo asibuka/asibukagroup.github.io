@@ -1,7 +1,6 @@
 ---
 layout: asibuka-logistics
 title: Rekap Pegawai - Narul Ramdani
-date: 2025-05-03 00:00:04
 permalink: /pegawai/083876326830-narul-ramdani/
 image: https://www.asibuka.com/assets/img/ASIBUKA-Blue.webp
 description: Daftar rekapitulasi gaji dan performa  per bulan untuk Narul Ramdani.

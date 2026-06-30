@@ -1,8 +1,7 @@
 ---
 layout: asibuka-logistics
 title: "Mitra: J&T Cargo Sukamenak"
-date: 2025-05-02 00:00:04
-permalink: /mitra/spx-jnt-cargo-sukamenak/
+permalink: /mitra/jnt-cargo-sukamenak/
 image: https://www.asibuka.com/assets/img/ASIBUKA-Blue.webp
 description: Daftar Laporan Transaksi per bulan untuk SPX dari mitra J&T Cargo Sukamenak.
 keywords: ASIBUKA, ASIBUKA Group

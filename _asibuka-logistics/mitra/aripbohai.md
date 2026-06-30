@@ -1,7 +1,6 @@
 ---
 layout: asibuka-logistics
 title: "Mitra: Aripbohai"
-date: 2025-05-02 00:00:04
 permalink: /mitra/aripbohai/
 image: https://www.asibuka.com/assets/img/ASIBUKA-Blue.webp
 description: Daftar Laporan Transaksi per bulan dari mitra Aripbohai.

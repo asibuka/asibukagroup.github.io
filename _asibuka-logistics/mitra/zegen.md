@@ -1,8 +1,7 @@
 ---
 layout: asibuka-logistics
 title: "Mitra: Zegen Express"
-date: 2025-05-02 00:00:04
-permalink: /mitra/jnt-cargo-zegen-express/
+permalink: /mitra/zegen-express/
 image: https://www.asibuka.com/assets/img/ASIBUKA-Blue.webp
 description: Daftar Laporan Transaksi per bulan untuk J&T Cargo dari mitra Zegen Express.
 keywords: ASIBUKA, ASIBUKA Group

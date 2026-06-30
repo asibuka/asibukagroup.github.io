@@ -1,7 +1,6 @@
 ---
 layout: asibuka-logistics
 title: Rekap Pegawai - Saepul Aripin
-date: 2025-08-01 00:00:04
 permalink: /pegawai/08996062019-saepul-aripin/
 image: https://www.asibuka.com/assets/img/ASIBUKA-Blue.webp
 description: Daftar rekapitulasi gaji dan performa  per bulan untuk Saepul Aripin.

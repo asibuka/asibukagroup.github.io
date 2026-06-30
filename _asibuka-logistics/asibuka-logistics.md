@@ -1,7 +1,6 @@
 ---
 layout: asibuka-logistics
 title: "ASIBUKA Logistics"
-date: 2025-05-11 00:00:04
 permalink: /asibuka-logistics/
 image: https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiECW3g-EcVofeFlL9vydGknMEFkketLYzZ6ygDjrI9yg7iP_18S4Dl4R1KU4gZK8k6ODSird-7PW0HhRSDo4iP9na7rBJmMatKQcv1Qj1ba3Nuqsw04ISl8pmv6Y3GspxYsi_ths2vDvaK6AWD8TUkc2sDMpRSvH2xBb3LUubMot-g9FZTG1l48SbTqfAc/s0-rw/asibuka-logistics-transparent.png
 description: Detail tentang ASIBUKA Logistics serta hal-hal terkait program ASIBUKA Logistics sebagai salah satu bisnis dari ASIBUKA Group.
