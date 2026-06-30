@@ -21,7 +21,7 @@ toc: false
 </tr>
 <tr>
 <td>Ongoing</td>
-<td><a class='btn block' title='Lihat Laporan' href='{{ page.url | replace: "/amp/" , "" }}?function=komisi-asibuka-logistics&title=SPX%20JNT%20Cargo%20Sukamenak%20Periode%20Ongoing&title1=Ringkasan&id1=2PACX-1vTPeqxEnkAUsKekA0eIwQVVYkwNwbjolgYHMSLBbMgM4vK9WStDfwXZW6raUkGvqah1BSPc7WXHCYa0&gid1=499285548&title2=Transaksi&id2=2PACX-1vTPeqxEnkAUsKekA0eIwQVVYkwNwbjolgYHMSLBbMgM4vK9WStDfwXZW6raUkGvqah1BSPc7WXHCYa0&gid2=2124279933'>Lihat Laporan</a></td>
+<td><a class='btn block' title='Lihat Laporan' href='{{ page.url | replace: "/amp/" , "" }}?function=komisi-asibuka-logistics&title=SPX%20JNT%20Cargo%20Sukamenak%20Periode%202026-6&title1=Ringkasan&id1=2PACX-1vTPeqxEnkAUsKekA0eIwQVVYkwNwbjolgYHMSLBbMgM4vK9WStDfwXZW6raUkGvqah1BSPc7WXHCYa0&gid1=91622534'>Lihat Laporan</a></td>
 </tr>
 <tr>
 <td>2026-05</td>
